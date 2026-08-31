@@ -97,29 +97,6 @@ iframe:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ESTILO PARA AS IMAGENS ENTRE CATEGORIAS */
-.imagem-categoria {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0;
-}
-
-.imagem-categoria img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: 4px solid #8b0000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-}
-
-.imagem-categoria img:hover {
-    border-color: #c41e3a;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
-    transform: scale(1.01);
-}
-
 ::selection {
     background-color: #c41e3a;
     color: #ffffff;
