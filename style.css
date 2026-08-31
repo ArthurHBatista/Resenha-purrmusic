@@ -1,146 +1,103 @@
-/* ========== PURR MUSIC - GORE + Y2K + CYBERTRIBAL REAL ========== */
+/* ========== PURR MUSIC - Y2K PRETO E BRANCO ========== */
 
 body {
     background-color: #000000;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #a8a8a8;
+    color: #c0c0c0;
     margin: 0;
     padding: 0;
     background-image: 
-        linear-gradient(180deg, #1a0000 0%, #000000 30%, #0a0000 50%, #1a0000 100%);
+        linear-gradient(180deg, #1a1a1a 0%, #000000 30%, #0a0a0a 50%, #1a1a1a 100%);
     min-height: 100vh;
-    position: relative;
-}
-
-/* CYBERTRIBAL REAL - Canto Superior Esquerdo */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L0,100 Z' fill='%23ff1a1a' opacity='0.8'/%3E%3Cpath d='M20,0 L0,20 L0,0 Z' fill='%23ff0000'/%3E%3Cpath d='M40,0 L0,40 L0,20 L20,0 Z' fill='%239900cc' opacity='0.7'/%3E%3Cpath d='M60,0 L0,60 L0,40 L40,0 Z' fill='%234a0000' opacity='0.6'/%3E%3Cpath d='M80,0 L0,80 L0,60 L60,0 Z' fill='%23ff1a1a' opacity='0.5'/%3E%3Cpath d='M100,0 L0,100 L0,80 L80,0 Z' fill='%239900cc' opacity='0.4'/%3E%3Cpath d='M15,0 L0,15 L0,10 L10,0 Z' fill='%23ff0000'/%3E%3Cpath d='M30,0 L0,30 L0,25 L25,0 Z' fill='%23cc0000' opacity='0.8'/%3E%3Cpath d='M45,0 L0,45 L0,40 L40,0 Z' fill='%239900cc' opacity='0.6'/%3E%3Cpath d='M60,0 L0,60 L0,55 L55,0 Z' fill='%234a0000' opacity='0.7'/%3E%3Cpath d='M75,0 L0,75 L0,70 L70,0 Z' fill='%23ff1a1a' opacity='0.5'/%3E%3Cpath d='M90,0 L0,90 L0,85 L85,0 Z' fill='%239900cc' opacity='0.4'/%3E%3C/svg%3E");
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 1;
-    filter: drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 40px #9900cc);
-}
-
-/* CYBERTRIBAL REAL - Canto Superior Direito */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M100,0 L0,0 L100,100 Z' fill='%239900cc' opacity='0.8'/%3E%3Cpath d='M80,0 L100,20 L100,0 Z' fill='%23ff1a1a'/%3E%3Cpath d='M60,0 L100,40 L100,20 L80,0 Z' fill='%23ff0000' opacity='0.7'/%3E%3Cpath d='M40,0 L100,60 L100,40 L60,0 Z' fill='%234a0000' opacity='0.6'/%3E%3Cpath d='M20,0 L100,80 L100,60 L40,0 Z' fill='%239900cc' opacity='0.5'/%3E%3Cpath d='M0,0 L100,100 L100,80 L20,0 Z' fill='%23ff1a1a' opacity='0.4'/%3E%3Cpath d='M85,0 L100,15 L100,10 L90,0 Z' fill='%23ff0000'/%3E%3Cpath d='M70,0 L100,30 L100,25 L75,0 Z' fill='%23cc0000' opacity='0.8'/%3E%3Cpath d='M55,0 L100,45 L100,40 L60,0 Z' fill='%239900cc' opacity='0.6'/%3E%3Cpath d='M40,0 L100,60 L100,55 L45,0 Z' fill='%234a0000' opacity='0.7'/%3E%3Cpath d='M25,0 L100,75 L100,70 L30,0 Z' fill='%23ff1a1a' opacity='0.5'/%3E%3Cpath d='M10,0 L100,90 L100,85 L15,0 Z' fill='%239900cc' opacity='0.4'/%3E%3C/svg%3E");
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 1;
-    filter: drop-shadow(0 0 20px #9900cc) drop-shadow(0 0 40px #ff0000);
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
-    position: relative;
-    z-index: 2;
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 55px;
     text-align: center;
-    color: #ff1a1a;
+    color: #ffffff;
     text-shadow: 
-        0 0 10px #ff0000,
-        0 0 30px #cc0000,
-        0 0 60px #660000,
-        0 0 100px #9900cc,
-        3px 3px 0 #1a0000;
+        0 0 10px #ffffff,
+        0 0 30px #c0c0c0,
+        0 0 60px #808080,
+        3px 3px 0 #1a1a1a;
     letter-spacing: 6px;
-    border: 4px solid #4a0000;
+    border: 3px solid #808080;
     padding: 15px;
     text-transform: uppercase;
     margin-top: 30px;
     margin-bottom: 40px;
     font-weight: 900;
-    background: linear-gradient(180deg, #1a0000 0%, #000000 100%);
+    background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
     box-shadow: 
-        0 0 20px #ff0000,
-        0 0 60px #9900cc,
-        inset 0 0 20px #1a0000;
+        0 0 20px #ffffff,
+        0 0 60px #808080,
+        inset 0 0 20px #1a1a1a;
 }
 
 .categoria {
     margin-bottom: 40px;
     padding: 20px;
-    background: linear-gradient(180deg, #1a0000 0%, #0a0000 100%);
-    border: 4px solid #2e0000;
+    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    border: 3px solid #404040;
     box-shadow: 
-        0 0 15px #ff0000,
-        0 0 30px #660000,
-        0 0 60px #9900cc,
-        inset 0 0 15px #1a0000;
+        0 0 15px #808080,
+        0 0 30px #404040,
+        inset 0 0 15px #1a1a1a;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 35px;
     text-align: center;
-    color: #ff3333;
+    color: #ffffff;
     text-shadow: 
-        0 0 5px #ff0000,
-        0 0 20px #cc0000,
-        0 0 40px #660000,
-        0 0 80px #9900cc,
-        2px 2px 0 #1a0000;
+        0 0 5px #ffffff,
+        0 0 20px #c0c0c0,
+        0 0 40px #808080,
+        2px 2px 0 #1a1a1a;
     padding: 12px;
     margin: 0 0 25px 0;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: bold;
-    border: 3px solid #4a0000;
-    background: linear-gradient(90deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
+    border: 2px solid #606060;
+    background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
     box-shadow: 
-        0 0 10px #ff0000,
-        0 0 30px #9900cc;
+        0 0 10px #ffffff,
+        0 0 30px #808080;
 }
 
 .videos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
-/* THUMBNAILS MENORES E ORGANIZADOS */
 iframe {
-    width: 250px;
-    height: 140px;
-    border: 4px solid #2e0000;
+    width: 400px;
+    height: 225px;
+    border: 4px solid #404040;
     box-shadow: 
-        0 0 10px #ff0000,
-        0 0 20px #660000,
-        0 0 40px #9900cc,
-        0 0 80px #1a0000;
+        0 0 10px #ffffff,
+        0 0 30px #808080,
+        0 0 60px #404040;
     transition: 0.3s;
 }
 
 iframe:hover {
-    border-color: #ff1a1a;
+    border-color: #ffffff;
     box-shadow: 
-        0 0 15px #ff0000,
-        0 0 40px #cc0000,
-        0 0 80px #9900cc,
-        0 0 120px #660000;
+        0 0 20px #ffffff,
+        0 0 60px #c0c0c0,
+        0 0 100px #808080;
     transition: 0.3s;
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .video-destaque {
@@ -150,16 +107,16 @@ iframe:hover {
 }
 
 .video-destaque iframe {
-    width: 400px;
-    height: 225px;
-    border-color: #4a0000;
+    width: 550px;
+    height: 310px;
+    border-color: #808080;
     box-shadow: 
-        0 0 30px #ff0000,
-        0 0 60px #9900cc,
-        0 0 120px #660000;
+        0 0 30px #ffffff,
+        0 0 80px #c0c0c0,
+        0 0 120px #808080;
 }
 
 ::selection {
-    background-color: #9900cc;
+    background-color: #808080;
     color: #000000;
 }
