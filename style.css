@@ -1,11 +1,64 @@
-h1
-{
-    font-size: 50px;
-    color:rgb(231, 13, 57)
-    (131, 5, 30);
-}
-body{
-    background-color: rgb(3, 103, 143);
+/* ========== PURR MUSIC - ESTILO GORE METAL ========== */
+
+body {
+    background-color: #000000; /* Fundo preto total, como a escuridão do inferno */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: medium;
+    color: #a8a8a8; /* Texto cinza como cinzas de ossos queimados */
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(#1a0000, #000000); /* Gradiente de vermelho sangue escuro para preto */
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+    color: #ff1a1a; /* Vermelho sangue vivo */
+    text-shadow: 4px 4px 0 #4a0000, 8px 8px 10px #000000; /* Sombra dupla: uma vermelha escura e uma preta desfocada */
+    letter-spacing: 5px; /* Espaçamento entre letras para ficar mais agressivo */
+    border-bottom: 5px solid #5c1a1a; /* Linha grossa embaixo, tipo corte de lâmina */
+    padding-bottom: 15px;
+    text-transform: uppercase; /* TUDO EM CAIXA ALTA */
+    margin-top: 30px;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+    color: #9b1b8f; /* Roxo apodrecido */
+    text-shadow: 3px 3px 0 #2e002e, 6px 6px 8px #000000; /* Sombra roxa escura */
+    border: 3px dashed #5c1a1a; /* Borda tracejada vermelho escuro, tipo ferida */
+    padding: 15px;
+    margin: 50px 20px 30px 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+iframe {
+    display: block;
+    margin: 20px auto; /* Centraliza os vídeos */
+    border: 5px solid #2e0000; /* Borda vermelha bem escura */
+    box-shadow: 0 0 20px #ff1a1a, 0 0 40px #4a0000, 0 0 60px #000000; /* Brilho vermelho ao redor dos vídeos */
+    max-width: 90%; /* Para não estourar a tela */
+}
+
+/* Para o primeiro vídeo (o que está sem categoria) ficar destacado */
+iframe:first-of-type {
+    border-color: #5c1a1a;
+    box-shadow: 0 0 30px #9b1b8f, 0 0 50px #4a0000;
+}
+
+/* Estilo para quando passar o mouse sobre os vídeos */
+iframe:hover {
+    border-color: #ff1a1a;
+    box-shadow: 0 0 40px #ff1a1a, 0 0 80px #9b1b8f, 0 0 100px #000000;
+    transition: 0.5s;
+}
+
+/* Estilo para seleção de texto */
+::selection {
+    background-color: #9b1b8f;
+    color: #000000;
 }
