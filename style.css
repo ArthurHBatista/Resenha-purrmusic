@@ -1,55 +1,48 @@
-/* ========== PURR MUSIC - ESTILO Y2K CYBERTRIBAL ========== */
+/* ========== PURR MUSIC - GORE GÓTICO + Y2K + CYBERTRIBAL ========== */
 
 body {
-    background-color: #0a0a0a;
+    background-color: #000000;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #c0c0c0;
+    color: #a8a8a8;
     margin: 0;
     padding: 0;
     background-image: 
-        /* Padrão cybertribal no canto superior esquerdo */
-        linear-gradient(45deg, transparent 70%, #0a0a0a 70%),
-        linear-gradient(45deg, #1a1a2e 25%, transparent 25%),
-        linear-gradient(-45deg, #1a1a2e 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #1a1a2e 75%),
-        linear-gradient(-45deg, transparent 75%, #1a1a2e 75%),
-        /* Gradiente principal Y2K */
-        linear-gradient(180deg, #0a0a2e 0%, #0a0a0a 50%, #1a0a2e 100%);
+        linear-gradient(180deg, #1a0000 0%, #000000 30%, #0a0000 50%, #1a0000 100%);
     min-height: 100vh;
     position: relative;
 }
 
-/* Canto superior esquerdo - Cybertribal */
+/* Canto superior esquerdo - Cybertribal vermelho sangue */
 body::before {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: 
-        linear-gradient(45deg, transparent 40%, #ff00ff 40%, #ff00ff 50%, transparent 50%),
-        linear-gradient(-45deg, transparent 40%, #00ffff 40%, #00ffff 50%, transparent 50%),
-        linear-gradient(135deg, transparent 30%, #ff0000 30%, #ff0000 45%, transparent 45%);
-    opacity: 0.7;
+        linear-gradient(45deg, transparent 35%, #ff1a1a 35%, #ff1a1a 45%, transparent 45%),
+        linear-gradient(-45deg, transparent 35%, #9900cc 35%, #9900cc 45%, transparent 45%),
+        linear-gradient(135deg, transparent 25%, #4a0000 25%, #4a0000 40%, transparent 40%);
+    opacity: 0.6;
     pointer-events: none;
     clip-path: polygon(0 0, 100% 0, 0 100%);
     z-index: 1;
 }
 
-/* Canto superior direito - Cybertribal */
+/* Canto superior direito - Cybertribal roxo podre */
 body::after {
     content: "";
     position: fixed;
     top: 0;
     right: 0;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: 
-        linear-gradient(-45deg, transparent 40%, #00ffff 40%, #00ffff 50%, transparent 50%),
-        linear-gradient(45deg, transparent 40%, #ff00ff 40%, #ff00ff 50%, transparent 50%),
-        linear-gradient(135deg, transparent 30%, #9900cc 30%, #9900cc 45%, transparent 45%);
-    opacity: 0.7;
+        linear-gradient(-45deg, transparent 35%, #9900cc 35%, #9900cc 45%, transparent 45%),
+        linear-gradient(45deg, transparent 35%, #ff1a1a 35%, #ff1a1a 45%, transparent 45%),
+        linear-gradient(135deg, transparent 25%, #2e0000 25%, #2e0000 40%, transparent 40%);
+    opacity: 0.6;
     pointer-events: none;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
     z-index: 1;
@@ -66,53 +59,59 @@ body::after {
 h1 {
     font-size: 60px;
     text-align: center;
-    color: #c0c0c0;
+    color: #ff1a1a;
     text-shadow: 
-        0 0 10px #00ffff,
-        0 0 30px #ff00ff,
-        0 0 60px #9900cc,
-        2px 2px 0 #1a1a2e;
+        0 0 10px #ff0000,
+        0 0 30px #cc0000,
+        0 0 60px #660000,
+        0 0 100px #9900cc,
+        3px 3px 0 #1a0000;
     letter-spacing: 6px;
-    border: 3px solid #00ffff;
+    border: 4px solid #4a0000;
     padding: 15px;
     text-transform: uppercase;
     margin-top: 30px;
     margin-bottom: 40px;
     font-weight: 900;
-    background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0a 100%);
+    background: linear-gradient(180deg, #1a0000 0%, #000000 100%);
     box-shadow: 
-        0 0 20px #00ffff,
-        0 0 60px #ff00ff,
-        inset 0 0 20px #1a1a2e;
+        0 0 20px #ff0000,
+        0 0 60px #9900cc,
+        inset 0 0 20px #1a0000;
 }
 
 .categoria {
     margin-bottom: 50px;
     padding: 25px;
-    background: linear-gradient(180deg, #0a0a2e 0%, #0a0a0a 100%);
-    border: 3px solid #9900cc;
+    background: linear-gradient(180deg, #1a0000 0%, #0a0000 100%);
+    border: 4px solid #2e0000;
     box-shadow: 
-        0 0 15px #00ffff,
-        0 0 30px #9900cc,
-        inset 0 0 15px #1a1a2e;
+        0 0 15px #ff0000,
+        0 0 30px #660000,
+        0 0 60px #9900cc,
+        inset 0 0 15px #1a0000;
 }
 
 h2 {
     font-size: 40px;
     text-align: center;
-    color: #00ffff;
+    color: #ff3333;
     text-shadow: 
-        0 0 5px #00ffff,
-        0 0 20px #00ffff,
-        0 0 40px #ff00ff,
-        2px 2px 0 #1a1a2e;
+        0 0 5px #ff0000,
+        0 0 20px #cc0000,
+        0 0 40px #660000,
+        0 0 80px #9900cc,
+        2px 2px 0 #1a0000;
     padding: 15px;
     margin: 0 0 30px 0;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: bold;
-    border: 2px solid #ff00ff;
-    background: linear-gradient(90deg, #0a0a2e 0%, #1a1a2e 50%, #0a0a2e 100%);
+    border: 3px solid #4a0000;
+    background: linear-gradient(90deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
+    box-shadow: 
+        0 0 10px #ff0000,
+        0 0 30px #9900cc;
 }
 
 .videos {
@@ -125,20 +124,22 @@ h2 {
 iframe {
     width: 45%;
     min-width: 300px;
-    border: 3px solid #00ffff;
+    border: 5px solid #2e0000;
     box-shadow: 
-        0 0 10px #00ffff,
-        0 0 30px #9900cc,
-        0 0 60px #1a1a2e;
+        0 0 10px #ff0000,
+        0 0 30px #660000,
+        0 0 60px #9900cc,
+        0 0 100px #1a0000;
     transition: 0.3s;
 }
 
 iframe:hover {
-    border-color: #ff00ff;
+    border-color: #ff1a1a;
     box-shadow: 
-        0 0 20px #00ffff,
-        0 0 60px #ff00ff,
-        0 0 100px #9900cc;
+        0 0 20px #ff0000,
+        0 0 60px #cc0000,
+        0 0 100px #9900cc,
+        0 0 150px #660000;
     transition: 0.3s;
 }
 
@@ -151,14 +152,14 @@ iframe:hover {
 .video-destaque iframe {
     width: 70%;
     min-width: 300px;
-    border-color: #00ffff;
+    border-color: #4a0000;
     box-shadow: 
-        0 0 30px #00ffff,
-        0 0 60px #ff00ff,
-        0 0 100px #9900cc;
+        0 0 30px #ff0000,
+        0 0 60px #9900cc,
+        0 0 120px #660000;
 }
 
 ::selection {
-    background-color: #ff00ff;
+    background-color: #9900cc;
     color: #000000;
 }
