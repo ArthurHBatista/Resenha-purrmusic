@@ -1,71 +1,120 @@
-/* ========== PURR MUSIC - ESTILO GORE METAL ORGANIZADO ========== */
+/* ========== PURR MUSIC - ESTILO Y2K CYBERTRIBAL ========== */
 
 body {
-    background-color: #000000;
+    background-color: #0a0a0a;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #a8a8a8;
+    color: #c0c0c0;
     margin: 0;
     padding: 0;
     background-image: 
-        linear-gradient(180deg, #0a0000 0%, #000000 100%);
+        /* Padrão cybertribal no canto superior esquerdo */
+        linear-gradient(45deg, transparent 70%, #0a0a0a 70%),
+        linear-gradient(45deg, #1a1a2e 25%, transparent 25%),
+        linear-gradient(-45deg, #1a1a2e 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1a1a2e 75%),
+        linear-gradient(-45deg, transparent 75%, #1a1a2e 75%),
+        /* Gradiente principal Y2K */
+        linear-gradient(180deg, #0a0a2e 0%, #0a0a0a 50%, #1a0a2e 100%);
     min-height: 100vh;
+    position: relative;
 }
 
-/* Container principal para organizar tudo */
+/* Canto superior esquerdo - Cybertribal */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: 
+        linear-gradient(45deg, transparent 40%, #ff00ff 40%, #ff00ff 50%, transparent 50%),
+        linear-gradient(-45deg, transparent 40%, #00ffff 40%, #00ffff 50%, transparent 50%),
+        linear-gradient(135deg, transparent 30%, #ff0000 30%, #ff0000 45%, transparent 45%);
+    opacity: 0.7;
+    pointer-events: none;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 1;
+}
+
+/* Canto superior direito - Cybertribal */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: 
+        linear-gradient(-45deg, transparent 40%, #00ffff 40%, #00ffff 50%, transparent 50%),
+        linear-gradient(45deg, transparent 40%, #ff00ff 40%, #ff00ff 50%, transparent 50%),
+        linear-gradient(135deg, transparent 30%, #9900cc 30%, #9900cc 45%, transparent 45%);
+    opacity: 0.7;
+    pointer-events: none;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 1;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 h1 {
     font-size: 60px;
     text-align: center;
-    color: #ff0000;
+    color: #c0c0c0;
     text-shadow: 
-        0 0 10px #ff0000,
-        0 0 30px #cc0000,
-        0 0 60px #660000,
-        3px 3px 0 #1a0000;
+        0 0 10px #00ffff,
+        0 0 30px #ff00ff,
+        0 0 60px #9900cc,
+        2px 2px 0 #1a1a2e;
     letter-spacing: 6px;
-    border-bottom: 6px solid #1a0000;
-    padding-bottom: 15px;
+    border: 3px solid #00ffff;
+    padding: 15px;
     text-transform: uppercase;
     margin-top: 30px;
     margin-bottom: 40px;
     font-weight: 900;
+    background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0a 100%);
+    box-shadow: 
+        0 0 20px #00ffff,
+        0 0 60px #ff00ff,
+        inset 0 0 20px #1a1a2e;
 }
 
-/* Estilo para cada categoria de música */
 .categoria {
     margin-bottom: 50px;
     padding: 25px;
-    background-color: #0a0000;
-    border: 4px solid #1a0000;
+    background: linear-gradient(180deg, #0a0a2e 0%, #0a0a0a 100%);
+    border: 3px solid #9900cc;
     box-shadow: 
-        0 0 20px #330000,
-        0 0 40px #000000;
+        0 0 15px #00ffff,
+        0 0 30px #9900cc,
+        inset 0 0 15px #1a1a2e;
 }
 
 h2 {
     font-size: 40px;
     text-align: center;
-    color: #ff00ff;
+    color: #00ffff;
     text-shadow: 
-        0 0 5px #ff00ff,
-        0 0 20px #9900cc,
-        0 0 40px #330066,
-        3px 3px 0 #1a0000;
+        0 0 5px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #ff00ff,
+        2px 2px 0 #1a1a2e;
     padding: 15px;
     margin: 0 0 30px 0;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: bold;
-    border-bottom: 3px solid #330000;
-    background-color: #000000;
+    border: 2px solid #ff00ff;
+    background: linear-gradient(90deg, #0a0a2e 0%, #1a1a2e 50%, #0a0a2e 100%);
 }
 
-/* Grade de vídeos - aqui está a organização! */
 .videos {
     display: flex;
     flex-wrap: wrap;
@@ -76,24 +125,23 @@ h2 {
 iframe {
     width: 45%;
     min-width: 300px;
-    border: 6px solid #1a0000;
+    border: 3px solid #00ffff;
     box-shadow: 
-        0 0 30px #660000,
-        0 0 60px #330000,
-        0 0 90px #000000;
+        0 0 10px #00ffff,
+        0 0 30px #9900cc,
+        0 0 60px #1a1a2e;
     transition: 0.3s;
 }
 
 iframe:hover {
-    border-color: #ff0000;
+    border-color: #ff00ff;
     box-shadow: 
-        0 0 40px #ff0000,
-        0 0 80px #9900cc,
-        0 0 120px #330066;
+        0 0 20px #00ffff,
+        0 0 60px #ff00ff,
+        0 0 100px #9900cc;
     transition: 0.3s;
 }
 
-/* Estilo especial para o primeiro vídeo (sem categoria) */
 .video-destaque {
     display: flex;
     justify-content: center;
@@ -103,10 +151,11 @@ iframe:hover {
 .video-destaque iframe {
     width: 70%;
     min-width: 300px;
-    border-color: #330000;
+    border-color: #00ffff;
     box-shadow: 
-        0 0 40px #9900cc,
-        0 0 80px #330066;
+        0 0 30px #00ffff,
+        0 0 60px #ff00ff,
+        0 0 100px #9900cc;
 }
 
 ::selection {
