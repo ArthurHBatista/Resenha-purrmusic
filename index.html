@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
-        /* ========== CSS BASE (seu estilo original + melhorias) ========== */
+        /* ========== CSS BASE ========== */
         html {
             scroll-behavior: smooth;
         }
@@ -26,15 +26,29 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.05) 0%, transparent 40%),
-                linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* Camada de textura sobre o fundo (sem vídeo agora) */
+        /* ===== VÍDEO DE FUNDO (YOUTUBE) ===== */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            /* fica atrás de tudo */
+            pointer-events: none;
+            /* evita que o mouse atrapalhe */
+            border: none;
+            opacity: 0.25;
+            /* bem sutil, ajuste se quiser */
+            object-fit: cover;
+        }
+
+        /* Camada de textura sobre o fundo (para dar mais profundidade) */
         body::before {
             content: '';
             position: fixed;
@@ -45,13 +59,15 @@
             background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;
             opacity: 0.15;
             pointer-events: none;
-            z-index: -1;
+            z-index: -2;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         /* ===== MENU ===== */
@@ -171,7 +187,7 @@
                 0 0 20px rgba(255, 0, 0, 0.3);
         }
 
-        /* ===== VÍDEOS (iframe normais) ===== */
+        /* ===== VÍDEOS (iframes normais) ===== */
         .videos {
             display: flex;
             flex-wrap: wrap;
@@ -259,9 +275,15 @@
             z-index: 0;
         }
         @keyframes spinRune {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
         }
 
         /* ===== RODAPÉ ===== */
@@ -294,9 +316,16 @@
 
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 768px) {
-            .container { padding: 15px; }
-            h1 { font-size: 30px; padding: 10px; }
-            h2 { font-size: 24px; }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 30px;
+                padding: 10px;
+            }
+            h2 {
+                font-size: 24px;
+            }
             .videos iframe {
                 width: 100%;
                 height: auto;
@@ -307,9 +336,22 @@
                 height: auto;
                 aspect-ratio: 16/9;
             }
-            #top-nav ul { gap: 10px; }
-            #top-nav a { font-size: 1rem; padding: 5px 10px; }
-            .rune { font-size: 3rem; bottom: 10px; right: 10px; }
+            #top-nav ul {
+                gap: 10px;
+            }
+            #top-nav a {
+                font-size: 1rem;
+                padding: 5px 10px;
+            }
+            .rune {
+                font-size: 3rem;
+                bottom: 10px;
+                right: 10px;
+            }
+            /* Ajuste do vídeo de fundo no mobile */
+            #bg-video {
+                opacity: 0.15;
+            }
         }
 
         ::selection {
@@ -321,144 +363,151 @@
 
 <body>
 
-    <!-- Menu fixo -->
-    <nav id="top-nav">
-        <ul>
-            <li><a href="#nu-metal">Nu Metal</a></li>
-            <li><a href="#raptuga">RapTuga</a></li>
-            <li><a href="#deftones">Deftones</a></li>
-            <li><a href="#soad">S.O.A.D</a></li>
-            <li><a href="#metallica">METALLICA</a></li>
-        </ul>
-    </nav>
+    <!-- ===== VÍDEO DE FUNDO (YOUTUBE) – SEM SOM ===== -->
+    <iframe id="bg-video"
+    src="https://www.youtube.com/embed/tf8PJv2AJLQ?autoplay=1&mute=1&loop=1&playlist=tf8PJv2AJLQ&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe>
 
-    <div class="container">
+<!-- Menu fixo -->
+<nav id="top-nav">
+    <ul>
+        <li><a href="#nu-metal">Nu Metal</a></li>
+        <li><a href="#raptuga">RapTuga</a></li>
+        <li><a href="#deftones">Deftones</a></li>
+        <li><a href="#soad">S.O.A.D</a></li>
+        <li><a href="#metallica">METALLICA</a></li>
+    </ul>
+</nav>
 
-        <h1>PurrMusic</h1>
+<div class="container">
 
-        <!-- Vídeo em destaque (agora com a API do YouTube) -->
-        <div class="video-destaque">
-            <div id="player-destaque"></div>
+    <h1>PurrMusic</h1>
+
+    <!-- Vídeo em destaque (com API) -->
+    <div class="video-destaque">
+        <div id="player-destaque"></div>
+    </div>
+
+    <!-- ==================== CATEGORIA: Nu Metal ==================== -->
+    <div class="categoria" id="nu-metal" data-aos="fade-up">
+        <h2>Nu Metal</h2>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/WLubS6QOMsQ" title="Slipknot - Eyeless" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/m9NEjUb_Ag0" title="Limp Bizkit - Rollin'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/nRz-yw-wp34" title="Korn - Twist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
+    </div>
 
-        <!-- ==================== CATEGORIA: Nu Metal ==================== -->
-        <div class="categoria" id="nu-metal" data-aos="fade-up">
-            <h2>Nu Metal</h2>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/WLubS6QOMsQ" title="Slipknot - Eyeless" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/m9NEjUb_Ag0" title="Limp Bizkit - Rollin'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/nRz-yw-wp34" title="Korn - Twist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
+    <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+
+    <!-- ==================== CATEGORIA: RapTuga ==================== -->
+    <div class="categoria" id="raptuga" data-aos="fade-up">
+        <h2>RapTuga</h2>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/_95Vqd38i0o" title="Peel Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/urOBTEqo4RE" title="Quando a Minha Vóz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
+    </div>
 
-        <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+    <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== CATEGORIA: RapTuga ==================== -->
-        <div class="categoria" id="raptuga" data-aos="fade-up">
-            <h2>RapTuga</h2>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/_95Vqd38i0o" title="Peel Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/urOBTEqo4RE" title="Quando a Minha Vóz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
+    <!-- ==================== CATEGORIA: Deftones ==================== -->
+    <div class="categoria" id="deftones" data-aos="fade-up">
+        <h2>Deftones</h2>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/eS8FBesGg9o" title="Diamond Eyes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/XOzs1FehYOA" title="My Own Summer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/KvknOXGPzCQ" title="Be Quiet And Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
+    </div>
 
-        <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+    <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== CATEGORIA: Deftones ==================== -->
-        <div class="categoria" id="deftones" data-aos="fade-up">
-            <h2>Deftones</h2>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/eS8FBesGg9o" title="Diamond Eyes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/XOzs1FehYOA" title="My Own Summer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/KvknOXGPzCQ" title="Be Quiet And Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
+    <!-- ==================== CATEGORIA: S.O.A.D ==================== -->
+    <div class="categoria" id="soad" data-aos="fade-up">
+        <h2>S.O.A.D</h2>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" title="Sugar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" title="Lonely Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
+    </div>
 
-        <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+    <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== CATEGORIA: S.O.A.D ==================== -->
-        <div class="categoria" id="soad" data-aos="fade-up">
-            <h2>S.O.A.D</h2>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" title="Sugar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" title="Lonely Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
+    <!-- ==================== CATEGORIA: METALLICA ==================== -->
+    <div class="categoria" id="metallica" data-aos="fade-up">
+        <h2>METALLICA</h2>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" title="Master of Puppets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/TpohVYomw2o" title="Sad But True" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
+    </div>
 
-        <div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+</div> <!-- .container -->
 
-        <!-- ==================== CATEGORIA: METALLICA ==================== -->
-        <div class="categoria" id="metallica" data-aos="fade-up">
-            <h2>METALLICA</h2>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" title="Master of Puppets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/TpohVYomw2o" title="Sad But True" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- Runa decorativa -->
+<div class="rune">ᚠ</div>
 
-    </div> <!-- .container -->
+<!-- Rodapé -->
+<footer>
+    <p>⚔️ PurrMusic – Sangue, Fúria e Metal ⚔️</p>
+    <div class="social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+    </div>
+    <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
+</footer>
 
-    <!-- Runa decorativa -->
-    <div class="rune">ᚠ</div>
+<!-- Inicialização do AOS -->
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-quad'
+    });
+</script>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>⚔️ PurrMusic – Sangue, Fúria e Metal ⚔️</p>
-        <div class="social">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-        </div>
-        <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
-    </footer>
+<!-- ====== API DO YOUTUBE PARA O VÍDEO DESTAQUE ====== -->
+<script>
+    // Carrega a API
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    <!-- Inicialização do AOS -->
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-quad'
-        });
-    </script>
+    var playerDestaque;
 
-    <!-- ====== API DO YOUTUBE PARA O VÍDEO DESTAQUE ====== -->
-    <script>
-        // Carrega a API
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var playerDestaque;
-
-        function onYouTubeIframeAPIReady() {
-            playerDestaque = new YT.Player('player-destaque', {
-                height: '281',
-                width: '500',
-                videoId: 'EETV2JNBhcc', // ID do vídeo (troque se quiser)
-                playerVars: {
-                    'playsinline': 1,
-                    'rel': 0,
-                    'controls': 1,
-                    'modestbranding': 1
-                },
-                events: {
-                    'onReady': function(event) {
-                        // Ao passar o mouse, toca; ao sair, pausa
-                        var container = document.getElementById('player-destaque');
-                        container.addEventListener('mouseenter', function() {
-                            playerDestaque.playVideo();
-                        });
-                        container.addEventListener('mouseleave', function() {
-                            playerDestaque.pauseVideo();
-                        });
-                    }
+    function onYouTubeIframeAPIReady() {
+        playerDestaque = new YT.Player('player-destaque', {
+            height: '281',
+            width: '500',
+            videoId: 'EETV2JNBhcc', // ID do vídeo em destaque (pode trocar)
+            playerVars: {
+                'playsinline': 1,
+                'rel': 0,
+                'controls': 1,
+                'modestbranding': 1
+            },
+            events: {
+                'onReady': function(event) {
+                    var container = document.getElementById('player-destaque');
+                    container.addEventListener('mouseenter', function() {
+                        playerDestaque.playVideo();
+                    });
+                    container.addEventListener('mouseleave', function() {
+                        playerDestaque.pauseVideo();
+                    });
                 }
-            });
-        }
-    </script>
+            }
+        });
+    }
+</script>
 
 </body>
 
