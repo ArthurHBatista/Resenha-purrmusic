@@ -10,19 +10,58 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <style>
 html{scroll-behavior:smooth}
-body{background:#000;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;color:#fff;margin:0;padding:0;min-height:100vh;position:relative;overflow-x:hidden}
-body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,0,0,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,0,0,0.04) 0%,transparent 40%),url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;opacity:0.8;pointer-events:none;z-index:-2}
+body{background:#000;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;color:#fff;margin:0;padding:0;min-height:100vh;position:relative;overflow-x:hidden;transition:background 0.8s ease}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,0,0,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,0,0,0.04) 0%,transparent 40%),url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;opacity:0.8;pointer-events:none;z-index:-2;transition:background 0.8s ease}
+
+/* ===== MODO NOITE (tema azul-frio) ===== */
+body.modo-noite::before{background:radial-gradient(circle at 20% 30%,rgba(51,170,255,0.10) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(51,170,255,0.05) 0%,transparent 40%),url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat}
+body.modo-noite h1{text-shadow:0 0 10px #fff,0 0 30px #3af,0 0 60px #069,0 0 100px #036;background:linear-gradient(180deg,#001a2a 0%,#000 100%);box-shadow:0 0 20px rgba(51,170,255,.5),0 0 40px rgba(51,170,255,.3),inset 0 0 20px rgba(51,170,255,.2)}
+body.modo-noite .pentagram{color:#036;text-shadow:0 0 10px #3af,0 0 20px #069}
+body.modo-noite .pentagram:hover{text-shadow:0 0 30px #3af,0 0 60px #6cf,0 0 100px #3af}
+body.modo-noite #top-nav{border-bottom-color:#036;box-shadow:0 0 30px #012}
+body.modo-noite #top-nav a:hover{color:#6cf;text-shadow:0 0 20px #3af;background:rgba(51,170,255,.1)}
+body.modo-noite .frase-box{border-left-color:#3af;box-shadow:0 0 20px rgba(51,170,255,.3)}
+body.modo-noite #frase-autor{color:#6cf;text-shadow:0 0 10px #3af}
+body.modo-noite .divider{color:#036}
+body.modo-noite .divider::before,body.modo-noite .divider::after{background:linear-gradient(90deg,transparent,#036,transparent)}
+body.modo-noite .rune{color:#036}
+body.modo-noite footer{border-top-color:#036}
+body.modo-noite footer .social a:hover{color:#3af;text-shadow:0 0 20px #3af}
+
+/* ===== BOTÃO MODO ===== */
+.botao-modo{position:fixed;top:80px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:0.3s;box-shadow:0 0 15px rgba(255,0,0,.5)}
+.botao-modo:hover{transform:scale(1.1) rotate(20deg);box-shadow:0 0 25px #f00;border-color:#f00}
+body.modo-noite .botao-modo{border-color:#069;background:linear-gradient(180deg,#001a2a 0%,#000 100%);box-shadow:0 0 15px rgba(51,170,255,.5)}
+body.modo-noite .botao-modo:hover{box-shadow:0 0 25px #3af;border-color:#3af}
+
+/* ===== BOTÃO VOLTAR AO TOPO ===== */
+#btn-topo{position:fixed;bottom:100px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:0.3s;box-shadow:0 0 15px rgba(255,0,0,.5);opacity:0;visibility:hidden;pointer-events:none}
+#btn-topo.visivel{opacity:1;visibility:visible;pointer-events:auto}
+#btn-topo:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 0 25px #f00;border-color:#f00}
+body.modo-noite #btn-topo{border-color:#069;background:linear-gradient(180deg,#001a2a 0%,#000 100%)}
+body.modo-noite #btn-topo:hover{box-shadow:0 0 25px #3af;border-color:#3af}
+
+/* ===== MENSAGEM SECRETA (EASTER EGG) ===== */
+#easter-egg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s ease}
+#easter-egg.ativo{opacity:1;visibility:visible}
+#easter-egg .simbolo{font-size:12rem;color:#f00;text-shadow:0 0 40px #f00,0 0 80px #900,0 0 120px #600;animation:ritual 2s ease-in-out infinite}
+@keyframes ritual{0%,100%{transform:scale(1) rotate(0deg);opacity:.8}50%{transform:scale(1.15) rotate(180deg);opacity:1}}
+#easter-egg .msg{font-family:'Cinzel Decorative',cursive;font-size:2rem;color:#fff;text-shadow:0 0 20px #f00,0 0 40px #900;margin-top:30px;letter-spacing:6px;text-align:center;padding:0 20px;text-transform:uppercase}
+#easter-egg .sub{font-family:'Germania One',cursive;font-size:1.1rem;color:#a00;margin-top:20px;letter-spacing:3px;text-align:center;padding:0 20px}
+#easter-egg .fechar{margin-top:40px;padding:10px 25px;background:transparent;border:2px solid #f00;color:#fff;font-family:'Germania One',cursive;letter-spacing:3px;font-size:1rem;cursor:pointer;border-radius:8px;transition:.3s}
+#easter-egg .fechar:hover{background:#f00;box-shadow:0 0 25px #f00}
+
 .container{max-width:1200px;margin:0 auto;padding:30px;position:relative;z-index:1}
-#top-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border-bottom:3px solid #990000;box-shadow:0 0 30px #660000;padding:10px 0;margin-bottom:20px}
+#top-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border-bottom:3px solid #990000;box-shadow:0 0 30px #660000;padding:10px 0;margin-bottom:20px;transition:.8s ease}
 #top-nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 15px;list-style:none;margin:0;padding:0 20px}
 #top-nav a{color:#fff;text-decoration:none;font-family:'Germania One',cursive;font-size:1rem;letter-spacing:1.5px;padding:5px 12px;transition:.3s;border-radius:5px}
 #top-nav a:hover{color:#f33;text-shadow:0 0 20px #f00;background:rgba(255,0,0,.1)}
-h1{font-family:'Cinzel Decorative',cursive;font-size:50px;text-align:center;color:#fff;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600;letter-spacing:6px;border:3px solid #fff;padding:15px;text-transform:uppercase;margin-top:30px;margin-bottom:50px;font-weight:900;background:linear-gradient(180deg,#1a0000 0%,#000 100%);border-radius:15px;box-shadow:0 0 20px rgba(255,255,255,.5),0 0 40px rgba(255,0,0,.3),inset 0 0 20px rgba(255,0,0,.2);display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
-.pentagram{display:inline-block;font-size:2.5rem;color:#a00;text-shadow:0 0 10px #f00,0 0 20px #600;transition:transform .6s ease,text-shadow .3s ease;cursor:default;line-height:1}
+h1{font-family:'Cinzel Decorative',cursive;font-size:50px;text-align:center;color:#fff;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600;letter-spacing:6px;border:3px solid #fff;padding:15px;text-transform:uppercase;margin-top:30px;margin-bottom:50px;font-weight:900;background:linear-gradient(180deg,#1a0000 0%,#000 100%);border-radius:15px;box-shadow:0 0 20px rgba(255,255,255,.5),0 0 40px rgba(255,0,0,.3),inset 0 0 20px rgba(255,0,0,.2);display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;transition:.8s ease}
+.pentagram{display:inline-block;font-size:2.5rem;color:#a00;text-shadow:0 0 10px #f00,0 0 20px #600;transition:transform .6s ease,text-shadow .3s ease;cursor:pointer;line-height:1;user-select:none}
 .pentagram:hover{transform:rotate(360deg) scale(1.2);text-shadow:0 0 30px #f00,0 0 60px #f33,0 0 100px #f00}
 .titulo-com-pentagrama{display:flex;justify-content:center;align-items:center;gap:15px;flex-wrap:wrap}
 .titulo-com-pentagrama .pentagram{font-size:2rem}
-.frase-box{max-width:800px;margin:0 auto 50px auto;padding:25px 30px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border-left:5px solid #f00;border-radius:12px;box-shadow:0 0 20px rgba(255,0,0,.3),inset 0 0 15px rgba(255,0,0,.05);text-align:center;transition:.4s ease}
+.frase-box{max-width:800px;margin:0 auto 50px auto;padding:25px 30px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border-left:5px solid #f00;border-radius:12px;box-shadow:0 0 20px rgba(255,0,0,.3),inset 0 0 15px rgba(255,0,0,.05);text-align:center;transition:.8s ease}
 .frase-box:hover{border-left-color:#f33;box-shadow:0 0 30px rgba(255,0,0,.5);transform:scale(1.01)}
 #frase-texto{font-family:'Uncial Antiqua',cursive;font-size:1.35rem;color:#fff;line-height:1.6;margin:0 0 12px 0;font-style:italic;text-shadow:0 0 8px rgba(255,0,0,.4)}
 #frase-autor{font-family:'Germania One',cursive;font-size:1.1rem;color:#f33;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px #f00;margin:0}
@@ -67,12 +106,12 @@ h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#ff
 .video-destaque{display:flex;justify-content:center;margin-bottom:50px}
 #player-destaque{width:500px;height:281px;border:4px solid #fff;border-radius:15px;box-shadow:0 0 30px rgba(255,255,255,.7),0 0 80px rgba(255,0,0,.4),0 0 120px rgba(255,0,0,.2);transition:.3s}
 #player-destaque:hover{border-color:#f00;box-shadow:0 0 20px #fff,0 0 60px #f00,0 0 100px #600;transform:scale(1.02)}
-.divider{display:flex;justify-content:center;align-items:center;gap:20px;color:#a00;font-size:2.2rem;margin:10px 0 40px 0}
-.divider::before,.divider::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,transparent,#a00,transparent)}
+.divider{display:flex;justify-content:center;align-items:center;gap:20px;color:#a00;font-size:2.2rem;margin:10px 0 40px 0;transition:.8s ease}
+.divider::before,.divider::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,transparent,#a00,transparent);transition:.8s ease}
 .divider .pentagram{font-size:2rem}
-.rune{position:fixed;bottom:20px;right:20px;font-size:5rem;color:#822;opacity:.15;animation:spinRune 20s linear infinite;pointer-events:none;z-index:2}
+.rune{position:fixed;bottom:20px;right:20px;font-size:5rem;color:#822;opacity:.15;animation:spinRune 20s linear infinite;pointer-events:none;z-index:2;transition:color .8s ease}
 @keyframes spinRune{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.2)}100%{transform:rotate(360deg) scale(1)}}
-footer{margin-top:60px;padding:30px 0;border-top:3px solid #900;text-align:center;background:linear-gradient(180deg,#000,#0a0000);font-family:'Germania One',cursive}
+footer{margin-top:60px;padding:30px 0;border-top:3px solid #900;text-align:center;background:linear-gradient(180deg,#000,#0a0000);font-family:'Germania One',cursive;transition:.8s ease}
 footer .social a{color:#fff;font-size:2rem;margin:0 15px;transition:.3s;display:inline-block}
 footer .social a:hover{color:#f00;text-shadow:0 0 20px #f00;transform:scale(1.2)}
 footer .social a.instagram:hover{color:#f39;text-shadow:0 0 20px #f39}
@@ -93,11 +132,30 @@ h2{font-size:24px}
 .frase-box{padding:20px}
 #frase-texto{font-size:1.1rem}
 #frase-autor{font-size:.95rem}
+.botao-modo,#btn-topo{width:42px;height:42px;font-size:1.1rem;top:70px;right:10px}
+#btn-topo{bottom:80px}
+#easter-egg .simbolo{font-size:7rem}
+#easter-egg .msg{font-size:1.3rem;letter-spacing:3px}
+#easter-egg .sub{font-size:.9rem}
 }
 ::selection{background:#f00;color:#fff}
 </style>
 </head>
 <body>
+
+<!-- BOTÃO MODO NOITE/BLOOD -->
+<button class="botao-modo" id="botao-modo" title="Alternar modo">🌙</button>
+
+<!-- BOTÃO VOLTAR AO TOPO -->
+<button id="btn-topo" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+<!-- EASTER EGG -->
+<div id="easter-egg">
+<div class="simbolo">⛧</div>
+<div class="msg">Você invocou o ritual</div>
+<div class="sub">O metal te ouviu. Siga em frente, filho do inferno. 🤘</div>
+<button class="fechar" onclick="fecharEasterEgg()">FECHAR</button>
+</div>
 
 <nav id="top-nav">
 <ul>
@@ -113,7 +171,7 @@ h2{font-size:24px}
 
 <div class="container">
 
-<h1><span class="pentagram">⛧</span> The Stars <span class="pentagram">⛧</span></h1>
+<h1><span class="pentagram" data-egg="1">⛧</span> The Stars <span class="pentagram" data-egg="1">⛧</span></h1>
 
 <div class="frase-box">
 <p id="frase-texto">Carregando...</p>
@@ -213,95 +271,4 @@ h2{font-size:24px}
 </div>
 <div class="videos">
 <iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" title="Castle Spire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-<iframe src="https://www.youtube.com/embed/8WDhlW3u93U" title="Fear of God" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-<iframe src="https://www.youtube.com/embed/3WdRVhgeLiE" title="Sword In The Stone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-</div>
-
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
-
-<!-- DEATH METAL -->
-<div class="categoria cat-death-metal" id="death-metal" data-aos="fade-up">
-<div class="titulo-com-pentagrama">
-<i class="fas fa-skull icon-tema"></i>
-<h2>Death Metal</h2>
-<i class="fas fa-skull-crossbones icon-tema"></i>
-</div>
-<div class="videos">
-<iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="Death Metal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-<iframe src="https://www.youtube.com/embed/vSEmlNNFE_0" title="Death Metal 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-<iframe src="https://www.youtube.com/embed/hpIruHUL5Ik" title="Death Metal 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-</div>
-
-</div>
-
-<div class="rune">ᚠ</div>
-
-<footer>
-<p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
-<div class="social">
-<a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-<a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-</div>
-<p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
-</footer>
-
-<script>
-AOS.init({ duration: 800, easing: 'ease-out-quad' });
-
-// ===== FRASES ALEATÓRIAS =====
-const frases = [
-    { t: "I'm the one that's got to die when it's time for me to die, so let me live my life the way I want to.", a: "Jimi Hendrix" },
-    { t: "Nothing else matters.", a: "Metallica" },
-    { t: "I am the son of a bitch that you love to hate.", a: "Corey Taylor – Slipknot" },
-    { t: "I want to be the one that makes you feel alive.", a: "Chino Moreno – Deftones" },
-    { t: "Wake up! Grab a brush and put a little make-up!", a: "Serj Tankian – System of a Down" },
-    { t: "Are you ready for the truth? You can't handle the truth!", a: "Jonathan Davis – Korn" },
-    { t: "Born to lose, live to win.", a: "Lemmy Kilmister – Motörhead" },
-    { t: "The world is full of kings and queens who blind your eyes and steal your dreams.", a: "Ronnie James Dio" },
-    { t: "Peace sells, but who's buying?", a: "Dave Mustaine – Megadeth" },
-    { t: "Scream for me, long beach!", a: "Bruce Dickinson – Iron Maiden" },
-    { t: "We're just a band. We're not better than anyone. We just play music.", a: "James Hetfield – Metallica" },
-    { t: "Everything dies, baby, that's a fact.", a: "Bruce Springsteen" },
-    { t: "I'd rather be dead than cool.", a: "Kurt Cobain – Nirvana" },
-    { t: "There's no one here that's got it better than you.", a: "Eddie Vedder – Pearl Jam" },
-    { t: "The only thing I know is that I know nothing.", a: "Socrates (citado por muitos)" },
-    { t: "It's better to burn out than to fade away.", a: "Neil Young" },
-    { t: "Rage, rage against the dying of the light.", a: "Dylan Thomas" },
-    { t: "You can't kill the metal. The metal will live on.", a: "Tenacious D" },
-    { t: "I don't wanna die, I sometimes wish I'd never been born at all.", a: "Freddie Mercury – Queen" },
-    { t: "Life's a bitch, but she's my bitch.", a: "Dave Grohl – Foo Fighters" }
-];
-
-const fraseEscolhida = frases[Math.floor(Math.random() * frases.length)];
-document.getElementById('frase-texto').textContent = '“' + fraseEscolhida.t + '”';
-document.getElementById('frase-autor').textContent = '— ' + fraseEscolhida.a;
-
-// ===== API YOUTUBE DESTAQUE =====
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var playerDestaque;
-function onYouTubeIframeAPIReady() {
-    playerDestaque = new YT.Player('player-destaque', {
-        height: '281',
-        width: '500',
-        videoId: 'EETV2JNBhcc',
-        playerVars: { 'playsinline': 1, 'rel': 0, 'controls': 1, 'modestbranding': 1 },
-        events: {
-            'onReady': function(event) {
-                var container = document.getElementById('player-destaque');
-                container.addEventListener('mouseenter', function() { playerDestaque.playVideo(); });
-                container.addEventListener('mouseleave', function() { playerDestaque.pauseVideo(); });
-            }
-        }
-    });
-}
-</script>
-
-</body>
-</html>
+<iframe src="https
