@@ -125,6 +125,63 @@
         }
         .titulo-com-pentagrama .pentagram { font-size: 2rem; }
 
+        /* ===== FRASE DO DIA ===== */
+        .frase-box {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            padding: 25px 30px;
+            background: linear-gradient(180deg, #0a0000 0%, #000 100%);
+            border-left: 5px solid #ff0000;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3), inset 0 0 15px rgba(255,0,0,0.05);
+            position: relative;
+            text-align: center;
+            transition: 0.4s ease;
+        }
+        .frase-box::before {
+            content: '“';
+            position: absolute;
+            top: -20px; left: 15px;
+            font-size: 5rem;
+            color: #ff0000;
+            opacity: 0.4;
+            font-family: 'Cinzel Decorative', cursive;
+            line-height: 1;
+        }
+        .frase-box::after {
+            content: '”';
+            position: absolute;
+            bottom: -40px; right: 15px;
+            font-size: 5rem;
+            color: #ff0000;
+            opacity: 0.4;
+            font-family: 'Cinzel Decorative', cursive;
+            line-height: 1;
+        }
+        .frase-box:hover {
+            border-left-color: #ff3333;
+            box-shadow: 0 0 30px rgba(255,0,0,0.5), inset 0 0 25px rgba(255,0,0,0.1);
+            transform: scale(1.01);
+        }
+        #frase-texto {
+            font-family: 'Uncial Antiqua', cursive;
+            font-size: 1.35rem;
+            color: #fff;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+            font-style: italic;
+            text-shadow: 0 0 8px rgba(255,0,0,0.4);
+        }
+        #frase-autor {
+            font-family: 'Germania One', cursive;
+            font-size: 1.1rem;
+            color: #ff3333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #ff0000;
+            margin: 0;
+        }
+
         .categoria {
             margin-bottom: 50px;
             padding: 25px;
@@ -190,9 +247,40 @@
         .cat-folk-metal h2 { border-color: #66cc33; color: #88dd55; background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%); }
         .cat-folk-metal .icon-tema { color: #66cc33; }
 
-        .cat-death-metal { border-color: #66ff33; box-shadow: 0 0 20px rgba(102,255,51,0.5), 0 0 40px rgba(102,255,51,0.25), inset 0 0 20px rgba(102,255,51,0.12); }
-        .cat-death-metal h2 { border-color: #66ff33; color: #88ff55; background: linear-gradient(90deg, #0a2a00 0%, #041100 50%, #0a2a00 100%); }
-        .cat-death-metal .icon-tema { color: #66ff33; }
+        /* ===== DEATH METAL (NOVA COR: VERMELHO-SANGUE ESCURO) ===== */
+        .cat-death-metal {
+            border-color: #8b0000;
+            box-shadow:
+                0 0 20px rgba(139,0,0,0.7),
+                0 0 45px rgba(139,0,0,0.35),
+                0 0 80px rgba(74,0,0,0.2),
+                inset 0 0 25px rgba(139,0,0,0.2);
+            background: linear-gradient(180deg, #150000 0%, #050000 100%);
+        }
+        .cat-death-metal h2 {
+            border-color: #8b0000;
+            color: #cc2222;
+            background: linear-gradient(90deg, #2a0000 0%, #150000 50%, #2a0000 100%);
+            text-shadow: 0 0 8px #ff0000, 0 0 20px #8b0000, 0 0 40px #4a0000;
+        }
+        .cat-death-metal .icon-tema {
+            color: #cc0000;
+            text-shadow: 0 0 15px #8b0000;
+        }
+        .cat-death-metal .videos iframe:hover {
+            border-color: #8b0000;
+            box-shadow:
+                0 0 20px #fff,
+                0 0 45px #cc0000,
+                0 0 90px #8b0000,
+                inset 0 0 30px #4a0000;
+        }
+        .cat-death-metal .videos iframe {
+            box-shadow:
+                0 0 10px rgba(255,255,255,0.6),
+                0 0 30px rgba(139,0,0,0.4),
+                0 0 60px rgba(74,0,0,0.2);
+        }
 
         .icon-tema {
             font-size: 2rem;
@@ -226,7 +314,6 @@
         .cat-soad .videos iframe:hover { border-color: #ff6600; box-shadow: 0 0 20px #fff, 0 0 40px #ff6600, 0 0 80px #661a00; }
         .cat-metallica .videos iframe:hover { border-color: #cccccc; box-shadow: 0 0 20px #fff, 0 0 40px #cccccc, 0 0 80px #444444; }
         .cat-folk-metal .videos iframe:hover { border-color: #66cc33; box-shadow: 0 0 20px #fff, 0 0 40px #66cc33, 0 0 80px #1a4400; }
-        .cat-death-metal .videos iframe:hover { border-color: #66ff33; box-shadow: 0 0 20px #fff, 0 0 40px #66ff33, 0 0 80px #1a4400; }
 
         .video-destaque { display: flex; justify-content: center; margin-bottom: 50px; }
         #player-destaque {
@@ -301,6 +388,9 @@
             #top-nav ul { gap: 8px; }
             #top-nav a { font-size: 0.85rem; padding: 4px 8px; letter-spacing: 1px; }
             .rune { font-size: 3rem; bottom: 10px; right: 10px; }
+            .frase-box { padding: 20px; }
+            #frase-texto { font-size: 1.1rem; }
+            #frase-autor { font-size: 0.95rem; }
         }
 
         ::selection { background-color: #ff0000; color: #ffffff; }
@@ -328,6 +418,12 @@
             The Stars
             <span class="pentagram">⛧</span>
         </h1>
+
+        <!-- ===== FRASE ALEATÓRIA DO DIA ===== -->
+        <div class="frase-box" id="frase-box">
+            <p id="frase-texto">...</p>
+            <p id="frase-autor">— ...</p>
+        </div>
 
         <div class="video-destaque">
             <div id="player-destaque"></div>
@@ -441,65 +537,12 @@
             <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
-        <!-- ==================== DEATH METAL (NOVA) ==================== -->
+        <!-- ==================== DEATH METAL ==================== -->
         <div class="categoria cat-death-metal" id="death-metal" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
                 <i class="fas fa-skull icon-tema"></i>
                 <h2>Death Metal</h2>
-                <i class="fas fa-bone icon-tema"></i>
+                <i class="fas fa-skull-crossbones icon-tema"></i>
             </div>
             <div class="videos">
-                <iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="Death Metal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/vSEmlNNFE_0" title="Pneumonoultramicroscopicsilicovolcanoconiosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/hpIruHUL5Ik" title="Backyard Mortuary - Mutation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
-
-    </div> <!-- .container -->
-
-    <div class="rune">ᚠ</div>
-
-    <footer>
-        <p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
-        <div class="social">
-            <a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-        </div>
-        <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
-    </footer>
-
-    <script>
-        AOS.init({ duration: 800, easing: 'ease-out-quad' });
-    </script>
-
-    <script>
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var playerDestaque;
-
-        function onYouTubeIframeAPIReady() {
-            playerDestaque = new YT.Player('player-destaque', {
-                height: '281',
-                width: '500',
-                videoId: 'EETV2JNBhcc',
-                playerVars: { 'playsinline': 1, 'rel': 0, 'controls': 1, 'modestbranding': 1 },
-                events: {
-                    'onReady': function(event) {
-                        var container = document.getElementById('player-destaque');
-                        container.addEventListener('mouseenter', function() { playerDestaque.playVideo(); });
-                        container.addEventListener('mouseleave', function() { playerDestaque.pauseVideo(); });
-                    }
-                }
-            });
-        }
-    </script>
-
-</body>
-
-</html>
+                <iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="
