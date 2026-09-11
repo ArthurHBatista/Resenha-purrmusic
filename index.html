@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* Fundo preto com textura sutil (estático) */
+        /* Fundo preto com textura sutil */
         body::before {
             content: '';
             position: fixed;
@@ -173,32 +173,26 @@
 
         /* ===== PERSONALIZAÇÃO POR ESTILO ===== */
 
-        /* Nu Metal – vermelho sangue */
         .cat-nu-metal { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.15); }
         .cat-nu-metal h2 { border-color: #ff0000; color: #ff3333; background: linear-gradient(90deg, #2a0000 0%, #0a0000 50%, #2a0000 100%); }
         .cat-nu-metal .icon-tema { color: #ff0000; }
 
-        /* RapTuga – dourado */
         .cat-raptuga { border-color: #ffaa00; box-shadow: 0 0 20px rgba(255,170,0,0.5), 0 0 40px rgba(255,170,0,0.25), inset 0 0 20px rgba(255,170,0,0.12); }
         .cat-raptuga h2 { border-color: #ffaa00; color: #ffcc33; background: linear-gradient(90deg, #2a1a00 0%, #0a0500 50%, #2a1a00 100%); }
         .cat-raptuga .icon-tema { color: #ffaa00; }
 
-        /* Deftones – azul-petróleo */
         .cat-deftones { border-color: #33aaff; box-shadow: 0 0 20px rgba(51,170,255,0.5), 0 0 40px rgba(51,170,255,0.25), inset 0 0 20px rgba(51,170,255,0.12); }
         .cat-deftones h2 { border-color: #33aaff; color: #66ccff; background: linear-gradient(90deg, #001a2a 0%, #000a0a 50%, #001a2a 100%); }
         .cat-deftones .icon-tema { color: #33aaff; }
 
-        /* S.O.A.D – laranja-fogo */
         .cat-soad { border-color: #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.6), 0 0 40px rgba(255,102,0,0.3), inset 0 0 20px rgba(255,102,0,0.15); }
         .cat-soad h2 { border-color: #ff6600; color: #ff8833; background: linear-gradient(90deg, #2a0f00 0%, #0a0500 50%, #2a0f00 100%); }
         .cat-soad .icon-tema { color: #ff6600; }
 
-        /* METALLICA – prata */
         .cat-metallica { border-color: #cccccc; box-shadow: 0 0 20px rgba(204,204,204,0.5), 0 0 40px rgba(204,204,204,0.25), inset 0 0 20px rgba(204,204,204,0.12); }
         .cat-metallica h2 { border-color: #cccccc; color: #e6e6e6; background: linear-gradient(90deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%); }
         .cat-metallica .icon-tema { color: #cccccc; }
 
-        /* Folk Metal – verde-floresta */
         .cat-folk-metal { border-color: #66cc33; box-shadow: 0 0 20px rgba(102,204,51,0.5), 0 0 40px rgba(102,204,51,0.25), inset 0 0 20px rgba(102,204,51,0.12); }
         .cat-folk-metal h2 { border-color: #66cc33; color: #88dd55; background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%); }
         .cat-folk-metal .icon-tema { color: #66cc33; }
@@ -299,8 +293,15 @@
             background: linear-gradient(180deg, #000, #0a0000);
             font-family: 'Germania One', cursive;
         }
-        footer .social a { color: #fff; font-size: 2rem; margin: 0 15px; transition: 0.3s; }
-        footer .social a:hover { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+        footer .social a { color: #fff; font-size: 2rem; margin: 0 15px; transition: 0.3s; display: inline-block; }
+        footer .social a:hover { color: #ff0000; text-shadow: 0 0 20px #ff0000; transform: scale(1.2); }
+
+        /* Hover especial do Instagram (gradiente) */
+        footer .social a.instagram:hover {
+            color: #ff3399;
+            text-shadow: 0 0 20px #ff3399;
+        }
+
         footer .copy { margin-top: 15px; opacity: 0.6; font-size: 0.9rem; }
         footer .copy i { color: #aa0000; }
 
@@ -463,7 +464,9 @@
     <footer>
         <p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
         <div class="social">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
         </div>
