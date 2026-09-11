@@ -138,26 +138,6 @@
             text-align: center;
             transition: 0.4s ease;
         }
-        .frase-box::before {
-            content: '“';
-            position: absolute;
-            top: -20px; left: 15px;
-            font-size: 5rem;
-            color: #ff0000;
-            opacity: 0.4;
-            font-family: 'Cinzel Decorative', cursive;
-            line-height: 1;
-        }
-        .frase-box::after {
-            content: '”';
-            position: absolute;
-            bottom: -40px; right: 15px;
-            font-size: 5rem;
-            color: #ff0000;
-            opacity: 0.4;
-            font-family: 'Cinzel Decorative', cursive;
-            line-height: 1;
-        }
         .frase-box:hover {
             border-left-color: #ff3333;
             box-shadow: 0 0 30px rgba(255,0,0,0.5), inset 0 0 25px rgba(255,0,0,0.1);
@@ -247,7 +227,7 @@
         .cat-folk-metal h2 { border-color: #66cc33; color: #88dd55; background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%); }
         .cat-folk-metal .icon-tema { color: #66cc33; }
 
-        /* ===== DEATH METAL (NOVA COR: VERMELHO-SANGUE ESCURO) ===== */
+        /* ===== DEATH METAL – VERMELHO-SANGUE ESCURO ===== */
         .cat-death-metal {
             border-color: #8b0000;
             box-shadow:
@@ -267,6 +247,12 @@
             color: #cc0000;
             text-shadow: 0 0 15px #8b0000;
         }
+        .cat-death-metal .videos iframe {
+            box-shadow:
+                0 0 10px rgba(255,255,255,0.6),
+                0 0 30px rgba(139,0,0,0.4),
+                0 0 60px rgba(74,0,0,0.2);
+        }
         .cat-death-metal .videos iframe:hover {
             border-color: #8b0000;
             box-shadow:
@@ -274,12 +260,6 @@
                 0 0 45px #cc0000,
                 0 0 90px #8b0000,
                 inset 0 0 30px #4a0000;
-        }
-        .cat-death-metal .videos iframe {
-            box-shadow:
-                0 0 10px rgba(255,255,255,0.6),
-                0 0 30px rgba(139,0,0,0.4),
-                0 0 60px rgba(74,0,0,0.2);
         }
 
         .icon-tema {
@@ -419,9 +399,9 @@
             <span class="pentagram">⛧</span>
         </h1>
 
-        <!-- ===== FRASE ALEATÓRIA DO DIA ===== -->
-        <div class="frase-box" id="frase-box">
-            <p id="frase-texto">...</p>
+        <!-- ===== FRASE ALEATÓRIA ===== -->
+        <div class="frase-box">
+            <p id="frase-texto">Carregando...</p>
             <p id="frase-autor">— ...</p>
         </div>
 
@@ -545,4 +525,23 @@
                 <i class="fas fa-skull-crossbones icon-tema"></i>
             </div>
             <div class="videos">
-                <iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="
+                <iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="Death Metal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/vSEmlNNFE_0" title="Pneumonoultramicroscopicsilicovolcanoconiosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/hpIruHUL5Ik" title="Backyard Mortuary - Mutation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </div> <!-- .container -->
+
+    <div class="rune">ᚠ</div>
+
+    <footer>
+        <p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
+        <div class="social">
+            <a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+        </div>
+        <p class
