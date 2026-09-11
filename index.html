@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PURRmusic – Gore & Folk Metal</title>
+    <title>The Stars</title>
 
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&display=swap" rel="stylesheet">
@@ -25,131 +25,22 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            transition: background-color 1.8s ease;
         }
 
-        /* ===== FUNDO DINÂMICO EM CAMADAS ===== */
-        .bg-layer {
+        /* Fundo preto com textura sutil (estático) */
+        body::before {
+            content: '';
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -3;
-            transition: background 2s ease, opacity 2s ease;
-        }
-
-        /* Camada 1: gradientes radiais que mudam de cor */
-        #bg-gradients {
             background:
-                radial-gradient(circle at 15% 20%, rgba(255, 0, 0, 0.18) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(255, 0, 0, 0.10) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(60, 0, 0, 0.25) 0%, transparent 70%);
-        }
-
-        /* Camada 2: textura de fundo */
-        #bg-texture {
-            background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;
-            opacity: 0.18;
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.04) 0%, transparent 40%),
+                url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;
+            opacity: 0.8;
+            pointer-events: none;
             z-index: -2;
         }
-
-        /* Camada 3: vinheta (bordas escuras) */
-        #bg-vignette {
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.85) 100%);
-            z-index: -1;
-        }
-
-        /* Camada 4: partículas/faíscas */
-        #bg-particles {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-            transition: opacity 1.5s ease;
-        }
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: floatParticle linear infinite;
-            transition: background 2s ease;
-        }
-        @keyframes floatParticle {
-            0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-            10%  { opacity: 0.7; }
-            90%  { opacity: 0.7; }
-            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-        }
-
-        /* ========== TEMAS DINÂMICOS ========== */
-        /* Cada tema define as cores das camadas via CSS variables */
-
-        /* Nu Metal – vermelho sangue */
-        body[data-tema="nu-metal"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255, 0, 0, 0.20) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(180, 0, 0, 0.14) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(80, 0, 0, 0.30) 0%, transparent 70%);
-        }
-
-        /* RapTuga – dourado/âmbar */
-        body[data-tema="raptuga"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255, 170, 0, 0.20) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(200, 120, 0, 0.14) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(80, 50, 0, 0.30) 0%, transparent 70%);
-        }
-
-        /* Deftones – azul-petróleo */
-        body[data-tema="deftones"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(51, 170, 255, 0.20) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(0, 100, 180, 0.14) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(0, 30, 60, 0.35) 0%, transparent 70%);
-        }
-
-        /* S.O.A.D – laranja-fogo */
-        body[data-tema="soad"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255, 102, 0, 0.22) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(200, 50, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(80, 25, 0, 0.35) 0%, transparent 70%);
-        }
-
-        /* METALLICA – prata/aço */
-        body[data-tema="metallica"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(200, 200, 200, 0.15) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(140, 140, 140, 0.10) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(40, 40, 40, 0.40) 0%, transparent 70%);
-        }
-
-        /* Folk Metal – verde-floresta */
-        body[data-tema="folk-metal"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(102, 204, 51, 0.20) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(50, 130, 0, 0.14) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(20, 60, 0, 0.35) 0%, transparent 70%);
-        }
-
-        /* Topo (antes de qualquer categoria) – padrão vermelho escuro */
-        body[data-tema="hero"] #bg-gradients {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255, 0, 0, 0.18) 0%, transparent 55%),
-                radial-gradient(circle at 85% 80%, rgba(255, 0, 0, 0.10) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(60, 0, 0, 0.30) 0%, transparent 70%);
-        }
-
-        /* Cor das partículas por tema */
-        body[data-tema="nu-metal"] .particle { background: #ff3333; box-shadow: 0 0 8px #ff0000; }
-        body[data-tema="raptuga"] .particle { background: #ffcc33; box-shadow: 0 0 8px #ffaa00; }
-        body[data-tema="deftones"] .particle { background: #66ccff; box-shadow: 0 0 8px #33aaff; }
-        body[data-tema="soad"] .particle { background: #ff8833; box-shadow: 0 0 8px #ff6600; }
-        body[data-tema="metallica"] .particle { background: #cccccc; box-shadow: 0 0 8px #ffffff; }
-        body[data-tema="folk-metal"] .particle { background: #88dd55; box-shadow: 0 0 8px #66cc33; }
-        body[data-tema="hero"] .particle { background: #ff3333; box-shadow: 0 0 8px #ff0000; }
 
         .container {
             max-width: 1200px;
@@ -170,14 +61,7 @@
             box-shadow: 0 0 30px #660000;
             padding: 10px 0;
             margin-bottom: 20px;
-            transition: border-color 1.5s ease, box-shadow 1.5s ease;
         }
-        body[data-tema="raptuga"] #top-nav { border-color: #cc8800; box-shadow: 0 0 30px #664400; }
-        body[data-tema="deftones"] #top-nav { border-color: #0066cc; box-shadow: 0 0 30px #003366; }
-        body[data-tema="soad"] #top-nav { border-color: #cc5500; box-shadow: 0 0 30px #661a00; }
-        body[data-tema="metallica"] #top-nav { border-color: #999999; box-shadow: 0 0 30px #444444; }
-        body[data-tema="folk-metal"] #top-nav { border-color: #448800; box-shadow: 0 0 30px #1a4400; }
-
         #top-nav ul {
             display: flex;
             justify-content: center;
@@ -250,14 +134,13 @@
         .categoria {
             margin-bottom: 50px;
             padding: 25px;
-            background: linear-gradient(180deg, rgba(10,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%);
+            background: linear-gradient(180deg, #0a0000 0%, #000000 100%);
             border: 3px solid #ffffff;
             border-radius: 20px;
             box-shadow: 0 0 15px rgba(255,255,255,0.3), 0 0 30px rgba(255,0,0,0.2), inset 0 0 15px rgba(255,0,0,0.1);
             position: relative;
             overflow: hidden;
-            transition: 0.5s ease;
-            backdrop-filter: blur(2px);
+            transition: 0.4s ease;
         }
         .categoria::after {
             content: '';
@@ -289,24 +172,38 @@
         }
 
         /* ===== PERSONALIZAÇÃO POR ESTILO ===== */
+
+        /* Nu Metal – vermelho sangue */
         .cat-nu-metal { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.15); }
         .cat-nu-metal h2 { border-color: #ff0000; color: #ff3333; background: linear-gradient(90deg, #2a0000 0%, #0a0000 50%, #2a0000 100%); }
+        .cat-nu-metal .icon-tema { color: #ff0000; }
 
+        /* RapTuga – dourado */
         .cat-raptuga { border-color: #ffaa00; box-shadow: 0 0 20px rgba(255,170,0,0.5), 0 0 40px rgba(255,170,0,0.25), inset 0 0 20px rgba(255,170,0,0.12); }
         .cat-raptuga h2 { border-color: #ffaa00; color: #ffcc33; background: linear-gradient(90deg, #2a1a00 0%, #0a0500 50%, #2a1a00 100%); }
+        .cat-raptuga .icon-tema { color: #ffaa00; }
 
+        /* Deftones – azul-petróleo */
         .cat-deftones { border-color: #33aaff; box-shadow: 0 0 20px rgba(51,170,255,0.5), 0 0 40px rgba(51,170,255,0.25), inset 0 0 20px rgba(51,170,255,0.12); }
         .cat-deftones h2 { border-color: #33aaff; color: #66ccff; background: linear-gradient(90deg, #001a2a 0%, #000a0a 50%, #001a2a 100%); }
+        .cat-deftones .icon-tema { color: #33aaff; }
 
+        /* S.O.A.D – laranja-fogo */
         .cat-soad { border-color: #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.6), 0 0 40px rgba(255,102,0,0.3), inset 0 0 20px rgba(255,102,0,0.15); }
         .cat-soad h2 { border-color: #ff6600; color: #ff8833; background: linear-gradient(90deg, #2a0f00 0%, #0a0500 50%, #2a0f00 100%); }
+        .cat-soad .icon-tema { color: #ff6600; }
 
+        /* METALLICA – prata */
         .cat-metallica { border-color: #cccccc; box-shadow: 0 0 20px rgba(204,204,204,0.5), 0 0 40px rgba(204,204,204,0.25), inset 0 0 20px rgba(204,204,204,0.12); }
         .cat-metallica h2 { border-color: #cccccc; color: #e6e6e6; background: linear-gradient(90deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%); }
+        .cat-metallica .icon-tema { color: #cccccc; }
 
+        /* Folk Metal – verde-floresta */
         .cat-folk-metal { border-color: #66cc33; box-shadow: 0 0 20px rgba(102,204,51,0.5), 0 0 40px rgba(102,204,51,0.25), inset 0 0 20px rgba(102,204,51,0.12); }
         .cat-folk-metal h2 { border-color: #66cc33; color: #88dd55; background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%); }
+        .cat-folk-metal .icon-tema { color: #66cc33; }
 
+        /* ===== ÍCONES TEMÁTICOS ===== */
         .icon-tema {
             font-size: 2rem;
             transition: transform 0.6s ease, filter 0.3s ease;
@@ -317,12 +214,6 @@
             transform: rotate(360deg) scale(1.2);
             filter: drop-shadow(0 0 15px currentColor);
         }
-        .cat-nu-metal .icon-tema { color: #ff0000; }
-        .cat-raptuga .icon-tema { color: #ffaa00; }
-        .cat-deftones .icon-tema { color: #33aaff; }
-        .cat-soad .icon-tema { color: #ff6600; }
-        .cat-metallica .icon-tema { color: #cccccc; }
-        .cat-folk-metal .icon-tema { color: #66cc33; }
 
         /* ===== VÍDEOS ===== */
         .videos {
@@ -340,8 +231,6 @@
             transition: 0.4s ease;
         }
         .videos iframe:hover {
-            border-color: #ff0000;
-            box-shadow: 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #660000, inset 0 0 30px #ff0000;
             transform: scale(1.03) rotate(0.5deg);
         }
         .cat-nu-metal .videos iframe:hover { border-color: #ff0000; box-shadow: 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #660000; }
@@ -394,13 +283,7 @@
             animation: spinRune 20s linear infinite;
             pointer-events: none;
             z-index: 2;
-            transition: color 1.5s ease;
         }
-        body[data-tema="raptuga"] .rune { color: #886622; }
-        body[data-tema="deftones"] .rune { color: #226688; }
-        body[data-tema="soad"] .rune { color: #883322; }
-        body[data-tema="metallica"] .rune { color: #666666; }
-        body[data-tema="folk-metal"] .rune { color: #338822; }
         @keyframes spinRune {
             0% { transform: rotate(0deg) scale(1); }
             50% { transform: rotate(180deg) scale(1.2); }
@@ -415,7 +298,6 @@
             text-align: center;
             background: linear-gradient(180deg, #000, #0a0000);
             font-family: 'Germania One', cursive;
-            transition: border-color 1.5s ease;
         }
         footer .social a { color: #fff; font-size: 2rem; margin: 0 15px; transition: 0.3s; }
         footer .social a:hover { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
@@ -441,13 +323,7 @@
     </style>
 </head>
 
-<body data-tema="hero">
-
-    <!-- FUNDO DINÂMICO EM CAMADAS -->
-    <div id="bg-gradients" class="bg-layer"></div>
-    <div id="bg-texture" class="bg-layer"></div>
-    <div id="bg-vignette" class="bg-layer"></div>
-    <div id="bg-particles"></div>
+<body>
 
     <!-- Menu fixo -->
     <nav id="top-nav">
@@ -465,7 +341,7 @@
 
         <h1>
             <span class="pentagram">⛧</span>
-            PurrMusic
+            The Stars
             <span class="pentagram">⛧</span>
         </h1>
 
@@ -475,7 +351,7 @@
         </div>
 
         <!-- ==================== NU METAL ==================== -->
-        <div class="categoria cat-nu-metal" id="nu-metal" data-aos="fade-up" data-tema="nu-metal">
+        <div class="categoria cat-nu-metal" id="nu-metal" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
                 <i class="fas fa-link icon-tema"></i>
                 <h2>Nu Metal</h2>
@@ -493,7 +369,7 @@
         </div>
 
         <!-- ==================== RAPTuga ==================== -->
-        <div class="categoria cat-raptuga" id="raptuga" data-aos="fade-up" data-tema="raptuga">
+        <div class="categoria cat-raptuga" id="raptuga" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
                 <i class="fas fa-microphone icon-tema"></i>
                 <h2>RapTuga</h2>
@@ -511,7 +387,7 @@
         </div>
 
         <!-- ==================== DEFTONES ==================== -->
-        <div class="categoria cat-deftones" id="deftones" data-aos="fade-up" data-tema="deftones">
+        <div class="categoria cat-deftones" id="deftones" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
                 <i class="fas fa-water icon-tema"></i>
                 <h2>Deftones</h2>
@@ -529,11 +405,102 @@
         </div>
 
         <!-- ==================== S.O.A.D ==================== -->
-        <div class="categoria cat-soad" id="soad" data-aos="fade-up" data-tema="soad">
+        <div class="categoria cat-soad" id="soad" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
                 <i class="fas fa-fire icon-tema"></i>
                 <h2>S.O.A.D</h2>
                 <i class="fas fa-bolt icon-tema"></i>
             </div>
             <div class="videos">
-                <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="acceler
+                <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" title="Sugar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" title="Lonely Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="divider">
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
+        </div>
+
+        <!-- ==================== METALLICA ==================== -->
+        <div class="categoria cat-metallica" id="metallica" data-aos="fade-up">
+            <div class="titulo-com-pentagrama">
+                <i class="fas fa-bolt icon-tema"></i>
+                <h2>METALLICA</h2>
+                <i class="fas fa-guitar icon-tema"></i>
+            </div>
+            <div class="videos">
+                <iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" title="Master of Puppets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/TpohVYomw2o" title="Sad But True" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="divider">
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
+        </div>
+
+        <!-- ==================== FOLK METAL ==================== -->
+        <div class="categoria cat-folk-metal" id="folk-metal" data-aos="fade-up">
+            <div class="titulo-com-pentagrama">
+                <i class="fas fa-tree icon-tema"></i>
+                <h2>Folk Metal</h2>
+                <i class="fas fa-dragon icon-tema"></i>
+            </div>
+            <div class="videos">
+                <iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" title="Castle Spire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/8WDhlW3u93U" title="Fear of God" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/3WdRVhgeLiE" title="Sword In The Stone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </div> <!-- .container -->
+
+    <!-- Runa decorativa -->
+    <div class="rune">ᚠ</div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
+        <div class="social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+        </div>
+        <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
+    </footer>
+
+    <!-- AOS -->
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-quad' });
+    </script>
+
+    <!-- ====== API DO YOUTUBE PARA O VÍDEO DESTAQUE ====== -->
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var playerDestaque;
+
+        function onYouTubeIframeAPIReady() {
+            playerDestaque = new YT.Player('player-destaque', {
+                height: '281',
+                width: '500',
+                videoId: 'EETV2JNBhcc',
+                playerVars: { 'playsinline': 1, 'rel': 0, 'controls': 1, 'modestbranding': 1 },
+                events: {
+                    'onReady': function(event) {
+                        var container = document.getElementById('player-destaque');
+                        container.addEventListener('mouseenter', function() { playerDestaque.playVideo(); });
+                        container.addEventListener('mouseleave', function() { playerDestaque.pauseVideo(); });
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
