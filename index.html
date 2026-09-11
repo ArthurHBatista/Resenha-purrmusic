@@ -1,547 +1,307 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Stars</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <style>
-        /* ========== BASE ========== */
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: #000000;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.04) 0%, transparent 40%),
-                url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;
-            opacity: 0.8;
-            pointer-events: none;
-            z-index: -2;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        #top-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            border-bottom: 3px solid #990000;
-            box-shadow: 0 0 30px #660000;
-            padding: 10px 0;
-            margin-bottom: 20px;
-        }
-        #top-nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px 15px;
-            list-style: none;
-            margin: 0;
-            padding: 0 20px;
-        }
-        #top-nav a {
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Germania One', cursive;
-            font-size: 1rem;
-            letter-spacing: 1.5px;
-            padding: 5px 12px;
-            transition: 0.3s;
-            border-radius: 5px;
-        }
-        #top-nav a:hover { color: #ff3333; text-shadow: 0 0 20px #ff0000; background: rgba(255,0,0,0.1); }
-
-        h1 {
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 50px;
-            text-align: center;
-            color: #ffffff;
-            text-shadow: 0 0 10px #fff, 0 0 30px #ff0000, 0 0 60px #cc0000, 0 0 100px #660000;
-            letter-spacing: 6px;
-            border: 3px solid #ffffff;
-            padding: 15px;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 50px;
-            font-weight: 900;
-            background: linear-gradient(180deg, #1a0000 0%, #000000 100%);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .pentagram {
-            display: inline-block;
-            font-size: 2.5rem;
-            color: #aa0000;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #660000;
-            transition: transform 0.6s ease, text-shadow 0.3s ease;
-            cursor: default;
-            line-height: 1;
-        }
-        .pentagram:hover {
-            transform: rotate(360deg) scale(1.2);
-            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff3333, 0 0 100px #ff0000;
-        }
-        .titulo-com-pentagrama {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .titulo-com-pentagrama .pentagram { font-size: 2rem; }
-
-        /* ===== FRASE DO DIA ===== */
-        .frase-box {
-            max-width: 800px;
-            margin: 0 auto 50px auto;
-            padding: 25px 30px;
-            background: linear-gradient(180deg, #0a0000 0%, #000 100%);
-            border-left: 5px solid #ff0000;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255,0,0,0.3), inset 0 0 15px rgba(255,0,0,0.05);
-            position: relative;
-            text-align: center;
-            transition: 0.4s ease;
-        }
-        .frase-box:hover {
-            border-left-color: #ff3333;
-            box-shadow: 0 0 30px rgba(255,0,0,0.5), inset 0 0 25px rgba(255,0,0,0.1);
-            transform: scale(1.01);
-        }
-        #frase-texto {
-            font-family: 'Uncial Antiqua', cursive;
-            font-size: 1.35rem;
-            color: #fff;
-            line-height: 1.6;
-            margin: 0 0 12px 0;
-            font-style: italic;
-            text-shadow: 0 0 8px rgba(255,0,0,0.4);
-        }
-        #frase-autor {
-            font-family: 'Germania One', cursive;
-            font-size: 1.1rem;
-            color: #ff3333;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px #ff0000;
-            margin: 0;
-        }
-
-        .categoria {
-            margin-bottom: 50px;
-            padding: 25px;
-            background: linear-gradient(180deg, #0a0000 0%, #000000 100%);
-            border: 3px solid #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 0 15px rgba(255,255,255,0.3), 0 0 30px rgba(255,0,0,0.2), inset 0 0 15px rgba(255,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            transition: 0.4s ease;
-        }
-        .categoria::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(255,0,0,0.08), transparent 60%);
-            opacity: 0;
-            transition: 0.5s;
-            pointer-events: none;
-        }
-        .categoria:hover::after { opacity: 1; }
-
-        h2 {
-            font-family: 'Germania One', cursive;
-            font-size: 32px;
-            text-align: center;
-            color: #ffffff;
-            text-shadow: 0 0 5px #fff, 0 0 15px #ff0000, 0 0 30px #cc0000, 0 0 60px #660000;
-            padding: 12px;
-            margin: 0 0 35px 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: bold;
-            border: 2px solid #ffffff;
-            border-radius: 10px;
-            background: linear-gradient(90deg, #1a0000 0%, #0a0000 50%, #1a0000 100%);
-            box-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(255,0,0,0.3);
-        }
-
-        /* ===== PERSONALIZAÇÃO POR ESTILO ===== */
-        .cat-nu-metal { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.15); }
-        .cat-nu-metal h2 { border-color: #ff0000; color: #ff3333; background: linear-gradient(90deg, #2a0000 0%, #0a0000 50%, #2a0000 100%); }
-        .cat-nu-metal .icon-tema { color: #ff0000; }
-
-        .cat-raptuga { border-color: #ffaa00; box-shadow: 0 0 20px rgba(255,170,0,0.5), 0 0 40px rgba(255,170,0,0.25), inset 0 0 20px rgba(255,170,0,0.12); }
-        .cat-raptuga h2 { border-color: #ffaa00; color: #ffcc33; background: linear-gradient(90deg, #2a1a00 0%, #0a0500 50%, #2a1a00 100%); }
-        .cat-raptuga .icon-tema { color: #ffaa00; }
-
-        .cat-deftones { border-color: #33aaff; box-shadow: 0 0 20px rgba(51,170,255,0.5), 0 0 40px rgba(51,170,255,0.25), inset 0 0 20px rgba(51,170,255,0.12); }
-        .cat-deftones h2 { border-color: #33aaff; color: #66ccff; background: linear-gradient(90deg, #001a2a 0%, #000a0a 50%, #001a2a 100%); }
-        .cat-deftones .icon-tema { color: #33aaff; }
-
-        .cat-soad { border-color: #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.6), 0 0 40px rgba(255,102,0,0.3), inset 0 0 20px rgba(255,102,0,0.15); }
-        .cat-soad h2 { border-color: #ff6600; color: #ff8833; background: linear-gradient(90deg, #2a0f00 0%, #0a0500 50%, #2a0f00 100%); }
-        .cat-soad .icon-tema { color: #ff6600; }
-
-        .cat-metallica { border-color: #cccccc; box-shadow: 0 0 20px rgba(204,204,204,0.5), 0 0 40px rgba(204,204,204,0.25), inset 0 0 20px rgba(204,204,204,0.12); }
-        .cat-metallica h2 { border-color: #cccccc; color: #e6e6e6; background: linear-gradient(90deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%); }
-        .cat-metallica .icon-tema { color: #cccccc; }
-
-        .cat-folk-metal { border-color: #66cc33; box-shadow: 0 0 20px rgba(102,204,51,0.5), 0 0 40px rgba(102,204,51,0.25), inset 0 0 20px rgba(102,204,51,0.12); }
-        .cat-folk-metal h2 { border-color: #66cc33; color: #88dd55; background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%); }
-        .cat-folk-metal .icon-tema { color: #66cc33; }
-
-        /* ===== DEATH METAL – VERMELHO-SANGUE ESCURO ===== */
-        .cat-death-metal {
-            border-color: #8b0000;
-            box-shadow:
-                0 0 20px rgba(139,0,0,0.7),
-                0 0 45px rgba(139,0,0,0.35),
-                0 0 80px rgba(74,0,0,0.2),
-                inset 0 0 25px rgba(139,0,0,0.2);
-            background: linear-gradient(180deg, #150000 0%, #050000 100%);
-        }
-        .cat-death-metal h2 {
-            border-color: #8b0000;
-            color: #cc2222;
-            background: linear-gradient(90deg, #2a0000 0%, #150000 50%, #2a0000 100%);
-            text-shadow: 0 0 8px #ff0000, 0 0 20px #8b0000, 0 0 40px #4a0000;
-        }
-        .cat-death-metal .icon-tema {
-            color: #cc0000;
-            text-shadow: 0 0 15px #8b0000;
-        }
-        .cat-death-metal .videos iframe {
-            box-shadow:
-                0 0 10px rgba(255,255,255,0.6),
-                0 0 30px rgba(139,0,0,0.4),
-                0 0 60px rgba(74,0,0,0.2);
-        }
-        .cat-death-metal .videos iframe:hover {
-            border-color: #8b0000;
-            box-shadow:
-                0 0 20px #fff,
-                0 0 45px #cc0000,
-                0 0 90px #8b0000,
-                inset 0 0 30px #4a0000;
-        }
-
-        .icon-tema {
-            font-size: 2rem;
-            transition: transform 0.6s ease, filter 0.3s ease;
-            cursor: default;
-            display: inline-block;
-        }
-        .icon-tema:hover {
-            transform: rotate(360deg) scale(1.2);
-            filter: drop-shadow(0 0 15px currentColor);
-        }
-
-        .videos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 35px;
-        }
-        .videos iframe {
-            width: 380px;
-            height: 214px;
-            border: 4px solid #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 30px rgba(255,0,0,0.3), 0 0 60px rgba(255,0,0,0.1);
-            transition: 0.4s ease;
-        }
-        .videos iframe:hover { transform: scale(1.03) rotate(0.5deg); }
-        .cat-nu-metal .videos iframe:hover { border-color: #ff0000; box-shadow: 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #660000; }
-        .cat-raptuga .videos iframe:hover { border-color: #ffaa00; box-shadow: 0 0 20px #fff, 0 0 40px #ffaa00, 0 0 80px #664400; }
-        .cat-deftones .videos iframe:hover { border-color: #33aaff; box-shadow: 0 0 20px #fff, 0 0 40px #33aaff, 0 0 80px #003366; }
-        .cat-soad .videos iframe:hover { border-color: #ff6600; box-shadow: 0 0 20px #fff, 0 0 40px #ff6600, 0 0 80px #661a00; }
-        .cat-metallica .videos iframe:hover { border-color: #cccccc; box-shadow: 0 0 20px #fff, 0 0 40px #cccccc, 0 0 80px #444444; }
-        .cat-folk-metal .videos iframe:hover { border-color: #66cc33; box-shadow: 0 0 20px #fff, 0 0 40px #66cc33, 0 0 80px #1a4400; }
-
-        .video-destaque { display: flex; justify-content: center; margin-bottom: 50px; }
-        #player-destaque {
-            width: 500px; height: 281px;
-            border: 4px solid #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(255,255,255,0.7), 0 0 80px rgba(255,0,0,0.4), 0 0 120px rgba(255,0,0,0.2);
-            transition: 0.3s;
-        }
-        #player-destaque:hover {
-            border-color: #ff0000;
-            box-shadow: 0 0 20px #fff, 0 0 60px #ff0000, 0 0 100px #660000;
-            transform: scale(1.02);
-        }
-
-        .divider {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            color: #aa0000;
-            font-size: 2.2rem;
-            margin: 10px 0 40px 0;
-        }
-        .divider::before, .divider::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #aa0000, transparent);
-        }
-        .divider .pentagram { font-size: 2rem; }
-
-        .rune {
-            position: fixed;
-            bottom: 20px; right: 20px;
-            font-size: 5rem;
-            color: #882222;
-            opacity: 0.15;
-            animation: spinRune 20s linear infinite;
-            pointer-events: none;
-            z-index: 2;
-        }
-        @keyframes spinRune {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 30px 0;
-            border-top: 3px solid #990000;
-            text-align: center;
-            background: linear-gradient(180deg, #000, #0a0000);
-            font-family: 'Germania One', cursive;
-        }
-        footer .social a { color: #fff; font-size: 2rem; margin: 0 15px; transition: 0.3s; display: inline-block; }
-        footer .social a:hover { color: #ff0000; text-shadow: 0 0 20px #ff0000; transform: scale(1.2); }
-        footer .social a.instagram:hover { color: #ff3399; text-shadow: 0 0 20px #ff3399; }
-        footer .copy { margin-top: 15px; opacity: 0.6; font-size: 0.9rem; }
-        footer .copy i { color: #aa0000; }
-
-        @media (max-width: 768px) {
-            .container { padding: 15px; }
-            h1 { font-size: 30px; padding: 10px; gap: 10px; }
-            .pentagram { font-size: 1.8rem; }
-            .titulo-com-pentagrama .pentagram { font-size: 1.5rem; }
-            .icon-tema { font-size: 1.5rem; }
-            h2 { font-size: 24px; }
-            .videos iframe { width: 100%; height: auto; aspect-ratio: 16/9; }
-            #player-destaque { width: 100%; height: auto; aspect-ratio: 16/9; }
-            #top-nav ul { gap: 8px; }
-            #top-nav a { font-size: 0.85rem; padding: 4px 8px; letter-spacing: 1px; }
-            .rune { font-size: 3rem; bottom: 10px; right: 10px; }
-            .frase-box { padding: 20px; }
-            #frase-texto { font-size: 1.1rem; }
-            #frase-autor { font-size: 0.95rem; }
-        }
-
-        ::selection { background-color: #ff0000; color: #ffffff; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Stars</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{background:#000;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;color:#fff;margin:0;padding:0;min-height:100vh;position:relative;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,0,0,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,0,0,0.04) 0%,transparent 40%),url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;opacity:0.8;pointer-events:none;z-index:-2}
+.container{max-width:1200px;margin:0 auto;padding:30px;position:relative;z-index:1}
+#top-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border-bottom:3px solid #990000;box-shadow:0 0 30px #660000;padding:10px 0;margin-bottom:20px}
+#top-nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 15px;list-style:none;margin:0;padding:0 20px}
+#top-nav a{color:#fff;text-decoration:none;font-family:'Germania One',cursive;font-size:1rem;letter-spacing:1.5px;padding:5px 12px;transition:.3s;border-radius:5px}
+#top-nav a:hover{color:#f33;text-shadow:0 0 20px #f00;background:rgba(255,0,0,.1)}
+h1{font-family:'Cinzel Decorative',cursive;font-size:50px;text-align:center;color:#fff;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600;letter-spacing:6px;border:3px solid #fff;padding:15px;text-transform:uppercase;margin-top:30px;margin-bottom:50px;font-weight:900;background:linear-gradient(180deg,#1a0000 0%,#000 100%);border-radius:15px;box-shadow:0 0 20px rgba(255,255,255,.5),0 0 40px rgba(255,0,0,.3),inset 0 0 20px rgba(255,0,0,.2);display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
+.pentagram{display:inline-block;font-size:2.5rem;color:#a00;text-shadow:0 0 10px #f00,0 0 20px #600;transition:transform .6s ease,text-shadow .3s ease;cursor:default;line-height:1}
+.pentagram:hover{transform:rotate(360deg) scale(1.2);text-shadow:0 0 30px #f00,0 0 60px #f33,0 0 100px #f00}
+.titulo-com-pentagrama{display:flex;justify-content:center;align-items:center;gap:15px;flex-wrap:wrap}
+.titulo-com-pentagrama .pentagram{font-size:2rem}
+.frase-box{max-width:800px;margin:0 auto 50px auto;padding:25px 30px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border-left:5px solid #f00;border-radius:12px;box-shadow:0 0 20px rgba(255,0,0,.3),inset 0 0 15px rgba(255,0,0,.05);text-align:center;transition:.4s ease}
+.frase-box:hover{border-left-color:#f33;box-shadow:0 0 30px rgba(255,0,0,.5);transform:scale(1.01)}
+#frase-texto{font-family:'Uncial Antiqua',cursive;font-size:1.35rem;color:#fff;line-height:1.6;margin:0 0 12px 0;font-style:italic;text-shadow:0 0 8px rgba(255,0,0,.4)}
+#frase-autor{font-family:'Germania One',cursive;font-size:1.1rem;color:#f33;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px #f00;margin:0}
+.categoria{margin-bottom:50px;padding:25px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border:3px solid #fff;border-radius:20px;box-shadow:0 0 15px rgba(255,255,255,.3),0 0 30px rgba(255,0,0,.2),inset 0 0 15px rgba(255,0,0,.1);position:relative;overflow:hidden;transition:.4s ease}
+.categoria::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(255,0,0,.08),transparent 60%);opacity:0;transition:.5s;pointer-events:none}
+.categoria:hover::after{opacity:1}
+h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#fff;text-shadow:0 0 5px #fff,0 0 15px #f00,0 0 30px #c00,0 0 60px #600;padding:12px;margin:0 0 35px 0;text-transform:uppercase;letter-spacing:4px;font-weight:bold;border:2px solid #fff;border-radius:10px;background:linear-gradient(90deg,#1a0000 0%,#0a0000 50%,#1a0000 100%);box-shadow:0 0 10px rgba(255,255,255,.4),0 0 20px rgba(255,0,0,.3)}
+.cat-nu-metal{border-color:#f00;box-shadow:0 0 20px rgba(255,0,0,.6),0 0 40px rgba(255,0,0,.3),inset 0 0 20px rgba(255,0,0,.15)}
+.cat-nu-metal h2{border-color:#f00;color:#f33;background:linear-gradient(90deg,#2a0000 0%,#0a0000 50%,#2a0000 100%)}
+.cat-nu-metal .icon-tema{color:#f00}
+.cat-raptuga{border-color:#fa0;box-shadow:0 0 20px rgba(255,170,0,.5),0 0 40px rgba(255,170,0,.25),inset 0 0 20px rgba(255,170,0,.12)}
+.cat-raptuga h2{border-color:#fa0;color:#fc3;background:linear-gradient(90deg,#2a1a00 0%,#0a0500 50%,#2a1a00 100%)}
+.cat-raptuga .icon-tema{color:#fa0}
+.cat-deftones{border-color:#3af;box-shadow:0 0 20px rgba(51,170,255,.5),0 0 40px rgba(51,170,255,.25),inset 0 0 20px rgba(51,170,255,.12)}
+.cat-deftones h2{border-color:#3af;color:#6cf;background:linear-gradient(90deg,#001a2a 0%,#000a0a 50%,#001a2a 100%)}
+.cat-deftones .icon-tema{color:#3af}
+.cat-soad{border-color:#f60;box-shadow:0 0 20px rgba(255,102,0,.6),0 0 40px rgba(255,102,0,.3),inset 0 0 20px rgba(255,102,0,.15)}
+.cat-soad h2{border-color:#f60;color:#f83;background:linear-gradient(90deg,#2a0f00 0%,#0a0500 50%,#2a0f00 100%)}
+.cat-soad .icon-tema{color:#f60}
+.cat-metallica{border-color:#ccc;box-shadow:0 0 20px rgba(204,204,204,.5),0 0 40px rgba(204,204,204,.25),inset 0 0 20px rgba(204,204,204,.12)}
+.cat-metallica h2{border-color:#ccc;color:#e6e6e6;background:linear-gradient(90deg,#1a1a1a 0%,#0a0a0a 50%,#1a1a1a 100%)}
+.cat-metallica .icon-tema{color:#ccc}
+.cat-folk-metal{border-color:#6c3;box-shadow:0 0 20px rgba(102,204,51,.5),0 0 40px rgba(102,204,51,.25),inset 0 0 20px rgba(102,204,51,.12)}
+.cat-folk-metal h2{border-color:#6c3;color:#8d5;background:linear-gradient(90deg,#0a2a00 0%,#050a00 50%,#0a2a00 100%)}
+.cat-folk-metal .icon-tema{color:#6c3}
+.cat-death-metal{border-color:#8b0000;box-shadow:0 0 20px rgba(139,0,0,.7),0 0 45px rgba(139,0,0,.35),0 0 80px rgba(74,0,0,.2),inset 0 0 25px rgba(139,0,0,.2);background:linear-gradient(180deg,#150000 0%,#050000 100%)}
+.cat-death-metal h2{border-color:#8b0000;color:#c22;background:linear-gradient(90deg,#2a0000 0%,#150000 50%,#2a0000 100%);text-shadow:0 0 8px #f00,0 0 20px #8b0000,0 0 40px #4a0000}
+.cat-death-metal .icon-tema{color:#c00;text-shadow:0 0 15px #8b0000}
+.cat-death-metal .videos iframe{box-shadow:0 0 10px rgba(255,255,255,.6),0 0 30px rgba(139,0,0,.4),0 0 60px rgba(74,0,0,.2)}
+.cat-death-metal .videos iframe:hover{border-color:#8b0000;box-shadow:0 0 20px #fff,0 0 45px #c00,0 0 90px #8b0000,inset 0 0 30px #4a0000}
+.icon-tema{font-size:2rem;transition:transform .6s ease,filter .3s ease;cursor:default;display:inline-block}
+.icon-tema:hover{transform:rotate(360deg) scale(1.2);filter:drop-shadow(0 0 15px currentColor)}
+.videos{display:flex;flex-wrap:wrap;justify-content:center;gap:35px}
+.videos iframe{width:380px;height:214px;border:4px solid #fff;border-radius:12px;box-shadow:0 0 10px rgba(255,255,255,.6),0 0 30px rgba(255,0,0,.3),0 0 60px rgba(255,0,0,.1);transition:.4s ease}
+.videos iframe:hover{transform:scale(1.03) rotate(.5deg)}
+.cat-nu-metal .videos iframe:hover{border-color:#f00;box-shadow:0 0 20px #fff,0 0 40px #f00,0 0 80px #600}
+.cat-raptuga .videos iframe:hover{border-color:#fa0;box-shadow:0 0 20px #fff,0 0 40px #fa0,0 0 80px #640}
+.cat-deftones .videos iframe:hover{border-color:#3af;box-shadow:0 0 20px #fff,0 0 40px #3af,0 0 80px #036}
+.cat-soad .videos iframe:hover{border-color:#f60;box-shadow:0 0 20px #fff,0 0 40px #f60,0 0 80px #610}
+.cat-metallica .videos iframe:hover{border-color:#ccc;box-shadow:0 0 20px #fff,0 0 40px #ccc,0 0 80px #444}
+.cat-folk-metal .videos iframe:hover{border-color:#6c3;box-shadow:0 0 20px #fff,0 0 40px #6c3,0 0 80px #140}
+.video-destaque{display:flex;justify-content:center;margin-bottom:50px}
+#player-destaque{width:500px;height:281px;border:4px solid #fff;border-radius:15px;box-shadow:0 0 30px rgba(255,255,255,.7),0 0 80px rgba(255,0,0,.4),0 0 120px rgba(255,0,0,.2);transition:.3s}
+#player-destaque:hover{border-color:#f00;box-shadow:0 0 20px #fff,0 0 60px #f00,0 0 100px #600;transform:scale(1.02)}
+.divider{display:flex;justify-content:center;align-items:center;gap:20px;color:#a00;font-size:2.2rem;margin:10px 0 40px 0}
+.divider::before,.divider::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,transparent,#a00,transparent)}
+.divider .pentagram{font-size:2rem}
+.rune{position:fixed;bottom:20px;right:20px;font-size:5rem;color:#822;opacity:.15;animation:spinRune 20s linear infinite;pointer-events:none;z-index:2}
+@keyframes spinRune{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.2)}100%{transform:rotate(360deg) scale(1)}}
+footer{margin-top:60px;padding:30px 0;border-top:3px solid #900;text-align:center;background:linear-gradient(180deg,#000,#0a0000);font-family:'Germania One',cursive}
+footer .social a{color:#fff;font-size:2rem;margin:0 15px;transition:.3s;display:inline-block}
+footer .social a:hover{color:#f00;text-shadow:0 0 20px #f00;transform:scale(1.2)}
+footer .social a.instagram:hover{color:#f39;text-shadow:0 0 20px #f39}
+footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
+footer .copy i{color:#a00}
+@media (max-width:768px){
+.container{padding:15px}
+h1{font-size:30px;padding:10px;gap:10px}
+.pentagram{font-size:1.8rem}
+.titulo-com-pentagrama .pentagram{font-size:1.5rem}
+.icon-tema{font-size:1.5rem}
+h2{font-size:24px}
+.videos iframe{width:100%;height:auto;aspect-ratio:16/9}
+#player-destaque{width:100%;height:auto;aspect-ratio:16/9}
+#top-nav ul{gap:8px}
+#top-nav a{font-size:.85rem;padding:4px 8px;letter-spacing:1px}
+.rune{font-size:3rem;bottom:10px;right:10px}
+.frase-box{padding:20px}
+#frase-texto{font-size:1.1rem}
+#frase-autor{font-size:.95rem}
+}
+::selection{background:#f00;color:#fff}
+</style>
 </head>
-
 <body>
 
-    <nav id="top-nav">
-        <ul>
-            <li><a href="#nu-metal">Nu Metal</a></li>
-            <li><a href="#raptuga">RapTuga</a></li>
-            <li><a href="#deftones">Deftones</a></li>
-            <li><a href="#soad">S.O.A.D</a></li>
-            <li><a href="#metallica">METALLICA</a></li>
-            <li><a href="#folk-metal">Folk Metal</a></li>
-            <li><a href="#death-metal">Death Metal</a></li>
-        </ul>
-    </nav>
+<nav id="top-nav">
+<ul>
+<li><a href="#nu-metal">Nu Metal</a></li>
+<li><a href="#raptuga">RapTuga</a></li>
+<li><a href="#deftones">Deftones</a></li>
+<li><a href="#soad">S.O.A.D</a></li>
+<li><a href="#metallica">METALLICA</a></li>
+<li><a href="#folk-metal">Folk Metal</a></li>
+<li><a href="#death-metal">Death Metal</a></li>
+</ul>
+</nav>
 
-    <div class="container">
+<div class="container">
 
-        <h1>
-            <span class="pentagram">⛧</span>
-            The Stars
-            <span class="pentagram">⛧</span>
-        </h1>
+<h1><span class="pentagram">⛧</span> The Stars <span class="pentagram">⛧</span></h1>
 
-        <!-- ===== FRASE ALEATÓRIA ===== -->
-        <div class="frase-box">
-            <p id="frase-texto">Carregando...</p>
-            <p id="frase-autor">— ...</p>
-        </div>
+<div class="frase-box">
+<p id="frase-texto">Carregando...</p>
+<p id="frase-autor">— ...</p>
+</div>
 
-        <div class="video-destaque">
-            <div id="player-destaque"></div>
-        </div>
+<div class="video-destaque">
+<div id="player-destaque"></div>
+</div>
 
-        <!-- ==================== NU METAL ==================== -->
-        <div class="categoria cat-nu-metal" id="nu-metal" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-link icon-tema"></i>
-                <h2>Nu Metal</h2>
-                <i class="fas fa-skull icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/WLubS6QOMsQ" title="Slipknot - Eyeless" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/m9NEjUb_Ag0" title="Limp Bizkit - Rollin'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/nRz-yw-wp34" title="Korn - Twist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- NU METAL -->
+<div class="categoria cat-nu-metal" id="nu-metal" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-link icon-tema"></i>
+<h2>Nu Metal</h2>
+<i class="fas fa-skull icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/WLubS6QOMsQ" title="Slipknot - Eyeless" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/m9NEjUb_Ag0" title="Limp Bizkit - Rollin'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/nRz-yw-wp34" title="Korn - Twist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-        <div class="divider">
-            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
-        </div>
+<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== RAPTuga ==================== -->
-        <div class="categoria cat-raptuga" id="raptuga" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-microphone icon-tema"></i>
-                <h2>RapTuga</h2>
-                <i class="fas fa-fire icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/_95Vqd38i0o" title="Peel Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/urOBTEqo4RE" title="Quando a Minha Vóz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- RAPTuga -->
+<div class="categoria cat-raptuga" id="raptuga" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-microphone icon-tema"></i>
+<h2>RapTuga</h2>
+<i class="fas fa-fire icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/_95Vqd38i0o" title="Peel Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/urOBTEqo4RE" title="Quando a Minha Vóz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-        <div class="divider">
-            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
-        </div>
+<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== DEFTONES ==================== -->
-        <div class="categoria cat-deftones" id="deftones" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-water icon-tema"></i>
-                <h2>Deftones</h2>
-                <i class="fas fa-moon icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/eS8FBesGg9o" title="Diamond Eyes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/XOzs1FehYOA" title="My Own Summer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/KvknOXGPzCQ" title="Be Quiet And Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- DEFTONES -->
+<div class="categoria cat-deftones" id="deftones" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-water icon-tema"></i>
+<h2>Deftones</h2>
+<i class="fas fa-moon icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/eS8FBesGg9o" title="Diamond Eyes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/XOzs1FehYOA" title="My Own Summer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/KvknOXGPzCQ" title="Be Quiet And Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-        <div class="divider">
-            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
-        </div>
+<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== S.O.A.D ==================== -->
-        <div class="categoria cat-soad" id="soad" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-fire icon-tema"></i>
-                <h2>S.O.A.D</h2>
-                <i class="fas fa-bolt icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" title="Sugar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" title="Lonely Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- S.O.A.D -->
+<div class="categoria cat-soad" id="soad" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-fire icon-tema"></i>
+<h2>S.O.A.D</h2>
+<i class="fas fa-bolt icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" title="Sugar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" title="Lonely Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-        <div class="divider">
-            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
-        </div>
+<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== METALLICA ==================== -->
-        <div class="categoria cat-metallica" id="metallica" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-bolt icon-tema"></i>
-                <h2>METALLICA</h2>
-                <i class="fas fa-guitar icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" title="Master of Puppets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/TpohVYomw2o" title="Sad But True" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- METALLICA -->
+<div class="categoria cat-metallica" id="metallica" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-bolt icon-tema"></i>
+<h2>METALLICA</h2>
+<i class="fas fa-guitar icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" title="Master of Puppets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/TpohVYomw2o" title="Sad But True" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-        <div class="divider">
-            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
-        </div>
+<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== FOLK METAL ==================== -->
-        <div class="categoria cat-folk-metal" id="folk-metal" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-tree icon-tema"></i>
-                <h2>Folk Metal</h2>
-                <i class="fas fa-dragon icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" title="Castle Spire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/8WDhlW3u93U" title="Fear of God" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/3WdRVhgeLiE" title="Sword In The Stone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- FOLK METAL -->
+<div class="categoria cat-folk-metal" id="folk-metal" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-tree icon-tema"></i>
+<h2>Folk Metal</h2>
+<i class="fas fa-dragon icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" title="Castle Spire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/8WDhlW3u93U" title="Fear of God" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/3WdRVhgeLiE" title="Sword In The Stone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-        <div class="divider">
-            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
-        </div>
+<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
 
-        <!-- ==================== DEATH METAL ==================== -->
-        <div class="categoria cat-death-metal" id="death-metal" data-aos="fade-up">
-            <div class="titulo-com-pentagrama">
-                <i class="fas fa-skull icon-tema"></i>
-                <h2>Death Metal</h2>
-                <i class="fas fa-skull-crossbones icon-tema"></i>
-            </div>
-            <div class="videos">
-                <iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="Death Metal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/vSEmlNNFE_0" title="Pneumonoultramicroscopicsilicovolcanoconiosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                <iframe src="https://www.youtube.com/embed/hpIruHUL5Ik" title="Backyard Mortuary - Mutation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
+<!-- DEATH METAL -->
+<div class="categoria cat-death-metal" id="death-metal" data-aos="fade-up">
+<div class="titulo-com-pentagrama">
+<i class="fas fa-skull icon-tema"></i>
+<h2>Death Metal</h2>
+<i class="fas fa-skull-crossbones icon-tema"></i>
+</div>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" title="Death Metal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/vSEmlNNFE_0" title="Death Metal 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/hpIruHUL5Ik" title="Death Metal 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-    </div> <!-- .container -->
+</div>
 
-    <div class="rune">ᚠ</div>
+<div class="rune">ᚠ</div>
 
-    <footer>
-        <p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
-        <div class="social">
-            <a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-        </div>
-        <p class
+<footer>
+<p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
+<div class="social">
+<a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+<a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+</div>
+<p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
+</footer>
+
+<script>
+AOS.init({ duration: 800, easing: 'ease-out-quad' });
+
+// ===== FRASES ALEATÓRIAS =====
+const frases = [
+    { t: "I'm the one that's got to die when it's time for me to die, so let me live my life the way I want to.", a: "Jimi Hendrix" },
+    { t: "Nothing else matters.", a: "Metallica" },
+    { t: "I am the son of a bitch that you love to hate.", a: "Corey Taylor – Slipknot" },
+    { t: "I want to be the one that makes you feel alive.", a: "Chino Moreno – Deftones" },
+    { t: "Wake up! Grab a brush and put a little make-up!", a: "Serj Tankian – System of a Down" },
+    { t: "Are you ready for the truth? You can't handle the truth!", a: "Jonathan Davis – Korn" },
+    { t: "Born to lose, live to win.", a: "Lemmy Kilmister – Motörhead" },
+    { t: "The world is full of kings and queens who blind your eyes and steal your dreams.", a: "Ronnie James Dio" },
+    { t: "Peace sells, but who's buying?", a: "Dave Mustaine – Megadeth" },
+    { t: "Scream for me, long beach!", a: "Bruce Dickinson – Iron Maiden" },
+    { t: "We're just a band. We're not better than anyone. We just play music.", a: "James Hetfield – Metallica" },
+    { t: "Everything dies, baby, that's a fact.", a: "Bruce Springsteen" },
+    { t: "I'd rather be dead than cool.", a: "Kurt Cobain – Nirvana" },
+    { t: "There's no one here that's got it better than you.", a: "Eddie Vedder – Pearl Jam" },
+    { t: "The only thing I know is that I know nothing.", a: "Socrates (citado por muitos)" },
+    { t: "It's better to burn out than to fade away.", a: "Neil Young" },
+    { t: "Rage, rage against the dying of the light.", a: "Dylan Thomas" },
+    { t: "You can't kill the metal. The metal will live on.", a: "Tenacious D" },
+    { t: "I don't wanna die, I sometimes wish I'd never been born at all.", a: "Freddie Mercury – Queen" },
+    { t: "Life's a bitch, but she's my bitch.", a: "Dave Grohl – Foo Fighters" }
+];
+
+const fraseEscolhida = frases[Math.floor(Math.random() * frases.length)];
+document.getElementById('frase-texto').textContent = '“' + fraseEscolhida.t + '”';
+document.getElementById('frase-autor').textContent = '— ' + fraseEscolhida.a;
+
+// ===== API YOUTUBE DESTAQUE =====
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var playerDestaque;
+function onYouTubeIframeAPIReady() {
+    playerDestaque = new YT.Player('player-destaque', {
+        height: '281',
+        width: '500',
+        videoId: 'EETV2JNBhcc',
+        playerVars: { 'playsinline': 1, 'rel': 0, 'controls': 1, 'modestbranding': 1 },
+        events: {
+            'onReady': function(event) {
+                var container = document.getElementById('player-destaque');
+                container.addEventListener('mouseenter', function() { playerDestaque.playVideo(); });
+                container.addEventListener('mouseleave', function() { playerDestaque.pauseVideo(); });
+            }
+        }
+    });
+}
+</script>
+
+</body>
+</html>
