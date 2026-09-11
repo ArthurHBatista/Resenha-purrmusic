@@ -7,16 +7,14 @@
     <title>PURRmusic – Gore & Folk Metal</title>
 
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&family=Metal+Mania&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
         /* ========== BASE ========== */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             background-color: #000000;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -27,14 +25,11 @@
             position: relative;
             overflow-x: hidden;
         }
-        /* Fundo preto com textura sutil */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background:
                 radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.04) 0%, transparent 40%),
@@ -68,7 +63,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px 30px;
+            gap: 15px 20px;
             list-style: none;
             margin: 0;
             padding: 0 20px;
@@ -77,17 +72,13 @@
             color: #fff;
             text-decoration: none;
             font-family: 'Germania One', cursive;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
-            padding: 5px 15px;
+            padding: 5px 12px;
             transition: 0.3s;
             border-radius: 5px;
         }
-        #top-nav a:hover {
-            color: #ff3333;
-            text-shadow: 0 0 20px #ff0000;
-            background: rgba(255, 0, 0, 0.1);
-        }
+        #top-nav a:hover { color: #ff3333; text-shadow: 0 0 20px #ff0000; background: rgba(255,0,0,0.1); }
 
         /* ===== TÍTULO ===== */
         h1 {
@@ -95,11 +86,7 @@
             font-size: 50px;
             text-align: center;
             color: #ffffff;
-            text-shadow:
-                0 0 10px #ffffff,
-                0 0 30px #ff0000,
-                0 0 60px #cc0000,
-                0 0 100px #660000;
+            text-shadow: 0 0 10px #fff, 0 0 30px #ff0000, 0 0 60px #cc0000, 0 0 100px #660000;
             letter-spacing: 6px;
             border: 3px solid #ffffff;
             padding: 15px;
@@ -109,10 +96,7 @@
             font-weight: 900;
             background: linear-gradient(180deg, #1a0000 0%, #000000 100%);
             border-radius: 15px;
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.5),
-                0 0 40px rgba(255, 0, 0, 0.3),
-                inset 0 0 20px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.2);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -120,7 +104,7 @@
             flex-wrap: wrap;
         }
 
-        /* ===== PENTAGRAMA NOS TÍTULOS ===== */
+        /* ===== PENTAGRAMA ===== */
         .pentagram {
             display: inline-block;
             font-size: 2.5rem;
@@ -141,11 +125,11 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-        .titulo-com-pentagrama .pentagram {
-            font-size: 2rem;
-        }
+        .titulo-com-pentagrama .pentagram { font-size: 2rem; }
 
-        /* ===== CATEGORIAS ===== */
+        /* ============================================
+           CATEGORIAS BASE (estrutura comum)
+           ============================================ */
         .categoria {
             margin-bottom: 50px;
             padding: 25px;
@@ -158,34 +142,26 @@
                 inset 0 0 15px rgba(255, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            transition: 0.3s;
+            transition: 0.4s ease;
         }
         .categoria::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(255, 0, 0, 0.08), transparent 60%);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(255,0,0,0.08), transparent 60%);
             opacity: 0;
             transition: 0.5s;
             pointer-events: none;
         }
-        .categoria:hover::after {
-            opacity: 1;
-        }
+        .categoria:hover::after { opacity: 1; }
 
         h2 {
             font-family: 'Germania One', cursive;
             font-size: 32px;
             text-align: center;
             color: #ffffff;
-            text-shadow:
-                0 0 5px #ffffff,
-                0 0 15px #ff0000,
-                0 0 30px #cc0000,
-                0 0 60px #660000;
+            text-shadow: 0 0 5px #fff, 0 0 15px #ff0000, 0 0 30px #cc0000, 0 0 60px #660000;
             padding: 12px;
             margin: 0 0 35px 0;
             text-transform: uppercase;
@@ -194,9 +170,101 @@
             border: 2px solid #ffffff;
             border-radius: 10px;
             background: linear-gradient(90deg, #1a0000 0%, #0a0000 50%, #1a0000 100%);
-            box-shadow:
-                0 0 10px rgba(255, 255, 255, 0.4),
-                0 0 20px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(255,0,0,0.3);
+        }
+
+        /* ============================================
+           PERSONALIZAÇÃO POR ESTILO
+           ============================================ */
+
+        /* ---- NU METAL (vermelho sangue, urbano) ---- */
+        .cat-nu-metal {
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.15);
+        }
+        .cat-nu-metal h2 {
+            border-color: #ff0000;
+            color: #ff3333;
+            text-shadow: 0 0 5px #fff, 0 0 15px #ff0000, 0 0 40px #cc0000, 0 0 80px #660000;
+            background: linear-gradient(90deg, #2a0000 0%, #0a0000 50%, #2a0000 100%);
+        }
+        .cat-nu-metal .icon-tema { color: #ff0000; }
+
+        /* ---- RAPTuga (dourado/âmbar, urbano lusitano) ---- */
+        .cat-raptuga {
+            border-color: #ffaa00;
+            box-shadow: 0 0 20px rgba(255,170,0,0.5), 0 0 40px rgba(255,170,0,0.25), inset 0 0 20px rgba(255,170,0,0.12);
+        }
+        .cat-raptuga h2 {
+            border-color: #ffaa00;
+            color: #ffcc33;
+            text-shadow: 0 0 5px #fff, 0 0 15px #ffaa00, 0 0 40px #cc7700, 0 0 80px #664400;
+            background: linear-gradient(90deg, #2a1a00 0%, #0a0500 50%, #2a1a00 100%);
+        }
+        .cat-raptuga .icon-tema { color: #ffaa00; }
+
+        /* ---- DEFTONES (azul-petróleo, etéreo) ---- */
+        .cat-deftones {
+            border-color: #33aaff;
+            box-shadow: 0 0 20px rgba(51,170,255,0.5), 0 0 40px rgba(51,170,255,0.25), inset 0 0 20px rgba(51,170,255,0.12);
+        }
+        .cat-deftones h2 {
+            border-color: #33aaff;
+            color: #66ccff;
+            text-shadow: 0 0 5px #fff, 0 0 15px #33aaff, 0 0 40px #0066cc, 0 0 80px #003366;
+            background: linear-gradient(90deg, #001a2a 0%, #000a0a 50%, #001a2a 100%);
+        }
+        .cat-deftones .icon-tema { color: #33aaff; }
+
+        /* ---- S.O.A.D (laranja-fogo, caótico) ---- */
+        .cat-soad {
+            border-color: #ff6600;
+            box-shadow: 0 0 20px rgba(255,102,0,0.6), 0 0 40px rgba(255,102,0,0.3), inset 0 0 20px rgba(255,102,0,0.15);
+        }
+        .cat-soad h2 {
+            border-color: #ff6600;
+            color: #ff8833;
+            text-shadow: 0 0 5px #fff, 0 0 15px #ff6600, 0 0 40px #cc3300, 0 0 80px #661a00;
+            background: linear-gradient(90deg, #2a0f00 0%, #0a0500 50%, #2a0f00 100%);
+        }
+        .cat-soad .icon-tema { color: #ff6600; }
+
+        /* ---- METALLICA (prata/aço, clássico) ---- */
+        .cat-metallica {
+            border-color: #cccccc;
+            box-shadow: 0 0 20px rgba(204,204,204,0.5), 0 0 40px rgba(204,204,204,0.25), inset 0 0 20px rgba(204,204,204,0.12);
+        }
+        .cat-metallica h2 {
+            border-color: #cccccc;
+            color: #e6e6e6;
+            text-shadow: 0 0 5px #fff, 0 0 15px #cccccc, 0 0 40px #888888, 0 0 80px #444444;
+            background: linear-gradient(90deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+        }
+        .cat-metallica .icon-tema { color: #cccccc; }
+
+        /* ---- FOLK METAL (verde-floresta, nórdico) ---- */
+        .cat-folk-metal {
+            border-color: #66cc33;
+            box-shadow: 0 0 20px rgba(102,204,51,0.5), 0 0 40px rgba(102,204,51,0.25), inset 0 0 20px rgba(102,204,51,0.12);
+        }
+        .cat-folk-metal h2 {
+            border-color: #66cc33;
+            color: #88dd55;
+            text-shadow: 0 0 5px #fff, 0 0 15px #66cc33, 0 0 40px #338800, 0 0 80px #1a4400;
+            background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%);
+        }
+        .cat-folk-metal .icon-tema { color: #66cc33; }
+
+        /* ---- ÍCONES TEMÁTICOS (aparecem nos títulos) ---- */
+        .icon-tema {
+            font-size: 2rem;
+            transition: transform 0.6s ease, text-shadow 0.3s ease;
+            cursor: default;
+            display: inline-block;
+        }
+        .icon-tema:hover {
+            transform: rotate(360deg) scale(1.2);
+            filter: drop-shadow(0 0 15px currentColor);
         }
 
         /* ===== VÍDEOS ===== */
@@ -211,21 +279,22 @@
             height: 214px;
             border: 4px solid #ffffff;
             border-radius: 12px;
-            box-shadow:
-                0 0 10px rgba(255, 255, 255, 0.6),
-                0 0 30px rgba(255, 0, 0, 0.3),
-                0 0 60px rgba(255, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 30px rgba(255,0,0,0.3), 0 0 60px rgba(255,0,0,0.1);
             transition: 0.4s ease;
         }
         .videos iframe:hover {
             border-color: #ff0000;
-            box-shadow:
-                0 0 20px #ffffff,
-                0 0 40px #ff0000,
-                0 0 80px #660000,
-                inset 0 0 30px #ff0000;
+            box-shadow: 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #660000, inset 0 0 30px #ff0000;
             transform: scale(1.03) rotate(0.5deg);
         }
+
+        /* Cada categoria tem sua cor de hover nos vídeos */
+        .cat-nu-metal .videos iframe:hover { border-color: #ff0000; box-shadow: 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #660000; }
+        .cat-raptuga .videos iframe:hover { border-color: #ffaa00; box-shadow: 0 0 20px #fff, 0 0 40px #ffaa00, 0 0 80px #664400; }
+        .cat-deftones .videos iframe:hover { border-color: #33aaff; box-shadow: 0 0 20px #fff, 0 0 40px #33aaff, 0 0 80px #003366; }
+        .cat-soad .videos iframe:hover { border-color: #ff6600; box-shadow: 0 0 20px #fff, 0 0 40px #ff6600, 0 0 80px #661a00; }
+        .cat-metallica .videos iframe:hover { border-color: #cccccc; box-shadow: 0 0 20px #fff, 0 0 40px #cccccc, 0 0 80px #444444; }
+        .cat-folk-metal .videos iframe:hover { border-color: #66cc33; box-shadow: 0 0 20px #fff, 0 0 40px #66cc33, 0 0 80px #1a4400; }
 
         /* ===== VÍDEO DESTAQUE ===== */
         .video-destaque {
@@ -238,18 +307,12 @@
             height: 281px;
             border: 4px solid #ffffff;
             border-radius: 15px;
-            box-shadow:
-                0 0 30px rgba(255, 255, 255, 0.7),
-                0 0 80px rgba(255, 0, 0, 0.4),
-                0 0 120px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(255,255,255,0.7), 0 0 80px rgba(255,0,0,0.4), 0 0 120px rgba(255,0,0,0.2);
             transition: 0.3s;
         }
         #player-destaque:hover {
             border-color: #ff0000;
-            box-shadow:
-                0 0 20px #ffffff,
-                0 0 60px #ff0000,
-                0 0 100px #660000;
+            box-shadow: 0 0 20px #fff, 0 0 60px #ff0000, 0 0 100px #660000;
             transform: scale(1.02);
         }
 
@@ -263,22 +326,18 @@
             font-size: 2.2rem;
             margin: 10px 0 40px 0;
         }
-        .divider::before,
-        .divider::after {
+        .divider::before, .divider::after {
             content: '';
             flex: 1;
             height: 2px;
             background: linear-gradient(90deg, transparent, #aa0000, transparent);
         }
-        .divider .pentagram {
-            font-size: 2rem;
-        }
+        .divider .pentagram { font-size: 2rem; }
 
         /* ===== RUNA ===== */
         .rune {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 20px; right: 20px;
             font-size: 5rem;
             color: #882222;
             opacity: 0.15;
@@ -292,6 +351,18 @@
             100% { transform: rotate(360deg) scale(1); }
         }
 
+        /* ===== BODE ===== */
+        .bode-fixo {
+            position: fixed;
+            bottom: 20px; left: 20px;
+            z-index: 3;
+            width: 110px; height: 110px;
+            pointer-events: none;
+            filter: drop-shadow(0 0 20px #ff0000);
+            transition: transform 0.5s ease;
+        }
+        .bode-fixo svg { width: 100%; height: 100%; display: block; }
+
         /* ===== RODAPÉ ===== */
         footer {
             margin-top: 60px;
@@ -301,24 +372,10 @@
             background: linear-gradient(180deg, #000, #0a0000);
             font-family: 'Germania One', cursive;
         }
-        footer .social a {
-            color: #fff;
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
-        footer .social a:hover {
-            color: #ff0000;
-            text-shadow: 0 0 20px #ff0000;
-        }
-        footer .copy {
-            margin-top: 15px;
-            opacity: 0.6;
-            font-size: 0.9rem;
-        }
-        footer .copy i {
-            color: #aa0000;
-        }
+        footer .social a { color: #fff; font-size: 2rem; margin: 0 15px; transition: 0.3s; }
+        footer .social a:hover { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+        footer .copy { margin-top: 15px; opacity: 0.6; font-size: 0.9rem; }
+        footer .copy i { color: #aa0000; }
 
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 768px) {
@@ -326,30 +383,48 @@
             h1 { font-size: 30px; padding: 10px; gap: 10px; }
             .pentagram { font-size: 1.8rem; }
             .titulo-com-pentagrama .pentagram { font-size: 1.5rem; }
+            .icon-tema { font-size: 1.5rem; }
             h2 { font-size: 24px; }
-            .videos iframe {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16/9;
-            }
-            #player-destaque {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16/9;
-            }
+            .videos iframe { width: 100%; height: auto; aspect-ratio: 16/9; }
+            #player-destaque { width: 100%; height: auto; aspect-ratio: 16/9; }
             #top-nav ul { gap: 10px; }
             #top-nav a { font-size: 1rem; padding: 5px 10px; }
             .rune { font-size: 3rem; bottom: 10px; right: 10px; }
+            .bode-fixo { width: 70px; height: 70px; bottom: 10px; left: 10px; }
         }
 
-        ::selection {
-            background-color: #ff0000;
-            color: #ffffff;
-        }
+        ::selection { background-color: #ff0000; color: #ffffff; }
     </style>
 </head>
 
 <body>
+
+    <!-- BODE FIXO -->
+    <div class="bode-fixo">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60,60 C30,15 5,40 20,75 C35,85 55,75 60,60" fill="#cc0000" opacity="0.95"/>
+            <path d="M140,60 C170,15 195,40 180,75 C165,85 145,75 140,60" fill="#cc0000" opacity="0.95"/>
+            <ellipse cx="100" cy="120" rx="60" ry="48" fill="#cc0000" opacity="0.95"/>
+            <ellipse cx="45" cy="100" rx="18" ry="30" fill="#cc0000" opacity="0.9" transform="rotate(-30 45 100)"/>
+            <ellipse cx="155" cy="100" rx="18" ry="30" fill="#cc0000" opacity="0.9" transform="rotate(30 155 100)"/>
+            <circle cx="72" cy="115" r="8" fill="#000"/>
+            <circle cx="128" cy="115" r="8" fill="#000"/>
+            <circle cx="72" cy="115" r="3" fill="#ff1111" filter="url(#glow)"/>
+            <circle cx="128" cy="115" r="3" fill="#ff1111" filter="url(#glow)"/>
+            <ellipse cx="100" cy="140" rx="22" ry="14" fill="#aa0000"/>
+            <path d="M82,150 Q100,185 118,150" fill="#cc0000" opacity="0.8"/>
+            <polygon points="100,80 107,98 124,98 110,109 115,127 100,117 85,127 90,109 76,98 93,98"
+                     fill="none" stroke="#ffffff" stroke-width="2.8"/>
+            <polygon points="100,80 107,98 124,98 110,109 115,127 100,117 85,127 90,109 76,98 93,98"
+                     fill="none" stroke="#ff0000" stroke-width="5" opacity="0.5" filter="url(#glow)"/>
+            <defs>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+        </svg>
+    </div>
 
     <!-- Menu fixo -->
     <nav id="top-nav">
@@ -376,12 +451,12 @@
             <div id="player-destaque"></div>
         </div>
 
-        <!-- ==================== Nu Metal ==================== -->
-        <div class="categoria" id="nu-metal" data-aos="fade-up">
+        <!-- ==================== NU METAL ==================== -->
+        <div class="categoria cat-nu-metal" id="nu-metal" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-link icon-tema"></i>
                 <h2>Nu Metal</h2>
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-skull icon-tema"></i>
             </div>
             <div class="videos">
                 <iframe src="https://www.youtube.com/embed/WLubS6QOMsQ" title="Slipknot - Eyeless" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -391,19 +466,15 @@
         </div>
 
         <div class="divider">
-            <span class="pentagram">⛧</span>
-            <i class="fas fa-skull"></i>
-            <i class="fas fa-axe"></i>
-            <i class="fas fa-skull"></i>
-            <span class="pentagram">⛧</span>
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
-        <!-- ==================== RapTuga ==================== -->
-        <div class="categoria" id="raptuga" data-aos="fade-up">
+        <!-- ==================== RAPTuga ==================== -->
+        <div class="categoria cat-raptuga" id="raptuga" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-microphone icon-tema"></i>
                 <h2>RapTuga</h2>
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-fire icon-tema"></i>
             </div>
             <div class="videos">
                 <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -413,19 +484,15 @@
         </div>
 
         <div class="divider">
-            <span class="pentagram">⛧</span>
-            <i class="fas fa-skull"></i>
-            <i class="fas fa-axe"></i>
-            <i class="fas fa-skull"></i>
-            <span class="pentagram">⛧</span>
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
-        <!-- ==================== Deftones ==================== -->
-        <div class="categoria" id="deftones" data-aos="fade-up">
+        <!-- ==================== DEFTONES ==================== -->
+        <div class="categoria cat-deftones" id="deftones" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-water icon-tema"></i>
                 <h2>Deftones</h2>
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-moon icon-tema"></i>
             </div>
             <div class="videos">
                 <iframe src="https://www.youtube.com/embed/eS8FBesGg9o" title="Diamond Eyes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -435,19 +502,15 @@
         </div>
 
         <div class="divider">
-            <span class="pentagram">⛧</span>
-            <i class="fas fa-skull"></i>
-            <i class="fas fa-axe"></i>
-            <i class="fas fa-skull"></i>
-            <span class="pentagram">⛧</span>
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
         <!-- ==================== S.O.A.D ==================== -->
-        <div class="categoria" id="soad" data-aos="fade-up">
+        <div class="categoria cat-soad" id="soad" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-fire icon-tema"></i>
                 <h2>S.O.A.D</h2>
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-bolt icon-tema"></i>
             </div>
             <div class="videos">
                 <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -457,19 +520,15 @@
         </div>
 
         <div class="divider">
-            <span class="pentagram">⛧</span>
-            <i class="fas fa-skull"></i>
-            <i class="fas fa-axe"></i>
-            <i class="fas fa-skull"></i>
-            <span class="pentagram">⛧</span>
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
         <!-- ==================== METALLICA ==================== -->
-        <div class="categoria" id="metallica" data-aos="fade-up">
+        <div class="categoria cat-metallica" id="metallica" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-bolt icon-tema"></i>
                 <h2>METALLICA</h2>
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-guitar icon-tema"></i>
             </div>
             <div class="videos">
                 <iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -479,19 +538,15 @@
         </div>
 
         <div class="divider">
-            <span class="pentagram">⛧</span>
-            <i class="fas fa-skull"></i>
-            <i class="fas fa-axe"></i>
-            <i class="fas fa-skull"></i>
-            <span class="pentagram">⛧</span>
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
         <!-- ==================== FOLK METAL ==================== -->
-        <div class="categoria" id="folk-metal" data-aos="fade-up">
+        <div class="categoria cat-folk-metal" id="folk-metal" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-tree icon-tema"></i>
                 <h2>Folk Metal</h2>
-                <span class="pentagram">⛧</span>
+                <i class="fas fa-dragon icon-tema"></i>
             </div>
             <div class="videos">
                 <iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" title="Castle Spire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -535,21 +590,12 @@
                 height: '281',
                 width: '500',
                 videoId: 'EETV2JNBhcc',
-                playerVars: {
-                    'playsinline': 1,
-                    'rel': 0,
-                    'controls': 1,
-                    'modestbranding': 1
-                },
+                playerVars: { 'playsinline': 1, 'rel': 0, 'controls': 1, 'modestbranding': 1 },
                 events: {
                     'onReady': function(event) {
                         var container = document.getElementById('player-destaque');
-                        container.addEventListener('mouseenter', function() {
-                            playerDestaque.playVideo();
-                        });
-                        container.addEventListener('mouseleave', function() {
-                            playerDestaque.pauseVideo();
-                        });
+                        container.addEventListener('mouseenter', function() { playerDestaque.playVideo(); });
+                        container.addEventListener('mouseleave', function() { playerDestaque.pauseVideo(); });
                     }
                 }
             });
