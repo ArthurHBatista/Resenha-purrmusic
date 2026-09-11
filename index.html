@@ -24,37 +24,9 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            cursor: none;
         }
 
-        /* ===== CURSOR PERSONALIZADO ===== */
-        .cursor-pentagram {
-            position: fixed;
-            top: 0; left: 0;
-            width: 32px; height: 32px;
-            pointer-events: none;
-            z-index: 9999;
-            font-size: 28px;
-            color: #ff0000;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #660000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.08s ease-out, color 0.3s ease;
-            line-height: 1;
-            text-align: center;
-            will-change: transform;
-        }
-        .cursor-pentagram::before { content: '⛧'; }
-        .cursor-pentagram.hovering {
-            color: #fff;
-            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
-            transform: translate(-50%, -50%) scale(1.4) rotate(180deg);
-        }
-        @media (hover: none) {
-            body { cursor: auto; }
-            .cursor-pentagram { display: none; }
-        }
-
-        /* ===== FUNDO ===== */
+        /* Fundo preto com textura sutil */
         body::before {
             content: '';
             position: fixed;
@@ -395,22 +367,6 @@
         footer .copy { margin-top: 15px; opacity: 0.6; font-size: 0.9rem; }
         footer .copy i { color: #aa0000; }
 
-        /* ===== FAÍSCAS NO CLIQUE ===== */
-        .spark {
-            position: fixed;
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: #ff0000;
-            box-shadow: 0 0 10px #ff0000, 0 0 20px #ff3333;
-            pointer-events: none;
-            z-index: 9998;
-            animation: sparkOut 0.8s ease-out forwards;
-        }
-        @keyframes sparkOut {
-            0% { transform: translate(0,0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
-        }
-
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 768px) {
             .container { padding: 15px; }
@@ -435,9 +391,6 @@
 </head>
 
 <body>
-
-    <!-- CURSOR PERSONALIZADO -->
-    <div class="cursor-pentagram" id="cursor"></div>
 
     <!-- Menu fixo -->
     <nav id="top-nav">
@@ -581,4 +534,105 @@
             <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
         </div>
 
-        <!-- ==================== S.O.A.D =
+        <!-- ==================== S.O.A.D ==================== -->
+        <div class="categoria cat-soad" id="soad" data-aos="fade-up">
+            <div class="titulo-com-pentagrama">
+                <i class="fas fa-fire icon-tema"></i>
+                <h2>S.O.A.D</h2>
+                <i class="fas fa-bolt icon-tema"></i>
+            </div>
+            <div class="videos">
+                <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" title="Aerials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" title="Sugar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" title="Lonely Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="divider">
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
+        </div>
+
+        <!-- ==================== METALLICA ==================== -->
+        <div class="categoria cat-metallica" id="metallica" data-aos="fade-up">
+            <div class="titulo-com-pentagrama">
+                <i class="fas fa-bolt icon-tema"></i>
+                <h2>METALLICA</h2>
+                <i class="fas fa-guitar icon-tema"></i>
+            </div>
+            <div class="videos">
+                <iframe src="https://www.youtube.com/embed/CD-E-LDc384" title="Enter Sandman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" title="Master of Puppets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/TpohVYomw2o" title="Sad But True" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="divider">
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
+        </div>
+
+        <!-- ==================== FOLK METAL ==================== -->
+        <div class="categoria cat-folk-metal" id="folk-metal" data-aos="fade-up">
+            <div class="titulo-com-pentagrama">
+                <i class="fas fa-tree icon-tema"></i>
+                <h2>Folk Metal</h2>
+                <i class="fas fa-dragon icon-tema"></i>
+            </div>
+            <div class="videos">
+                <iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" title="Castle Spire" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/8WDhlW3u93U" title="Fear of God" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/3WdRVhgeLiE" title="Sword In The Stone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </div> <!-- .container -->
+
+    <!-- Runa decorativa -->
+    <div class="rune">ᚠ</div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>⚔️ The Stars – Sangue, Fúria e Metal ⚔️</p>
+        <div class="social">
+            <a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+        </div>
+        <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
+    </footer>
+
+    <!-- AOS -->
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-quad' });
+    </script>
+
+    <!-- ====== API DO YOUTUBE PARA O VÍDEO DESTAQUE ====== -->
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var playerDestaque;
+
+        function onYouTubeIframeAPIReady() {
+            playerDestaque = new YT.Player('player-destaque', {
+                height: '281',
+                width: '500',
+                videoId: 'EETV2JNBhcc',
+                playerVars: { 'playsinline': 1, 'rel': 0, 'controls': 1, 'modestbranding': 1 },
+                events: {
+                    'onReady': function(event) {
+                        var container = document.getElementById('player-destaque');
+                        container.addEventListener('mouseenter', function() { playerDestaque.playVideo(); });
+                        container.addEventListener('mouseleave', function() { playerDestaque.pauseVideo(); });
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
