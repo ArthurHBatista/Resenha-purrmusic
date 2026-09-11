@@ -24,16 +24,14 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            cursor: none; /* esconde o cursor padrão */
+            cursor: none;
         }
 
-        /* ===== CURSOR PERSONALIZADO (PENTAGRAMA) ===== */
+        /* ===== CURSOR PERSONALIZADO ===== */
         .cursor-pentagram {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 32px;
-            height: 32px;
+            top: 0; left: 0;
+            width: 32px; height: 32px;
             pointer-events: none;
             z-index: 9999;
             font-size: 28px;
@@ -45,61 +43,15 @@
             text-align: center;
             will-change: transform;
         }
-        .cursor-pentagram::before {
-            content: '⛧';
-        }
+        .cursor-pentagram::before { content: '⛧'; }
         .cursor-pentagram.hovering {
             color: #fff;
             text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
             transform: translate(-50%, -50%) scale(1.4) rotate(180deg);
         }
-        /* Para dispositivos touch, não esconde o cursor */
         @media (hover: none) {
             body { cursor: auto; }
             .cursor-pentagram { display: none; }
-        }
-
-        /* ===== LOADER DE ENTRADA ===== */
-        #loader {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #000;
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        #loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        #loader .loader-pentagram {
-            font-size: 8rem;
-            color: #ff0000;
-            text-shadow: 0 0 30px #ff0000, 0 0 60px #660000;
-            animation: loaderSpin 2s linear infinite;
-            margin-bottom: 30px;
-        }
-        @keyframes loaderSpin {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.15); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-        #loader .loader-text {
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 2rem;
-            color: #fff;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            text-shadow: 0 0 15px #ff0000;
-            animation: pulseText 1.5s ease-in-out infinite;
-        }
-        @keyframes pulseText {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; text-shadow: 0 0 25px #ff0000, 0 0 50px #660000; }
         }
 
         /* ===== FUNDO ===== */
@@ -271,22 +223,19 @@
         .cat-folk-metal h2 { border-color: #66cc33; color: #88dd55; background: linear-gradient(90deg, #0a2a00 0%, #050a00 50%, #0a2a00 100%); }
         .cat-folk-metal .icon-tema { color: #66cc33; }
 
-        /* Black Metal – roxo escuro / frio */
         .cat-black-metal { border-color: #9933ff; box-shadow: 0 0 20px rgba(153,51,255,0.5), 0 0 40px rgba(153,51,255,0.25), inset 0 0 20px rgba(153,51,255,0.12); }
         .cat-black-metal h2 { border-color: #9933ff; color: #bb66ff; background: linear-gradient(90deg, #1a0033 0%, #0a0011 50%, #1a0033 100%); }
         .cat-black-metal .icon-tema { color: #9933ff; }
 
-        /* Death Metal – verde-ácido */
         .cat-death-metal { border-color: #66ff33; box-shadow: 0 0 20px rgba(102,255,51,0.5), 0 0 40px rgba(102,255,51,0.25), inset 0 0 20px rgba(102,255,51,0.12); }
         .cat-death-metal h2 { border-color: #66ff33; color: #88ff55; background: linear-gradient(90deg, #0a2a00 0%, #041100 50%, #0a2a00 100%); }
         .cat-death-metal .icon-tema { color: #66ff33; }
 
-        /* Thrash Metal – amarelo-elétrico */
         .cat-thrash-metal { border-color: #ffdd00; box-shadow: 0 0 20px rgba(255,221,0,0.6), 0 0 40px rgba(255,221,0,0.3), inset 0 0 20px rgba(255,221,0,0.15); }
         .cat-thrash-metal h2 { border-color: #ffdd00; color: #ffee44; background: linear-gradient(90deg, #2a2200 0%, #100d00 50%, #2a2200 100%); }
         .cat-thrash-metal .icon-tema { color: #ffdd00; }
 
-        /* ===== ÍCONES TEMÁTICOS ===== */
+        /* ===== ÍCONES ===== */
         .icon-tema {
             font-size: 2rem;
             transition: transform 0.6s ease, filter 0.3s ease;
@@ -357,7 +306,7 @@
         }
         .divider .pentagram { font-size: 2rem; }
 
-        /* ===== SEÇÃO BANDAS ===== */
+        /* ===== BANDAS ===== */
         .bandas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -446,11 +395,10 @@
         footer .copy { margin-top: 15px; opacity: 0.6; font-size: 0.9rem; }
         footer .copy i { color: #aa0000; }
 
-        /* ===== PARTÍCULAS DE CLIQUE (FAÍSCAS) ===== */
+        /* ===== FAÍSCAS NO CLIQUE ===== */
         .spark {
             position: fixed;
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             border-radius: 50%;
             background: #ff0000;
             box-shadow: 0 0 10px #ff0000, 0 0 20px #ff3333;
@@ -480,8 +428,6 @@
             .banda-card { padding: 15px 10px; }
             .banda-card h3 { font-size: 1.1rem; }
             .banda-card .banda-icon { font-size: 2rem; }
-            #loader .loader-pentagram { font-size: 5rem; }
-            #loader .loader-text { font-size: 1.3rem; letter-spacing: 5px; }
         }
 
         ::selection { background-color: #ff0000; color: #ffffff; }
@@ -490,13 +436,7 @@
 
 <body>
 
-    <!-- ===== LOADER DE ENTRADA ===== -->
-    <div id="loader">
-        <div class="loader-pentagram">⛧</div>
-        <div class="loader-text">The Stars</div>
-    </div>
-
-    <!-- ===== CURSOR PERSONALIZADO ===== -->
+    <!-- CURSOR PERSONALIZADO -->
     <div class="cursor-pentagram" id="cursor"></div>
 
     <!-- Menu fixo -->
@@ -528,7 +468,7 @@
             <div id="player-destaque"></div>
         </div>
 
-        <!-- ==================== SEÇÃO BANDAS ==================== -->
+        <!-- ==================== BANDAS ==================== -->
         <div class="categoria" id="bandas" data-aos="fade-up">
             <div class="titulo-com-pentagrama">
                 <i class="fas fa-guitar icon-tema" style="color:#ff0000;"></i>
@@ -613,4 +553,32 @@
                 <i class="fas fa-fire icon-tema"></i>
             </div>
             <div class="videos">
-                <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis"
+                <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" title="Atlantis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/_95Vqd38i0o" title="Peel Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/urOBTEqo4RE" title="Quando a Minha Vóz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="divider">
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
+        </div>
+
+        <!-- ==================== DEFTONES ==================== -->
+        <div class="categoria cat-deftones" id="deftones" data-aos="fade-up">
+            <div class="titulo-com-pentagrama">
+                <i class="fas fa-water icon-tema"></i>
+                <h2>Deftones</h2>
+                <i class="fas fa-moon icon-tema"></i>
+            </div>
+            <div class="videos">
+                <iframe src="https://www.youtube.com/embed/eS8FBesGg9o" title="Diamond Eyes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/XOzs1FehYOA" title="My Own Summer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/KvknOXGPzCQ" title="Be Quiet And Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="divider">
+            <i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i>
+        </div>
+
+        <!-- ==================== S.O.A.D =
