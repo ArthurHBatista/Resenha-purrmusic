@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Stars</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Germania+One&family=Uncial+Antiqua&family=Metal+Mania&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -13,47 +13,86 @@ html{scroll-behavior:smooth}
 body{background:#000;font-family:'Gill Sans',Calibri,sans-serif;color:#fff;margin:0;padding:0;min-height:100vh;position:relative;overflow-x:hidden;transition:background .8s ease}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,0,0,.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,0,0,.04) 0%,transparent 40%),url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;opacity:.8;pointer-events:none;z-index:-2;transition:background .8s ease}
 body.modo-noite::before{background:radial-gradient(circle at 20% 30%,rgba(51,170,255,.10) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(51,170,255,.05) 0%,transparent 40%),url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat}
-body.modo-noite h1{text-shadow:0 0 10px #fff,0 0 30px #3af,0 0 60px #069,0 0 100px #036;background:linear-gradient(180deg,#001a2a 0%,#000 100%);box-shadow:0 0 20px rgba(51,170,255,.5),0 0 40px rgba(51,170,255,.3),inset 0 0 20px rgba(51,170,255,.2)}
-body.modo-noite .pentagram{color:#036;text-shadow:0 0 10px #3af,0 0 20px #069}
-body.modo-noite #top-nav{border-bottom-color:#036;box-shadow:0 0 30px #012}
-body.modo-noite #top-nav a:hover{color:#6cf;text-shadow:0 0 20px #3af;background:rgba(51,170,255,.1)}
-body.modo-noite .frase-box{border-left-color:#3af;box-shadow:0 0 20px rgba(51,170,255,.3)}
-body.modo-noite #frase-autor{color:#6cf;text-shadow:0 0 10px #3af}
-body.modo-noite .divider{color:#036}
-body.modo-noite .divider::before,body.modo-noite .divider::after{background:linear-gradient(90deg,transparent,#036,transparent)}
-body.modo-noite .rune{color:#036}
-body.modo-noite footer{border-top-color:#036}
-body.modo-noite footer .social a:hover{color:#3af;text-shadow:0 0 20px #3af}
+
+/* ===== CYBERSIGILISM – sigilos laterais ===== */
+.cyber-sigil{position:fixed;pointer-events:none;opacity:.06;z-index:0;color:#f00;font-size:8rem;animation:sigilSpin 30s linear infinite;transition:color .8s ease}
+.cyber-sigil.esq{left:-30px;top:20%}
+.cyber-sigil.dir{right:-30px;bottom:20%}
+.cyber-sigil.meio{left:50%;top:50%;transform:translate(-50%,-50%);font-size:14rem;opacity:.03;animation:sigilPulse 8s ease-in-out infinite}
+@keyframes sigilSpin{0%{transform:rotate(0) scale(1)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes sigilPulse{0%,100%{opacity:.03;transform:translate(-50%,-50%) scale(1)}50%{opacity:.08;transform:translate(-50%,-50%) scale(1.15)}}
+body.modo-noite .cyber-sigil{color:#3af}
+
+/* ===== LOGO GORE ANIMADA ===== */
+.logo-gore{position:relative;display:flex;justify-content:center;align-items:center;margin:40px auto 20px auto;flex-wrap:wrap;gap:20px;text-align:center}
+.logo-gore .titulo-logo{font-family:'Cinzel Decorative',cursive;font-size:70px;font-weight:900;letter-spacing:8px;text-transform:uppercase;color:#fff;position:relative;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600;animation:logoPulse 3s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600}50%{text-shadow:0 0 15px #fff,0 0 45px #f00,0 0 80px #f33,0 0 130px #900}}
+.logo-gore .titulo-logo::before{content:'';position:absolute;bottom:-10px;left:0;width:100%;height:6px;background:linear-gradient(90deg,transparent,#f00,#600,#f00,transparent);filter:blur(3px);animation:sanguePulsa 2s ease-in-out infinite}
+@keyframes sanguePulsa{0%,100%{opacity:.6;transform:scaleX(1)}50%{opacity:1;transform:scaleX(1.05)}}
+.logo-gore .cranio{font-size:90px;color:#f00;text-shadow:0 0 30px #f00,0 0 60px #600;animation:cranioRoda 6s ease-in-out infinite;display:inline-block}
+@keyframes cranioRoda{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.1)}}
+.logo-gore .estrela{font-size:60px;color:#fff;text-shadow:0 0 20px #f00,0 0 40px #600;animation:estrelaPulsa 2s ease-in-out infinite;display:inline-block}
+@keyframes estrelaPulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.3) rotate(72deg)}}
+.gore-gota{position:absolute;top:100%;width:6px;height:14px;background:#8b0000;border-radius:0 0 50% 50%;filter:blur(1px);animation:gotaEscorre 4s ease-in infinite}
+@keyframes gotaEscorre{0%{opacity:0;transform:translateY(0) scaleY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(80px) scaleY(2.5)}}
+
+/* ===== DIVISÓRIA CYBER ===== */
+.divider-cyber{display:flex;justify-content:center;align-items:center;gap:15px;color:#f00;font-size:1.5rem;margin:10px 0 40px 0;opacity:.7}
+.divider-cyber .sig{font-size:2rem;animation:sigilSpin 12s linear infinite;display:inline-block}
+.divider-cyber::before,.divider-cyber::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#f00,transparent)}
+
+/* ===== BOTÕES FLUTUANTES ===== */
 .botao-modo{position:fixed;top:80px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:.3s;box-shadow:0 0 15px rgba(255,0,0,.5)}
 .botao-modo:hover{transform:scale(1.1) rotate(20deg);box-shadow:0 0 25px #f00;border-color:#f00}
-body.modo-noite .botao-modo{border-color:#069;background:linear-gradient(180deg,#001a2a 0%,#000 100%);box-shadow:0 0 15px rgba(51,170,255,.5)}
+body.modo-noite .botao-modo{border-color:#069;background:linear-gradient(180deg,#001a2a 0%,#000 100%)}
 #btn-topo{position:fixed;bottom:100px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:.3s;box-shadow:0 0 15px rgba(255,0,0,.5);opacity:0;visibility:hidden;pointer-events:none}
 #btn-topo.visivel{opacity:1;visibility:visible;pointer-events:auto}
 #btn-topo:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 0 25px #f00;border-color:#f00}
-body.modo-noite #btn-topo{border-color:#069}
+.botao-ritual{position:fixed;top:140px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:.3s;box-shadow:0 0 15px rgba(255,0,0,.5)}
+.botao-ritual:hover{transform:scale(1.1);box-shadow:0 0 30px #f00;border-color:#f00;color:#f00}/* ===== RITUAL OVERLAY ===== */
+#ritual{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9998;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
+#ritual.ativo{opacity:1;visibility:visible}
+#ritual .ritual-simbolo{font-size:14rem;color:#f00;text-shadow:0 0 50px #f00,0 0 100px #900,0 0 150px #600;animation:ritualGira 8s linear infinite}
+@keyframes ritualGira{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.15)}100%{transform:rotate(360deg) scale(1)}}
+#ritual .ritual-frase{font-family:'Cinzel Decorative',cursive;font-size:1.8rem;color:#f00;letter-spacing:8px;margin-top:30px;text-align:center;animation:ritualFlicker 0.15s infinite}
+@keyframes ritualFlicker{0%,100%{opacity:1}50%{opacity:.4}}
+#ritual .ritual-fechar{margin-top:40px;padding:10px 25px;background:transparent;border:2px solid #f00;color:#fff;font-family:'Germania One',cursive;letter-spacing:3px;cursor:pointer;border-radius:8px;transition:.3s}
+#ritual .ritual-fechar:hover{background:#f00;box-shadow:0 0 25px #f00}
+
+/* ===== EASTER EGG ===== */
 #easter-egg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity .6s,visibility .6s;padding:20px;box-sizing:border-box}
 #easter-egg.ativo{opacity:1;visibility:visible}
-#easter-egg .simbolo{font-size:12rem;color:#f00;text-shadow:0 0 40px #f00,0 0 80px #900;animation:ritual 2s ease-in-out infinite}
-@keyframes ritual{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.15) rotate(180deg)}}
+#easter-egg .simbolo{font-size:12rem;color:#f00;text-shadow:0 0 40px #f00,0 0 80px #900;animation:ritualGira 2s ease-in-out infinite}
 #easter-egg .msg{font-family:'Cinzel Decorative',cursive;font-size:2rem;color:#fff;text-shadow:0 0 20px #f00;margin-top:30px;letter-spacing:6px;text-align:center;text-transform:uppercase}
 #easter-egg .sub{font-family:'Germania One',cursive;font-size:1.1rem;color:#a00;margin-top:20px;letter-spacing:3px;text-align:center}
-#easter-egg .fechar{margin-top:40px;padding:10px 25px;background:transparent;border:2px solid #f00;color:#fff;font-family:'Germania One',cursive;letter-spacing:3px;font-size:1rem;cursor:pointer;border-radius:8px}
+#easter-egg .fechar{margin-top:40px;padding:10px 25px;background:transparent;border:2px solid #f00;color:#fff;font-family:'Germania One',cursive;letter-spacing:3px;cursor:pointer;border-radius:8px}
 #easter-egg .fechar:hover{background:#f00;box-shadow:0 0 25px #f00}
+
+/* ===== CONTADOR DE VISITAS ===== */
+.contador-visitas{position:fixed;bottom:20px;left:20px;z-index:50;font-family:'Germania One',cursive;font-size:.85rem;color:#a00;letter-spacing:2px;background:rgba(0,0,0,.7);padding:6px 14px;border:1px solid #600;border-radius:20px;box-shadow:0 0 10px rgba(255,0,0,.3);transition:.8s ease;opacity:.8}
+.contador-visitas:hover{opacity:1;box-shadow:0 0 15px rgba(255,0,0,.6)}
+body.modo-noite .contador-visitas{color:#3af;border-color:#036;box-shadow:0 0 10px rgba(51,170,255,.3)}
+
 .container{max-width:1200px;margin:0 auto;padding:30px;position:relative;z-index:1}
 #top-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);border-bottom:3px solid #900;box-shadow:0 0 30px #600;padding:10px 0;margin-bottom:20px;transition:.8s ease}
 #top-nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 15px;list-style:none;margin:0;padding:0 20px}
 #top-nav a{color:#fff;text-decoration:none;font-family:'Germania One',cursive;font-size:1rem;letter-spacing:1.5px;padding:5px 12px;transition:.3s;border-radius:5px}
 #top-nav a:hover{color:#f33;text-shadow:0 0 20px #f00;background:rgba(255,0,0,.1)}
-h1{font-family:'Cinzel Decorative',cursive;font-size:50px;text-align:center;color:#fff;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600;letter-spacing:6px;border:3px solid #fff;padding:15px;text-transform:uppercase;margin-top:30px;margin-bottom:50px;font-weight:900;background:linear-gradient(180deg,#1a0000 0%,#000 100%);border-radius:15px;box-shadow:0 0 20px rgba(255,255,255,.5),0 0 40px rgba(255,0,0,.3),inset 0 0 20px rgba(255,0,0,.2);display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;transition:.8s ease}
+
 .pentagram{display:inline-block;font-size:2.5rem;color:#a00;text-shadow:0 0 10px #f00,0 0 20px #600;transition:transform .6s,text-shadow .3s;cursor:pointer;line-height:1;user-select:none}
 .pentagram:hover{transform:rotate(360deg) scale(1.2);text-shadow:0 0 30px #f00,0 0 60px #f33,0 0 100px #f00}
 .titulo-com-pentagrama{display:flex;justify-content:center;align-items:center;gap:15px;flex-wrap:wrap}
 .titulo-com-pentagrama .pentagram{font-size:2rem}
+
 .frase-box{max-width:800px;margin:0 auto 50px auto;padding:25px 30px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border-left:5px solid #f00;border-radius:12px;box-shadow:0 0 20px rgba(255,0,0,.3);text-align:center;transition:.8s}
 #frase-texto{font-family:'Uncial Antiqua',cursive;font-size:1.35rem;color:#fff;line-height:1.6;margin:0 0 12px 0;font-style:italic;text-shadow:0 0 8px rgba(255,0,0,.4)}
 #frase-autor{font-family:'Germania One',cursive;font-size:1.1rem;color:#f33;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px #f00;margin:0}
+
+/* ===== CATEGORIAS ===== */
 .categoria{margin-bottom:50px;padding:25px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border:3px solid #fff;border-radius:20px;box-shadow:0 0 15px rgba(255,255,255,.3),0 0 30px rgba(255,0,0,.2);position:relative;overflow:hidden;transition:.4s}
-h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#fff;text-shadow:0 0 5px #fff,0 0 15px #f00,0 0 30px #c00;padding:12px;margin:0 0 35px 0;text-transform:uppercase;letter-spacing:4px;font-weight:bold;border:2px solid #fff;border-radius:10px;background:linear-gradient(90deg,#1a0000 0%,#0a0000 50%,#1a0000 100%);box-shadow:0 0 10px rgba(255,255,255,.4),0 0 20px rgba(255,0,0,.3)}.cat-nu-metal{border-color:#f00;box-shadow:0 0 20px rgba(255,0,0,.6),inset 0 0 20px rgba(255,0,0,.15)}
+h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#fff;text-shadow:0 0 5px #fff,0 0 15px #f00,0 0 30px #c00;padding:12px;margin:0 0 35px 0;text-transform:uppercase;letter-spacing:4px;font-weight:bold;border:2px solid #fff;border-radius:10px;background:linear-gradient(90deg,#1a0000 0%,#0a0000 50%,#1a0000 100%);box-shadow:0 0 10px rgba(255,255,255,.4),0 0 20px rgba(255,0,0,.3)}
+
+.cat-nu-metal{border-color:#f00;box-shadow:0 0 20px rgba(255,0,0,.6),inset 0 0 20px rgba(255,0,0,.15)}
 .cat-nu-metal h2{border-color:#f00;color:#f33;background:linear-gradient(90deg,#2a0000 0%,#0a0000 50%,#2a0000 100%)}
 .cat-nu-metal .icon-tema{color:#f00}
 .cat-raptuga{border-color:#fa0;box-shadow:0 0 20px rgba(255,170,0,.5),inset 0 0 20px rgba(255,170,0,.12)}
@@ -74,37 +113,91 @@ h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#ff
 .cat-death-metal{border-color:#8b0000;box-shadow:0 0 20px rgba(139,0,0,.7),0 0 45px rgba(139,0,0,.35),inset 0 0 25px rgba(139,0,0,.2);background:linear-gradient(180deg,#150000 0%,#050000 100%)}
 .cat-death-metal h2{border-color:#8b0000;color:#c22;background:linear-gradient(90deg,#2a0000 0%,#150000 50%,#2a0000 100%)}
 .cat-death-metal .icon-tema{color:#c00}
+
 .icon-tema{font-size:2rem;transition:transform .6s,filter .3s;cursor:default;display:inline-block}
 .icon-tema:hover{transform:rotate(360deg) scale(1.2);filter:drop-shadow(0 0 15px currentColor)}
+
+/* ===== VÍDEOS COM MOLDURA ===== */
 .videos{display:flex;flex-wrap:wrap;justify-content:center;gap:35px}
-.videos iframe{width:380px;height:214px;border:4px solid #fff;border-radius:12px;box-shadow:0 0 10px rgba(255,255,255,.6),0 0 30px rgba(255,0,0,.3);transition:.4s}
-.videos iframe:hover{transform:scale(1.03) rotate(.5deg)}
-.cat-nu-metal .videos iframe:hover{border-color:#f00;box-shadow:0 0 20px #fff,0 0 40px #f00}
-.cat-raptuga .videos iframe:hover{border-color:#fa0;box-shadow:0 0 20px #fff,0 0 40px #fa0}
-.cat-deftones .videos iframe:hover{border-color:#3af;box-shadow:0 0 20px #fff,0 0 40px #3af}
-.cat-soad .videos iframe:hover{border-color:#f60;box-shadow:0 0 20px #fff,0 0 40px #f60}
-.cat-metallica .videos iframe:hover{border-color:#ccc;box-shadow:0 0 20px #fff,0 0 40px #ccc}
-.cat-folk-metal .videos iframe:hover{border-color:#6c3;box-shadow:0 0 20px #fff,0 0 40px #6c3}
-.cat-death-metal .videos iframe:hover{border-color:#8b0000;box-shadow:0 0 20px #fff,0 0 45px #c00}
+.video-card{position:relative;display:inline-block;transition:.4s ease}
+.video-card:hover{transform:scale(1.03) rotate(.5deg)}
+.video-card iframe{width:380px;height:214px;border:4px solid #fff;border-radius:12px;box-shadow:0 0 10px rgba(255,255,255,.6),0 0 30px rgba(255,0,0,.3);display:block;transition:.4s}
+.video-card .moldura{position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:16px;pointer-events:none;border:2px dashed transparent;transition:.4s}
+.cat-nu-metal .video-card:hover .moldura{border-color:#f00;box-shadow:0 0 25px rgba(255,0,0,.8)}
+.cat-raptuga .video-card:hover .moldura{border-color:#fa0;box-shadow:0 0 25px rgba(255,170,0,.8)}
+.cat-deftones .video-card:hover .moldura{border-color:#3af;box-shadow:0 0 25px rgba(51,170,255,.8)}
+.cat-soad .video-card:hover .moldura{border-color:#f60;box-shadow:0 0 25px rgba(255,102,0,.8)}
+.cat-metallica .video-card:hover .moldura{border-color:#ccc;box-shadow:0 0 25px rgba(204,204,204,.8)}
+.cat-folk-metal .video-card:hover .moldura{border-color:#6c3;box-shadow:0 0 25px rgba(102,204,51,.8)}
+.cat-death-metal .video-card:hover .moldura{border-color:#8b0000;box-shadow:0 0 25px rgba(139,0,0,.9)}
+
+/* ===== TOOLTIP ===== */
+.tooltip-info{position:absolute;top:-50px;left:50%;transform:translateX(-50%) scale(.9);background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;font-family:'Germania One',cursive;font-size:.85rem;padding:8px 14px;border:2px solid #f00;border-radius:8px;white-space:nowrap;opacity:0;visibility:hidden;transition:.3s ease;pointer-events:none;z-index:10;box-shadow:0 0 15px rgba(255,0,0,.5);letter-spacing:1px}
+.tooltip-info::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#f00}
+.video-card:hover .tooltip-info{opacity:1;visibility:visible;transform:translateX(-50%) scale(1)}
+.cat-nu-metal .tooltip-info{border-color:#f00;box-shadow:0 0 15px rgba(255,0,0,.5)}
+.cat-raptuga .tooltip-info{border-color:#fa0;box-shadow:0 0 15px rgba(255,170,0,.5)}
+.cat-raptuga .tooltip-info::after{border-top-color:#fa0}
+.cat-deftones .tooltip-info{border-color:#3af;box-shadow:0 0 15px rgba(51,170,255,.5)}
+.cat-deftones .tooltip-info::after{border-top-color:#3af}
+.cat-soad .tooltip-info{border-color:#f60;box-shadow:0 0 15px rgba(255,102,0,.5)}
+.cat-soad .tooltip-info::after{border-top-color:#f60}
+.cat-metallica .tooltip-info{border-color:#ccc;box-shadow:0 0 15px rgba(204,204,204,.5)}
+.cat-metallica .tooltip-info::after{border-top-color:#ccc}
+.cat-folk-metal .tooltip-info{border-color:#6c3;box-shadow:0 0 15px rgba(102,204,51,.5)}
+.cat-folk-metal .tooltip-info::after{border-top-color:#6c3}
+.cat-death-metal .tooltip-info{border-color:#8b0000;box-shadow:0 0 15px rgba(139,0,0,.6)}
+.cat-death-metal .tooltip-info::after{border-top-color:#8b0000}
+
+/* ===== BOTÃO CURTIR ===== */
+.btn-curtir{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.85);color:#fff;border:2px solid #900;border-radius:20px;padding:6px 14px;font-family:'Germania One',cursive;font-size:.9rem;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.3s;z-index:5;letter-spacing:1px}
+.btn-curtir:hover{background:#f00;border-color:#f00;box-shadow:0 0 20px #f00;transform:scale(1.1)}
+.btn-curtir.curtido{background:#f00;border-color:#f00;box-shadow:0 0 20px #f00}
+.btn-curtir i{transition:.3s}
+.btn-curtir.curtido i{color:#fff;animation:coracaoPulsa .6s ease-in-out}
+@keyframes coracaoPulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
+.btn-curtir .contador{font-weight:bold}
+
 .video-destaque{display:flex;justify-content:center;margin-bottom:50px}
 #player-destaque{width:500px;height:281px;border:4px solid #fff;border-radius:15px;box-shadow:0 0 30px rgba(255,255,255,.7),0 0 80px rgba(255,0,0,.4);transition:.3s}
 #player-destaque:hover{border-color:#f00;transform:scale(1.02)}
+
 .divider{display:flex;justify-content:center;align-items:center;gap:20px;color:#a00;font-size:2.2rem;margin:10px 0 40px 0}
 .divider::before,.divider::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,transparent,#a00,transparent)}
-.rune{position:fixed;bottom:20px;right:20px;font-size:5rem;color:#822;opacity:.15;animation:spinRune 20s linear infinite;pointer-events:none;z-index:2;transition:color .8s}
-@keyframes spinRune{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+.rune{position:fixed;bottom:20px;right:20px;font-size:5rem;color:#822;opacity:.15;animation:sigilSpin 20s linear infinite;pointer-events:none;z-index:2;transition:color .8s}
+
 footer{margin-top:60px;padding:30px 0;border-top:3px solid #900;text-align:center;background:linear-gradient(180deg,#000,#0a0000);font-family:'Germania One',cursive;transition:.8s}
 footer .social a{color:#fff;font-size:2rem;margin:0 15px;transition:.3s;display:inline-block}
 footer .social a:hover{color:#f00;text-shadow:0 0 20px #f00;transform:scale(1.2)}
 footer .social a.instagram:hover{color:#f39;text-shadow:0 0 20px #f39}
 footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
-@media (max-width:768px){.container{padding:15px}h1{font-size:30px;padding:10px}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo{width:42px;height:42px;top:70px;right:10px}#btn-topo{width:42px;height:42px;bottom:80px;right:10px}}
+
+@media (max-width:768px){.container{padding:15px}.logo-gore .titulo-logo{font-size:40px;letter-spacing:4px}.logo-gore .cranio{font-size:55px}.logo-gore .estrela{font-size:35px}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos{flex-direction:column;align-items:center}.video-card iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo,.botao-ritual,#btn-topo{width:42px;height:42px;top:70px;right:10px}.botao-ritual{top:120px}#btn-topo{bottom:80px}.cyber-sigil{font-size:4rem}.contador-visitas{font-size:.75rem;padding:4px 10px;bottom:10px;left:10px}}
 ::selection{background:#f00;color:#fff}
 </style>
 </head>
-<body><button class="botao-modo" id="botao-modo" title="Alternar modo">🌙</button>
+<body><!-- SIGILOS CYBER DE FUNDO -->
+<div class="cyber-sigil esq">⛧</div>
+<div class="cyber-sigil dir">ᛟ</div>
+<div class="cyber-sigil meio">ᚦ</div>
+
+<!-- CONTADOR DE VISITAS -->
+<div class="contador-visitas" id="contador-visitas">👁 Carregando...</div>
+
+<!-- BOTÕES FLUTUANTES -->
+<button class="botao-modo" id="botao-modo" title="Modo Noite/Blood">🌙</button>
+<button class="botao-ritual" id="botao-ritual" title="Modo Ritual">⛧</button>
 <button id="btn-topo" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
 
+<!-- RITUAL OVERLAY -->
+<div id="ritual">
+<div class="ritual-simbolo">⛧</div>
+<div class="ritual-frase">O RITUAL COMEÇOU</div>
+<button class="ritual-fechar" onclick="fecharRitual()">ENCERRAR</button>
+</div>
+
+<!-- EASTER EGG -->
 <div id="easter-egg">
 <div class="simbolo">⛧</div>
 <div class="msg">Você invocou o ritual</div>
@@ -126,7 +219,17 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 
 <div class="container">
 
-<h1><span class="pentagram" data-egg="1">⛧</span> The Stars <span class="pentagram" data-egg="1">⛧</span></h1>
+<!-- LOGO GORE ANIMADA -->
+<div class="logo-gore">
+<span class="cranio">💀</span>
+<h1 class="titulo-logo">The Stars</h1>
+<span class="estrela">✦</span>
+<span class="cranio">💀</span>
+<div class="gore-gota" style="left:20%"></div>
+<div class="gore-gota" style="left:35%;animation-delay:1s"></div>
+<div class="gore-gota" style="left:65%;animation-delay:2s"></div>
+<div class="gore-gota" style="left:80%;animation-delay:3s"></div>
+</div>
 
 <div class="frase-box">
 <p id="frase-texto">Carregando...</p>
@@ -135,82 +238,196 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 
 <div class="video-destaque"><div id="player-destaque"></div></div>
 
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
+
+<!-- NU METAL -->
 <div class="categoria cat-nu-metal" id="nu-metal" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-link icon-tema"></i><h2>Nu Metal</h2><i class="fas fa-skull icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Slipknot – Eyeless (1999)</span>
 <iframe src="https://www.youtube.com/embed/WLubS6QOMsQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="WLubS6QOMsQ"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Limp Bizkit – Rollin' (2000)</span>
 <iframe src="https://www.youtube.com/embed/m9NEjUb_Ag0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="m9NEjUb_Ag0"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Korn – Twist (1996)</span>
 <iframe src="https://www.youtube.com/embed/nRz-yw-wp34" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="nRz-yw-wp34"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
 
+<!-- RAPTuga -->
 <div class="categoria cat-raptuga" id="raptuga" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-microphone icon-tema"></i><h2>RapTuga</h2><i class="fas fa-fire icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Atlantis – RapTuga</span>
 <iframe src="https://www.youtube.com/embed/J9VlkMxl6wk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="J9VlkMxl6wk"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Peel Me – RapTuga</span>
 <iframe src="https://www.youtube.com/embed/_95Vqd38i0o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="_95Vqd38i0o"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Quando a Minha Vóz – RapTuga</span>
 <iframe src="https://www.youtube.com/embed/urOBTEqo4RE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="urOBTEqo4RE"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
 
+<!-- DEFTONES -->
 <div class="categoria cat-deftones" id="deftones" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-water icon-tema"></i><h2>Deftones</h2><i class="fas fa-moon icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Diamond Eyes (2010)</span>
 <iframe src="https://www.youtube.com/embed/eS8FBesGg9o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="eS8FBesGg9o"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">My Own Summer (1997)</span>
 <iframe src="https://www.youtube.com/embed/XOzs1FehYOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="XOzs1FehYOA"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Be Quiet And Drive (1997)</span>
 <iframe src="https://www.youtube.com/embed/KvknOXGPzCQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="KvknOXGPzCQ"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
 
+<!-- S.O.A.D -->
 <div class="categoria cat-soad" id="soad" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-fire icon-tema"></i><h2>S.O.A.D</h2><i class="fas fa-bolt icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Aerials (2002)</span>
 <iframe src="https://www.youtube.com/embed/L-iepu3EtyE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="L-iepu3EtyE"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Sugar (1998)</span>
 <iframe src="https://www.youtube.com/embed/0zW_Dt-SFR8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="0zW_Dt-SFR8"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Lonely Day (2005)</span>
 <iframe src="https://www.youtube.com/embed/DnGdoEa1tPg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="DnGdoEa1tPg"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
 
+<!-- METALLICA -->
 <div class="categoria cat-metallica" id="metallica" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-bolt icon-tema"></i><h2>METALLICA</h2><i class="fas fa-guitar icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Enter Sandman (1991)</span>
 <iframe src="https://www.youtube.com/embed/CD-E-LDc384" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="CD-E-LDc384"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Master of Puppets (1986)</span>
 <iframe src="https://www.youtube.com/embed/E0ozmU9cJDg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="E0ozmU9cJDg"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Sad But True (1991)</span>
 <iframe src="https://www.youtube.com/embed/TpohVYomw2o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="TpohVYomw2o"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
 
+<!-- FOLK METAL -->
 <div class="categoria cat-folk-metal" id="folk-metal" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-tree icon-tema"></i><h2>Folk Metal</h2><i class="fas fa-dragon icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Castle Spire – Folk Metal</span>
 <iframe src="https://www.youtube.com/embed/S2Hw8yYAq98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="S2Hw8yYAq98"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Fear of God – Folk Metal</span>
 <iframe src="https://www.youtube.com/embed/8WDhlW3u93U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="8WDhlW3u93U"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Sword In The Stone – Folk Metal</span>
 <iframe src="https://www.youtube.com/embed/3WdRVhgeLiE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="3WdRVhgeLiE"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-<div class="divider"><i class="fas fa-skull"></i><i class="fas fa-axe"></i><i class="fas fa-skull"></i></div>
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
 
+<!-- DEATH METAL -->
 <div class="categoria cat-death-metal" id="death-metal" data-aos="fade-up">
 <div class="titulo-com-pentagrama"><i class="fas fa-skull icon-tema"></i><h2>Death Metal</h2><i class="fas fa-skull-crossbones icon-tema"></i></div>
 <div class="videos">
+<div class="video-card">
+<span class="tooltip-info">Death Metal I</span>
 <iframe src="https://www.youtube.com/embed/xlX7NwTq9Zo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="xlX7NwTq9Zo"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Death Metal II</span>
 <iframe src="https://www.youtube.com/embed/vSEmlNNFE_0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="vSEmlNNFE_0"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
+<div class="video-card">
+<span class="tooltip-info">Death Metal III</span>
 <iframe src="https://www.youtube.com/embed/hpIruHUL5Ik" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+<div class="moldura"></div>
+<button class="btn-curtir" data-id="hpIruHUL5Ik"><i class="fas fa-heart"></i> <span class="contador">0</span></button>
+</div>
 </div>
 </div>
 
-</div>
+</div><!-- container -->
 
 <div class="rune">ᚠ</div>
 
@@ -222,12 +439,10 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
 </div>
 <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
-</footer>
-
-<script>
+</footer><script>
 AOS.init({ duration: 800, easing: 'ease-out-quad' });
 
-// Frases aleatórias
+// ===== FRASES ALEATÓRIAS =====
 const frases = [
     { t: "Nothing else matters.", a: "Metallica" },
     { t: "I am the son of a bitch that you love to hate.", a: "Corey Taylor – Slipknot" },
@@ -246,7 +461,7 @@ const f = frases[Math.floor(Math.random()*frases.length)];
 document.getElementById('frase-texto').textContent = '“' + f.t + '”';
 document.getElementById('frase-autor').textContent = '— ' + f.a;
 
-// Modo Noite/Blood (salva preferência)
+// ===== MODO NOITE/BLOOD =====
 const btnModo = document.getElementById('botao-modo');
 const modoSalvo = localStorage.getItem('modo');
 if (modoSalvo === 'noite') { document.body.classList.add('modo-noite'); btnModo.textContent = '🩸'; }
@@ -257,17 +472,30 @@ btnModo.addEventListener('click', function(){
     localStorage.setItem('modo', noite ? 'noite' : 'blood');
 });
 
-// Botão Voltar ao Topo
-const btnTopo = document.getElementById('btn-topo');
-window.addEventListener('scroll', function(){
-    if (window.scrollY > 400) { btnTopo.classList.add('visivel'); }
-    else { btnTopo.classList.remove('visivel'); }
+// ===== MODO RITUAL =====
+const btnRitual = document.getElementById('botao-ritual');
+const ritual = document.getElementById('ritual');
+btnRitual.addEventListener('click', function(){
+    ritual.classList.add('ativo');
+    // Som ritual (usa AudioContext pra não precisar de arquivo)
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(80, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 2);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 2);
+    } catch(e) {}
 });
-btnTopo.addEventListener('click', function(){
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+function fecharRitual(){ ritual.classList.remove('ativo'); }
 
-// Easter Egg – clica 5x no pentagrama
+// ===== EASTER EGG (5 cliques no pentagrama) =====
 let cliquesEgg = 0;
 document.querySelectorAll('.pentagram[data-egg="1"]').forEach(function(p){
     p.addEventListener('click', function(){
@@ -279,11 +507,67 @@ document.querySelectorAll('.pentagram[data-egg="1"]').forEach(function(p){
         setTimeout(function(){ cliquesEgg = 0; }, 3000);
     });
 });
-function fecharEasterEgg(){
-    document.getElementById('easter-egg').classList.remove('ativo');
-}
+function fecharEasterEgg(){ document.getElementById('easter-egg').classList.remove('ativo'); }
 
-// API YouTube destaque
+// ===== BOTÃO VOLTAR AO TOPO =====
+const btnTopo = document.getElementById('btn-topo');
+window.addEventListener('scroll', function(){
+    if (window.scrollY > 400) { btnTopo.classList.add('visivel'); }
+    else { btnTopo.classList.remove('visivel'); }
+});
+btnTopo.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== SISTEMA DE CURTIR =====
+document.querySelectorAll('.btn-curtir').forEach(function(btn){
+    const id = btn.getAttribute('data-id');
+    const contador = btn.querySelector('.contador');
+    // Carrega estado
+    const curtidas = parseInt(localStorage.getItem('curtida_' + id) || '0');
+    const total = parseInt(localStorage.getItem('total_' + id) || '0');
+    if (curtidas === 1) {
+        btn.classList.add('curtido');
+        contador.textContent = total || 1;
+    } else {
+        contador.textContent = total || 0;
+    }
+    // Ao clicar
+    btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        const estaCurtido = btn.classList.contains('curtido');
+        let totalAtual = parseInt(localStorage.getItem('total_' + id) || '0');
+        if (estaCurtido) {
+            btn.classList.remove('curtido');
+            localStorage.setItem('curtida_' + id, '0');
+            totalAtual = Math.max(0, totalAtual - 1);
+            localStorage.setItem('total_' + id, totalAtual);
+            contador.textContent = totalAtual;
+        } else {
+            btn.classList.add('curtido');
+            localStorage.setItem('curtida_' + id, '1');
+            totalAtual++;
+            localStorage.setItem('total_' + id, totalAtual);
+            contador.textContent = totalAtual;
+        }
+    });
+});
+
+// ===== CONTADOR DE VISITAS (discreto) =====
+const contadorVisitas = document.getElementById('contador-visitas');
+let visitas = parseInt(localStorage.getItem('visitas_total') || '0');
+// Última visita
+const ultimaVisita = localStorage.getItem('ultima_visita');
+const hoje = new Date().toDateString();
+if (ultimaVisita !== hoje) {
+    visitas++;
+    localStorage.setItem('visitas_total', visitas);
+    localStorage.setItem('ultima_visita', hoje);
+}
+const textoVisitas = visitas === 1 ? '👁 1 alma visitou' : '👁 ' + visitas + ' almas visitaram';
+contadorVisitas.textContent = textoVisitas;
+
+// ===== API YOUTUBE DESTAQUE =====
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
