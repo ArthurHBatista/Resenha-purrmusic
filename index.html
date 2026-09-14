@@ -20,17 +20,10 @@ body.modo-noite::before{background:radial-gradient(circle at 20% 30%,rgba(51,170
 @keyframes sigilSpin{0%{transform:rotate(0) scale(1)}100%{transform:rotate(360deg) scale(1)}}
 @keyframes sigilPulse{0%,100%{opacity:.03;transform:translate(-50%,-50%) scale(1)}50%{opacity:.08;transform:translate(-50%,-50%) scale(1.15)}}
 body.modo-noite .cyber-sigil{color:#3af}
-.logo-gore{position:relative;display:flex;justify-content:center;align-items:center;margin:40px auto 20px auto;flex-wrap:wrap;gap:20px;text-align:center}
-.logo-gore .titulo-logo{font-family:'Cinzel Decorative',cursive;font-size:70px;font-weight:900;letter-spacing:8px;text-transform:uppercase;color:#fff;position:relative;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600;animation:logoPulse 3s ease-in-out infinite}
-@keyframes logoPulse{0%,100%{text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00,0 0 100px #600}50%{text-shadow:0 0 15px #fff,0 0 45px #f00,0 0 80px #f33,0 0 130px #900}}
-.logo-gore .titulo-logo::before{content:'';position:absolute;bottom:-10px;left:0;width:100%;height:6px;background:linear-gradient(90deg,transparent,#f00,#600,#f00,transparent);filter:blur(3px);animation:sanguePulsa 2s ease-in-out infinite}
-@keyframes sanguePulsa{0%,100%{opacity:.6;transform:scaleX(1)}50%{opacity:1;transform:scaleX(1.05)}}
-.logo-gore .cranio{font-size:90px;color:#f00;text-shadow:0 0 30px #f00,0 0 60px #600;animation:cranioRoda 6s ease-in-out infinite;display:inline-block}
-@keyframes cranioRoda{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.1)}}
-.logo-gore .estrela{font-size:60px;color:#fff;text-shadow:0 0 20px #f00,0 0 40px #600;animation:estrelaPulsa 2s ease-in-out infinite;display:inline-block}
-@keyframes estrelaPulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.3) rotate(72deg)}}
-.gore-gota{position:absolute;top:100%;width:6px;height:14px;background:#8b0000;border-radius:0 0 50% 50%;filter:blur(1px);animation:gotaEscorre 4s ease-in infinite}
-@keyframes gotaEscorre{0%{opacity:0;transform:translateY(0) scaleY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(80px) scaleY(2.5)}}
+.titulo-simples{font-family:'Cinzel Decorative',cursive;font-size:60px;font-weight:900;letter-spacing:8px;text-transform:uppercase;color:#fff;text-align:center;margin:40px auto 30px auto;text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00;animation:logoPulse 3s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{text-shadow:0 0 10px #fff,0 0 30px #f00,0 0 60px #c00}50%{text-shadow:0 0 15px #fff,0 0 45px #f00,0 0 80px #f33}}
+body.modo-noite .titulo-simples{text-shadow:0 0 10px #fff,0 0 30px #3af,0 0 60px #069;animation:logoPulseAzul 3s ease-in-out infinite}
+@keyframes logoPulseAzul{0%,100%{text-shadow:0 0 10px #fff,0 0 30px #3af,0 0 60px #069}50%{text-shadow:0 0 15px #fff,0 0 45px #3af,0 0 80px #036}}
 .divider-cyber{display:flex;justify-content:center;align-items:center;gap:15px;color:#f00;font-size:1.5rem;margin:10px 0 40px 0;opacity:.7}
 .divider-cyber .sig{font-size:2rem;animation:sigilSpin 12s linear infinite;display:inline-block}
 .divider-cyber::before,.divider-cyber::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#f00,transparent)}
@@ -41,7 +34,9 @@ body.modo-noite .botao-modo{border-color:#069;background:linear-gradient(180deg,
 #btn-topo.visivel{opacity:1;visibility:visible;pointer-events:auto}
 #btn-topo:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 0 25px #f00;border-color:#f00}
 .botao-ritual{position:fixed;top:140px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:.3s;box-shadow:0 0 15px rgba(255,0,0,.5)}
-.botao-ritual:hover{transform:scale(1.1);box-shadow:0 0 30px #f00;border-color:#f00;color:#f00}#ritual{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9998;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
+.botao-ritual:hover{transform:scale(1.1);box-shadow:0 0 30px #f00;border-color:#f00;color:#f00}
+.botao-aleatorio{position:fixed;top:200px;right:20px;z-index:101;background:linear-gradient(180deg,#1a0000 0%,#000 100%);color:#fff;border:2px solid #900;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:.3s;box-shadow:0 0 15px rgba(255,0,0,.5)}
+.botao-aleatorio:hover{transform:scale(1.15) rotate(20deg);box-shadow:0 0 30px #f00;border-color:#f00}#ritual{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9998;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
 #ritual.ativo{opacity:1;visibility:visible}
 #ritual .ritual-simbolo{font-size:14rem;color:#f00;text-shadow:0 0 50px #f00,0 0 100px #900,0 0 150px #600;animation:ritualGira 8s linear infinite}
 @keyframes ritualGira{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.15)}100%{transform:rotate(360deg) scale(1)}}
@@ -69,8 +64,8 @@ body.modo-noite .contador-visitas{color:#3af;border-color:#036;box-shadow:0 0 10
 .titulo-com-pentagrama{display:flex;justify-content:center;align-items:center;gap:15px;flex-wrap:wrap}
 .titulo-com-pentagrama .pentagram{font-size:2rem}
 .frase-box{max-width:800px;margin:0 auto 50px auto;padding:25px 30px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border-left:5px solid #f00;border-radius:12px;box-shadow:0 0 20px rgba(255,0,0,.3);text-align:center;transition:.8s}
-#frase-texto{font-family:'Uncial Antiqua',cursive;font-size:1.35rem;color:#fff;line-height:1.6;margin:0 0 12px 0;font-style:italic;text-shadow:0 0 8px rgba(255,0,0,.4)}
-#frase-autor{font-family:'Germania One',cursive;font-size:1.1rem;color:#f33;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px #f00;margin:0}
+#frase-texto{font-family:'Uncial Antiqua',cursive;font-size:1.35rem;color:#fff;line-height:1.6;margin:0 0 12px 0;font-style:italic;transition:color .8s ease,text-shadow .8s ease}
+#frase-autor{font-family:'Germania One',cursive;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;margin:0;transition:color .8s ease,text-shadow .8s ease}
 .categoria{margin-bottom:50px;padding:25px;background:linear-gradient(180deg,#0a0000 0%,#000 100%);border:3px solid #fff;border-radius:20px;box-shadow:0 0 15px rgba(255,255,255,.3),0 0 30px rgba(255,0,0,.2);position:relative;overflow:hidden;transition:.4s}
 h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#fff;text-shadow:0 0 5px #fff,0 0 15px #f00,0 0 30px #c00;padding:12px;margin:0 0 35px 0;text-transform:uppercase;letter-spacing:4px;font-weight:bold;border:2px solid #fff;border-radius:10px;background:linear-gradient(90deg,#1a0000 0%,#0a0000 50%,#1a0000 100%);box-shadow:0 0 10px rgba(255,255,255,.4),0 0 20px rgba(255,0,0,.3)}
 .cat-nu-metal{border-color:#f00;box-shadow:0 0 20px rgba(255,0,0,.6),inset 0 0 20px rgba(255,0,0,.15)}
@@ -128,7 +123,7 @@ footer .social a:hover{color:#f00;text-shadow:0 0 20px #f00;transform:scale(1.2)
 footer .social a.instagram:hover{color:#f39;text-shadow:0 0 20px #f39}
 footer .social a.tiktok:hover{color:#25f4ee;text-shadow:0 0 20px #25f4ee,0 0 40px #fe2c55}
 footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
-@media (max-width:768px){.container{padding:15px}.logo-gore .titulo-logo{font-size:40px;letter-spacing:4px}.logo-gore .cranio{font-size:55px}.logo-gore .estrela{font-size:35px}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos{flex-direction:column;align-items:center}.video-card iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo,.botao-ritual,#btn-topo{width:42px;height:42px;top:70px;right:10px}.botao-ritual{top:120px}#btn-topo{bottom:80px}.cyber-sigil{font-size:4rem}.contador-visitas{font-size:.75rem;padding:4px 10px;bottom:10px;left:10px}}
+@media (max-width:768px){.container{padding:15px}.titulo-simples{font-size:34px;letter-spacing:4px;margin:25px auto 20px auto}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos{flex-direction:column;align-items:center}.video-card iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo,.botao-ritual,.botao-aleatorio,#btn-topo{width:42px;height:42px;top:70px;right:10px}.botao-ritual{top:120px}.botao-aleatorio{top:170px}#btn-topo{bottom:80px}.cyber-sigil{font-size:4rem}.contador-visitas{font-size:.75rem;padding:4px 10px;bottom:10px;left:10px}}
 ::selection{background:#f00;color:#fff}
 </style>
 </head>
@@ -140,6 +135,7 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 
 <button class="botao-modo" id="botao-modo" title="Modo Noite/Blood">🌙</button>
 <button class="botao-ritual" id="botao-ritual" title="Modo Ritual">⛧</button>
+<button class="botao-aleatorio" id="botao-aleatorio" title="Vídeo aleatório">🎲</button>
 <button id="btn-topo" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
 
 <div id="ritual">
@@ -169,16 +165,7 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 
 <div class="container">
 
-<div class="logo-gore">
-<span class="cranio">💀</span>
-<h1 class="titulo-logo">The Stars</h1>
-<span class="estrela">✦</span>
-<span class="cranio">💀</span>
-<div class="gore-gota" style="left:20%"></div>
-<div class="gore-gota" style="left:35%;animation-delay:1s"></div>
-<div class="gore-gota" style="left:65%;animation-delay:2s"></div>
-<div class="gore-gota" style="left:80%;animation-delay:3s"></div>
-</div>
+<h1 class="titulo-simples">The Stars</h1>
 
 <div class="frase-box">
 <p id="frase-texto">Carregando...</p>
@@ -280,7 +267,7 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 </footer><script>
 AOS.init({ duration: 800, easing: 'ease-out-quad' });
 
-// ===== FRASES ALEATÓRIAS =====
+// ===== FRASES ALEATÓRIAS COM CORES ALEATÓRIAS =====
 const frases = [
     { t: "Nothing else matters.", a: "Metallica" },
     { t: "I am the son of a bitch that you love to hate.", a: "Corey Taylor – Slipknot" },
@@ -295,9 +282,28 @@ const frases = [
     { t: "I'm the one that's got to die when it's time for me to die, so let me live my life the way I want to.", a: "Jimi Hendrix" },
     { t: "I'd rather be dead than cool.", a: "Kurt Cobain – Nirvana" }
 ];
+
+const cores = ['#ff3333','#33aaff','#ff6600','#66cc33','#9933ff','#ffdd00','#ff3399','#25f4ee','#cccccc','#ff8833'];
+
 const f = frases[Math.floor(Math.random()*frases.length)];
-document.getElementById('frase-texto').textContent = '“' + f.t + '”';
-document.getElementById('frase-autor').textContent = '— ' + f.a;
+const corTexto = cores[Math.floor(Math.random()*cores.length)];
+const corAutor = cores[Math.floor(Math.random()*cores.length)];
+
+const elTexto = document.getElementById('frase-texto');
+const elAutor = document.getElementById('frase-autor');
+
+elTexto.textContent = '“' + f.t + '”';
+elAutor.textContent = '— ' + f.a;
+
+elTexto.style.color = corTexto;
+elTexto.style.textShadow = '0 0 10px ' + corTexto + ', 0 0 20px ' + corTexto + '66';
+elAutor.style.color = corAutor;
+elAutor.style.textShadow = '0 0 10px ' + corAutor;
+
+// Ajusta a borda esquerda e o glow da frase-box na cor sorteada
+const fraseBox = document.querySelector('.frase-box');
+fraseBox.style.borderLeftColor = corTexto;
+fraseBox.style.boxShadow = '0 0 20px ' + corTexto + '55, inset 0 0 15px ' + corTexto + '22';
 
 // ===== MODO NOITE/BLOOD =====
 const btnModo = document.getElementById('botao-modo');
@@ -332,9 +338,9 @@ btnRitual.addEventListener('click', function(){
 });
 function fecharRitual(){ ritual.classList.remove('ativo'); }
 
-// ===== EASTER EGG (5 cliques) =====
+// ===== EASTER EGG (5 cliques no pentagrama) =====
 let cliquesEgg = 0;
-document.querySelectorAll('.pentagram[data-egg="1"]').forEach(function(p){
+document.querySelectorAll('.pentagram').forEach(function(p){
     p.addEventListener('click', function(){
         cliquesEgg++;
         if (cliquesEgg >= 5) {
@@ -354,6 +360,22 @@ window.addEventListener('scroll', function(){
 });
 btnTopo.addEventListener('click', function(){
     window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== BOTÃO ALEATÓRIO =====
+const btnAleatorio = document.getElementById('botao-aleatorio');
+btnAleatorio.addEventListener('click', function(){
+    const cards = document.querySelectorAll('.video-card');
+    if (cards.length === 0) return;
+    const sorteado = cards[Math.floor(Math.random() * cards.length)];
+    sorteado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    sorteado.style.transition = 'box-shadow .3s, transform .3s';
+    sorteado.style.boxShadow = '0 0 40px #f00, 0 0 80px #f33';
+    sorteado.style.transform = 'scale(1.05)';
+    setTimeout(function(){
+        sorteado.style.boxShadow = '';
+        sorteado.style.transform = '';
+    }, 2000);
 });
 
 // ===== SISTEMA DE CURTIR =====
