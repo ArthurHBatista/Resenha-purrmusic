@@ -89,6 +89,14 @@ h2{font-family:'Germania One',cursive;font-size:32px;text-align:center;color:#ff
 .cat-death-metal{border-color:#8b0000;box-shadow:0 0 20px rgba(139,0,0,.7),0 0 45px rgba(139,0,0,.35),inset 0 0 25px rgba(139,0,0,.2);background:linear-gradient(180deg,#150000 0%,#050000 100%)}
 .cat-death-metal h2{border-color:#8b0000;color:#c22;background:linear-gradient(90deg,#2a0000 0%,#150000 50%,#2a0000 100%)}
 .cat-death-metal .icon-tema{color:#c00}
+.cat-gabriel-pensador{border-color:#daa520;box-shadow:0 0 20px rgba(218,165,32,.6),0 0 45px rgba(218,165,32,.3),inset 0 0 25px rgba(218,165,32,.15);background:linear-gradient(180deg,#1a1200 0%,#050300 100%)}
+.cat-gabriel-pensador h2{border-color:#daa520;color:#ffd700;background:linear-gradient(90deg,#2a1f00 0%,#150f00 50%,#2a1f00 100%);text-shadow:0 0 8px #ffd700,0 0 20px #daa520,0 0 40px #8b6914}
+.cat-gabriel-pensador .icon-tema{color:#ffd700;text-shadow:0 0 15px #daa520}
+.cat-gabriel-pensador .videos iframe{box-shadow:0 0 10px rgba(255,255,255,.6),0 0 30px rgba(218,165,32,.4),0 0 60px rgba(139,105,20,.2)}
+.cat-gabriel-pensador .videos iframe:hover{border-color:#daa520;box-shadow:0 0 20px #fff,0 0 45px #ffd700,0 0 90px #daa520,inset 0 0 30px #8b6914}
+.cat-gabriel-pensador .video-card:hover .moldura{border-color:#daa520;box-shadow:0 0 25px rgba(218,165,32,.9)}
+.cat-gabriel-pensador .tooltip-info{border-color:#daa520;box-shadow:0 0 15px rgba(218,165,32,.6);color:#ffd700}
+.cat-gabriel-pensador .tooltip-info::after{border-top-color:#daa520}
 .icon-tema{font-size:2rem;transition:transform .6s,filter .3s;cursor:default;display:inline-block}
 .icon-tema:hover{transform:rotate(360deg) scale(1.2);filter:drop-shadow(0 0 15px currentColor)}
 .videos{display:flex;flex-wrap:wrap;justify-content:center;gap:35px}
@@ -122,6 +130,7 @@ footer .social a{color:#fff;font-size:2rem;margin:0 15px;transition:.3s;display:
 footer .social a:hover{color:#f00;text-shadow:0 0 20px #f00;transform:scale(1.2)}
 footer .social a.instagram:hover{color:#f39;text-shadow:0 0 20px #f39}
 footer .social a.tiktok:hover{color:#25f4ee;text-shadow:0 0 20px #25f4ee,0 0 40px #fe2c55}
+footer .social a.spotify:hover{color:#1db954;text-shadow:0 0 20px #1db954,0 0 40px #1ed760}
 footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 @media (max-width:768px){.container{padding:15px}.titulo-simples{font-size:34px;letter-spacing:4px;margin:25px auto 20px auto}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos{flex-direction:column;align-items:center}.video-card iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo,.botao-ritual,.botao-aleatorio,#btn-topo{width:42px;height:42px;top:70px;right:10px}.botao-ritual{top:120px}.botao-aleatorio{top:170px}#btn-topo{bottom:80px}.cyber-sigil{font-size:4rem}.contador-visitas{font-size:.75rem;padding:4px 10px;bottom:10px;left:10px}}
 ::selection{background:#f00;color:#fff}
@@ -160,6 +169,7 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 <li><a href="#metallica">METALLICA</a></li>
 <li><a href="#folk-metal">Folk Metal</a></li>
 <li><a href="#death-metal">Death Metal</a></li>
+<li><a href="#gabriel-pensador">Gabriel O Pensador</a></li>
 </ul>
 </nav>
 
@@ -251,6 +261,17 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 </div>
 </div>
 
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
+
+<div class="categoria cat-gabriel-pensador" id="gabriel-pensador" data-aos="fade-up">
+<div class="titulo-com-pentagrama"><i class="fas fa-microphone icon-tema"></i><h2>Gabriel O Pensador</h2><i class="fas fa-brain icon-tema"></i></div>
+<div class="videos">
+<div class="video-card"><span class="tooltip-info">Cachimbo da Paz (1997)</span><iframe src="https://www.youtube.com/embed/DlLW1jD0VKk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe><div class="moldura"></div><button class="btn-curtir" data-id="DlLW1jD0VKk"><i class="fas fa-heart"></i> <span class="contador">0</span></button></div>
+<div class="video-card"><span class="tooltip-info">2345meia78 (1997)</span><iframe src="https://www.youtube.com/embed/a5xrd1t0ARg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe><div class="moldura"></div><button class="btn-curtir" data-id="a5xrd1t0ARg"><i class="fas fa-heart"></i> <span class="contador">0</span></button></div>
+<div class="video-card"><span class="tooltip-info">Astronauta (1997)</span><iframe src="https://www.youtube.com/embed/GAZafWXttn4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe><div class="moldura"></div><button class="btn-curtir" data-id="GAZafWXttn4"><i class="fas fa-heart"></i> <span class="contador">0</span></button></div>
+</div>
+</div>
+
 </div>
 
 <div class="rune">ᚠ</div>
@@ -260,7 +281,7 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 <div class="social">
 <a href="https://instagram.com/ar20th12ur" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-<a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+<a href="https://open.spotify.com/user/ar20th12ur" target="_blank" rel="noopener" class="spotify" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
 <a href="https://www.tiktok.com/@ar20th12ur" target="_blank" rel="noopener" class="tiktok" aria-label="TikTok"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.79a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.22z"/></svg></a>
 </div>
 <p class="copy">© 2026 – Feito com <i class="fas fa-skull"></i> e <i class="fas fa-fire"></i></p>
@@ -283,7 +304,7 @@ const frases = [
     { t: "I'd rather be dead than cool.", a: "Kurt Cobain – Nirvana" }
 ];
 
-const cores = ['#ff3333','#33aaff','#ff6600','#66cc33','#9933ff','#ffdd00','#ff3399','#25f4ee','#cccccc','#ff8833'];
+const cores = ['#ff3333','#33aaff','#ff6600','#66cc33','#9933ff','#ffdd00','#ff3399','#25f4ee','#cccccc','#ff8833','#daa520','#ffd700'];
 
 const f = frases[Math.floor(Math.random()*frases.length)];
 const corTexto = cores[Math.floor(Math.random()*cores.length)];
@@ -300,7 +321,6 @@ elTexto.style.textShadow = '0 0 10px ' + corTexto + ', 0 0 20px ' + corTexto + '
 elAutor.style.color = corAutor;
 elAutor.style.textShadow = '0 0 10px ' + corAutor;
 
-// Ajusta a borda esquerda e o glow da frase-box na cor sorteada
 const fraseBox = document.querySelector('.frase-box');
 fraseBox.style.borderLeftColor = corTexto;
 fraseBox.style.boxShadow = '0 0 20px ' + corTexto + '55, inset 0 0 15px ' + corTexto + '22';
