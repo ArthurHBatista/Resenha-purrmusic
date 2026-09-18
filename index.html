@@ -132,7 +132,23 @@ footer .social a.instagram:hover{color:#f39;text-shadow:0 0 20px #f39}
 footer .social a.tiktok:hover{color:#25f4ee;text-shadow:0 0 20px #25f4ee,0 0 40px #fe2c55}
 footer .social a.spotify:hover{color:#1db954;text-shadow:0 0 20px #1db954,0 0 40px #1ed760}
 footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
-@media (max-width:768px){.container{padding:15px}.titulo-simples{font-size:34px;letter-spacing:4px;margin:25px auto 20px auto}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos{flex-direction:column;align-items:center}.video-card iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo,.botao-ritual,.botao-aleatorio,#btn-topo{width:42px;height:42px;top:70px;right:10px}.botao-ritual{top:120px}.botao-aleatorio{top:170px}#btn-topo{bottom:80px}.cyber-sigil{font-size:4rem}.contador-visitas{font-size:.75rem;padding:4px 10px;bottom:10px;left:10px}}
+.lords-chaos{margin-bottom:50px;padding:35px 25px;background:linear-gradient(180deg,#0a0015 0%,#000 100%);border:3px solid #6a0dad;border-radius:20px;box-shadow:0 0 25px rgba(106,13,173,.5),0 0 60px rgba(106,13,173,.25),inset 0 0 30px rgba(106,13,173,.15);position:relative;overflow:hidden}
+.lords-chaos::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 30% 20%,rgba(106,13,173,.15),transparent 60%),radial-gradient(circle at 70% 80%,rgba(60,0,120,.15),transparent 60%);pointer-events:none;z-index:0}
+.lords-chaos h2{position:relative;z-index:1;font-family:'Cinzel Decorative',cursive;font-size:38px;text-align:center;color:#bb66ff;text-shadow:0 0 10px #6a0dad,0 0 25px #4a0080,0 0 50px #2a0050;letter-spacing:6px;text-transform:uppercase;padding:15px;margin:0 0 30px 0;border:2px solid #6a0dad;border-radius:10px;background:linear-gradient(90deg,#1a0033 0%,#0a0015 50%,#1a0033 100%);box-shadow:0 0 15px rgba(106,13,173,.5),inset 0 0 15px rgba(106,13,173,.3)}
+.lords-chaos .intro{position:relative;z-index:1;font-family:'Uncial Antiqua',cursive;font-size:1.1rem;color:#ddd;line-height:1.8;text-align:center;max-width:850px;margin:0 auto 30px auto;text-shadow:0 0 5px rgba(106,13,173,.3)}
+.lords-chaos .intro strong{color:#bb66ff;text-shadow:0 0 10px #6a0dad}
+.timeline{position:relative;z-index:1;max-width:750px;margin:0 auto 35px auto;padding-left:35px}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,#6a0dad,#4a0080,#6a0dad,transparent);box-shadow:0 0 15px #6a0dad}
+.timeline .evento{position:relative;margin-bottom:25px;padding:15px 20px;background:linear-gradient(90deg,rgba(26,0,51,.8) 0%,rgba(10,0,21,.4) 100%);border-left:3px solid #6a0dad;border-radius:8px;transition:.3s}
+.timeline .evento:hover{transform:translateX(8px);border-left-color:#bb66ff;box-shadow:0 0 25px rgba(106,13,173,.6)}
+.timeline .evento::before{content:'';position:absolute;left:-39px;top:22px;width:14px;height:14px;background:#6a0dad;border:3px solid #0a0015;border-radius:50%;box-shadow:0 0 15px #bb66ff}
+.timeline .evento .ano{font-family:'Germania One',cursive;font-size:1.3rem;color:#bb66ff;letter-spacing:3px;text-shadow:0 0 10px #6a0dad;display:block;margin-bottom:5px}
+.timeline .evento .desc{font-family:'Gill Sans',sans-serif;font-size:.95rem;color:#ccc;line-height:1.5;margin:0}
+.timeline .evento .desc strong{color:#f88}
+.citacao-chaos{position:relative;z-index:1;max-width:750px;margin:0 auto;padding:25px 30px;background:linear-gradient(180deg,#1a0033 0%,#0a0015 100%);border-left:5px solid #bb66ff;border-radius:12px;box-shadow:0 0 25px rgba(106,13,173,.4),inset 0 0 20px rgba(106,13,173,.15);text-align:center}
+.citacao-chaos p{font-family:'Uncial Antiqua',cursive;font-size:1.15rem;color:#fff;line-height:1.7;margin:0 0 15px 0;font-style:italic;text-shadow:0 0 8px rgba(187,102,255,.5)}
+.citacao-chaos .fonte{font-family:'Germania One',cursive;font-size:.95rem;color:#bb66ff;letter-spacing:3px;text-transform:uppercase;text-shadow:0 0 10px #6a0dad;margin:0}
+@media (max-width:768px){.container{padding:15px}.titulo-simples{font-size:34px;letter-spacing:4px;margin:25px auto 20px auto}.pentagram{font-size:1.8rem}h2{font-size:24px}.videos{flex-direction:column;align-items:center}.video-card iframe{width:100%;height:auto;aspect-ratio:16/9}#player-destaque{width:100%;height:auto;aspect-ratio:16/9}.rune{font-size:3rem}.botao-modo,.botao-ritual,.botao-aleatorio,#btn-topo{width:42px;height:42px;top:70px;right:10px}.botao-ritual{top:120px}.botao-aleatorio{top:170px}#btn-topo{bottom:80px}.cyber-sigil{font-size:4rem}.contador-visitas{font-size:.75rem;padding:4px 10px;bottom:10px;left:10px}.lords-chaos h2{font-size:22px;letter-spacing:3px}.lords-chaos .intro{font-size:.95rem}.timeline{padding-left:25px}.timeline::before{left:6px}.timeline .evento::before{left:-32px;width:12px;height:12px}.citacao-chaos p{font-size:1rem}.citacao-chaos{padding:20px}}
 ::selection{background:#f00;color:#fff}
 </style>
 </head>
@@ -170,6 +186,7 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 <li><a href="#folk-metal">Folk Metal</a></li>
 <li><a href="#death-metal">Death Metal</a></li>
 <li><a href="#gabriel-pensador">Gabriel O Pensador</a></li>
+<li><a href="#lords-chaos">Lords of Chaos</a></li>
 </ul>
 </nav>
 
@@ -272,6 +289,43 @@ footer .copy{margin-top:15px;opacity:.6;font-size:.9rem}
 </div>
 </div>
 
+<div class="divider-cyber"><span class="sig">⛧</span><span class="sig">ᚦ</span><span class="sig">ᛟ</span><span class="sig">ᚱ</span><span class="sig">⛧</span></div>
+
+<div class="lords-chaos" id="lords-chaos" data-aos="fade-up">
+<h2>⛧ Lords of Chaos ⛧</h2>
+<p class="intro"><strong>"Lords of Chaos: The Bloody Rise of the Satanic Metal Underground"</strong> é o livro de <strong>Michael Moynihan</strong> e <strong>Didrik Søderlind</strong> que documentou o submundo do <strong>black metal norueguês</strong> nos anos 90 — uma era marcada por incêndios de igrejas, suicídios, assassinatos e uma devoção absoluta ao caos.</p>
+<div class="timeline">
+<div class="evento">
+<span class="ano">1991</span>
+<p class="desc">Suicídio de <strong>Dead</strong> (vocalista do Mayhem), encontrado com um tiro na cabeça. Seu amigo Euronymous fotografa o corpo e usa a foto como capa do bootleg <em>Dawn of the Black Hearts</em>.</p>
+</div>
+<div class="evento">
+<span class="ano">1992</span>
+<p class="desc">Começam os <strong>incêndios de igrejas</strong> na Noruega. Mais de 50 igrejas são queimadas em ataques atribuídos à cena black metal.</p>
+</div>
+<div class="evento">
+<span class="ano">1993</span>
+<p class="desc"><strong>Euronymous</strong> (Mayhem) é assassinado por <strong>Varg Vikernes</strong> (Burzum). Varg é condenado a 21 anos de prisão — a pena máxima na Noruega.</p>
+</div>
+<div class="evento">
+<span class="ano">1994</span>
+<p class="desc">A polícia norueguesa desmonta boa parte da cena. Vários membros do black metal são presos por incêndios criminosos e assassinatos.</p>
+</div>
+<div class="evento">
+<span class="ano">1998</span>
+<p class="desc"><strong>"Lords of Chaos"</strong> é publicado, virando a bíblia do black metal sombrio. O livro é polêmico até hoje, com entrevistas exclusivas e documentos da época.</p>
+</div>
+<div class="evento">
+<span class="ano">2018</span>
+<p class="desc">O livro vira <strong>filme</strong>, dirigido por Jonas Åkerlund, com Rory Culkin no papel de Euronymous. Estreia no <em>Sundance Film Festival</em>.</p>
+</div>
+</div>
+<div class="citacao-chaos">
+<p>"Satanism and heathenism are themselves the products of the archetypes and differentiated psyches of nations and peoples."</p>
+<p class="fonte">— Lords of Chaos (1998)</p>
+</div>
+</div>
+
 </div>
 
 <div class="rune">ᚠ</div>
@@ -301,10 +355,11 @@ const frases = [
     { t: "You can't kill the metal. The metal will live on.", a: "Tenacious D" },
     { t: "I don't wanna die, I sometimes wish I'd never been born at all.", a: "Freddie Mercury – Queen" },
     { t: "I'm the one that's got to die when it's time for me to die, so let me live my life the way I want to.", a: "Jimi Hendrix" },
-    { t: "I'd rather be dead than cool.", a: "Kurt Cobain – Nirvana" }
+    { t: "I'd rather be dead than cool.", a: "Kurt Cobain – Nirvana" },
+    { t: "Satanism and heathenism are themselves the products of the archetypes and differentiated psyches of nations and peoples.", a: "Lords of Chaos" }
 ];
 
-const cores = ['#ff3333','#33aaff','#ff6600','#66cc33','#9933ff','#ffdd00','#ff3399','#25f4ee','#cccccc','#ff8833','#daa520','#ffd700'];
+const cores = ['#ff3333','#33aaff','#ff6600','#66cc33','#9933ff','#ffdd00','#ff3399','#25f4ee','#cccccc','#ff8833','#daa520','#ffd700','#bb66ff'];
 
 const f = frases[Math.floor(Math.random()*frases.length)];
 const corTexto = cores[Math.floor(Math.random()*cores.length)];
@@ -358,7 +413,7 @@ btnRitual.addEventListener('click', function(){
 });
 function fecharRitual(){ ritual.classList.remove('ativo'); }
 
-// ===== EASTER EGG (5 cliques no pentagrama) =====
+// ===== EASTER EGG =====
 let cliquesEgg = 0;
 document.querySelectorAll('.pentagram').forEach(function(p){
     p.addEventListener('click', function(){
